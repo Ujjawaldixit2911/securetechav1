@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5006 --host",
-    "build": "vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
-  },
+  "dev": "vite --port 5006 --host",
+  "build": "vite build",
+  "lint": "oxlint",
+  "preview": "vite preview",
+  "postinstall": "chmod +x node_modules/.bin/vite || true"
+},
   "dependencies": {
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
