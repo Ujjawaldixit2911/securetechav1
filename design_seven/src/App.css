@@ -1,0 +1,135 @@
+/* App layout utilities */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.section-light {
+  background-color: var(--secondary);
+}
+
+.section-header {
+  max-width: 750px;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* Common Button Styles */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.9rem 2.2rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(15, 76, 129, 0.25);
+  border: 2px solid var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: #0b3c66;
+  border-color: #0b3c66;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 76, 129, 0.35);
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 163, 224, 0.25);
+  border: 2px solid var(--accent);
+}
+
+.btn-accent:hover {
+  background-color: #008cc2;
+  border-color: #008cc2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 163, 224, 0.35);
+}
+
+/* Scroll-to-Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-smooth);
+}
+
+#scrollTopBtn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--accent);
+  transform: translateY(-3px);
+}
