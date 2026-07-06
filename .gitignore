@@ -29,3 +29,12 @@ banner1.png
 !templates/*.jpeg
 !templates/*.gif
 !templates/*.svg
+
+# Ignore build outputs
+dist/
+design_seven/dist/
+
+# Ignore dependency directories
+node_modules/
+design_seven/node_modules/
+.vite/
