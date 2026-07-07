@@ -11,8 +11,8 @@
     /* Color Tokens */
     --primary: #0A1E3F;           /* Deep Navy */
     --secondary-bg: #081527;      /* Near-black Navy */
-    --accent: #22D3C7;            /* Electric Cyan/Teal */
-    --accent-hover: #1ab0a6;      /* Slightly Darker Teal */
+    --accent: #f07d00;            /* Allwave Orange */
+    --accent-hover: #d66f00;      /* Slightly Darker Orange */
     --light-bg: #F7F9FC;          /* Neutral Light Background */
     --white: #FFFFFF;
     
@@ -39,7 +39,7 @@
     --shadow-sm: 0 4px 6px -1px rgba(8, 21, 39, 0.05);
     --shadow-md: 0 10px 20px -3px rgba(8, 21, 39, 0.08);
     --shadow-lg: 0 20px 40px -4px rgba(8, 21, 39, 0.12);
-    --shadow-accent: 0 0 20px rgba(34, 211, 199, 0.35);
+    --shadow-accent: 0 0 20px rgba(240, 125, 0, 0.35);
 
     /* Transitions */
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -358,8 +358,8 @@ a {
     right: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 80% 20%, rgba(34, 211, 199, 0.05) 0%, transparent 50%),
-                      radial-gradient(circle at 20% 80%, rgba(34, 211, 199, 0.02) 0%, transparent 60%);
+    background-image: radial-gradient(circle at 80% 20%, rgba(240, 125, 0, 0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 20% 80%, rgba(240, 125, 0, 0.02) 0%, transparent 60%);
     pointer-events: none;
     z-index: 1;
 }
@@ -447,7 +447,7 @@ a {
     width: 60px;
     height: 60px;
     border-radius: var(--radius-md);
-    background-color: rgba(34, 211, 199, 0.08);
+    background-color: rgba(240, 125, 0, 0.08);
     color: var(--accent-hover);
     display: flex;
     align-items: center;
@@ -514,7 +514,7 @@ a {
 .solution-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(34, 211, 199, 0.08);
+    box-shadow: 0 10px 30px rgba(240, 125, 0, 0.08);
 }
 
 /* ─── OUR PROCESS (Numbered 01-04) ─── */
@@ -533,7 +533,7 @@ a {
     left: 10%;
     width: 80%;
     height: 2px;
-    background-image: linear-gradient(to right, rgba(34, 211, 199, 0.1) 0%, rgba(34, 211, 199, 0.4) 50%, rgba(34, 211, 199, 0.1) 100%);
+    background-image: linear-gradient(to right, rgba(240, 125, 0, 0.1) 0%, rgba(240, 125, 0, 0.4) 50%, rgba(240, 125, 0, 0.1) 100%);
     z-index: 1;
 }
 
@@ -809,7 +809,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 10% 20%, rgba(34, 211, 199, 0.08) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 10% 20%, rgba(240, 125, 0, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -1086,7 +1086,7 @@ a {
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(34, 211, 199, 0.15);
+    box-shadow: 0 0 10px rgba(240, 125, 0, 0.15);
 }
 
 .form-row {
@@ -1204,4 +1204,8 @@ a {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
+
+.industry-card:hover .ind-card-image {
+    transform: scale(1.06);
 }

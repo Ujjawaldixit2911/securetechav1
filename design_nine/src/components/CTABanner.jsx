@@ -6,7 +6,7 @@ export default function CTABanner({ onOpenQuote }) {
       <div className="container">
         <div className="cta-banner-card reveal">
           <span className="eyebrow" style={{ color: 'var(--accent)' }}>Work with India's Experts</span>
-          <h2>Ready to upgrade your space with smart AV technology?</h2>
+          <h2>Let’s Turn Every Room Into a Powerful Experience</h2>
           <p>
             Connect with our certified system engineers today. Get a free acoustic mapping, layout consultation, and hardware recommendation tailored to your facility.
           </p>

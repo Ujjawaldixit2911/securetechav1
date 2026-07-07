@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import StatsBar from './components/StatsBar';
+import ClientLogos from './components/ClientLogos';
 import Industries from './components/Industries';
 import Solutions from './components/Solutions';
-import Process from './components/Process';
-import Stats from './components/Stats';
+import Projects from './components/Projects';
+import Approach from './components/Approach';
+import TechPartners from './components/TechPartners';
 import Testimonials from './components/Testimonials';
-import Clients from './components/Clients';
-import Partners from './components/Partners';
 import CTABanner from './components/CTABanner';
 import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
-import ConceptCenter from './components/ConceptCenter';
-import Projects from './components/Projects';
 
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -62,23 +61,22 @@ export default function App() {
       {/* Sticky header */}
       <Navbar onOpenQuote={handleOpenQuote} />
 
-      {/* Main content segments */}
+      {/* Main sections */}
       <main>
         <Hero onOpenQuote={handleOpenQuote} />
-        <ConceptCenter onOpenQuote={handleOpenQuote} />
+        <StatsBar />
+        <ClientLogos />
         <Industries />
         <Solutions />
         <Projects />
-        <Process />
-        <Stats />
+        <Approach />
+        <TechPartners />
         <Testimonials />
-        <Clients />
-        <Partners />
         <CTABanner onOpenQuote={handleOpenQuote} />
       </main>
 
-      {/* Footer and contact details */}
-      <Footer onOpenQuote={handleOpenQuote} />
+      {/* Footer info */}
+      <Footer />
 
       {/* Floating scroll to top button */}
       {showScrollTop && (
@@ -91,7 +89,7 @@ export default function App() {
         </button>
       )}
 
-      {/* Quote modal form */}
+      {/* Quote popup form */}
       <QuoteModal isOpen={isQuoteOpen} onClose={handleCloseQuote} />
     </div>
   );

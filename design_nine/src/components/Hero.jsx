@@ -26,7 +26,7 @@ export default function Hero({ onOpenQuote }) {
         <div className="hero-visual reveal active">
           {/* CODE COMMENT: Swap the src attribute below with a real boardroom installation photo */}
           <img 
-            src="/images/conference.jpg" 
+            src="/images/solution-boardroom.png" 
             alt="SecureTech AV Corporate Boardroom Installation" 
             onError={(e) => {
               e.target.style.display = 'none';

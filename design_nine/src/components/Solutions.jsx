@@ -49,8 +49,8 @@ export default function Solutions() {
       <div className="container">
         <div className="section-header reveal">
           <span className="eyebrow">Our Solutions</span>
-          <h2>Integrated Audio Visual Technologies</h2>
-          <p>We provide turnkey planning, custom installation, and automated management of audio-visual systems tailored to maximize communication efficiency.</p>
+          <h2>Enterprise AV Infrastructure Built for Reliability at Scale</h2>
+          <p>We design, engineer, and support standardized audio-visual configurations ensuring seamless videoconferencing, boardroom automation, and network reliability.</p>
         </div>
 
         <div className="solutions-grid">

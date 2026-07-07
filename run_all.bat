@@ -31,6 +31,9 @@ start "Design Eight (Port 5008 - React)" cmd /k "cd design_eight && npm run dev"
 echo Starting Design 9 (Port 5009 - React)...
 start "Design Nine (Port 5009 - React)" cmd /k "cd design_nine && npm run dev"
 
+echo Starting Design 10 (Port 5010 - React)...
+start "Design Ten (Port 5010 - React)" cmd /k "cd design_ten && npm run dev"
+
 echo.
 echo ==========================================
 echo  ALL SERVERS INITIALIZED!
@@ -44,6 +47,7 @@ echo  6. Design Six (Premium Vanilla): http://localhost:5006
 echo  7. Design Seven (Corporate Light): http://localhost:5007
 echo  8. Design Eight (Premium Navy/Teal): http://localhost:5008
 echo  9. Design Nine (Premium Cyan/Navy): http://localhost:5009
+echo  10. Design Ten (Cinematic Blue/Dark): http://localhost:5010
 echo ==========================================
 echo.
 pause

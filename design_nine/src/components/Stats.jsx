@@ -1,10 +1,10 @@
 import React from 'react';
 
 const stats = [
-  { num: '12+', label: 'Years in AV Integration' },
-  { num: '800+', label: 'Projects Delivered' },
-  { num: '150+', label: 'Corporate Clients' },
-  { num: '24×7', label: 'Support Availability' }
+  { num: '5600+', label: 'Projects Delivered' },
+  { num: '105+', label: 'Skilled Professionals' },
+  { num: '25', label: 'Years of Experience' },
+  { num: '50+', label: 'Global OEM Collaborations' }
 ];
 
 export default function Stats() {

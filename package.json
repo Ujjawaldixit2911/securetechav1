@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm install --prefix design_nine && npm run build --prefix design_nine && npx shx rm -rf dist && npx shx cp -r design_nine/dist dist"
+    "build": "npm run build:nine",
+    "build:nine": "npm install --prefix design_nine && npm run build --prefix design_nine && npx shx rm -rf dist && npx shx cp -r design_nine/dist dist",
+    "build:ten": "npm install --prefix design_ten && npm run build --prefix design_ten && npx shx rm -rf dist && npx shx cp -r design_ten/dist dist"
+  },
+  "devDependencies": {
+    "shx": "^0.3.4"
   }
 }
