@@ -1,7 +1,7 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "outputDirectory": "dist",
+  "outputDirectory": "design_eight/dist",
   "routes": [
     {
       "src": "/(.*)",
