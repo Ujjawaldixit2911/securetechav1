@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm install --prefix design_eight && npm run build --prefix design_eight"
+    "build": "npm install --prefix design_eight && npm run build --prefix design_eight && npx shx rm -rf dist && npx shx cp -r design_eight/dist dist"
   }
 }
