@@ -22,6 +22,12 @@ start "Design Five (Port 5005 - React)" cmd /k "cd design_five && npm run dev"
 echo Starting Design 6 (Port 5006 - Premium Vanilla)...
 start "Design Six (Port 5006)" cmd /k "cd design_six && npm run dev"
 
+echo Starting Design 7 (Port 5007 - React)...
+start "Design Seven (Port 5007 - React)" cmd /k "cd design_seven && npm run dev"
+
+echo Starting Design 8 (Port 5008 - React)...
+start "Design Eight (Port 5008 - React)" cmd /k "cd design_eight && npm run dev"
+
 echo.
 echo ==========================================
 echo  ALL SERVERS INITIALIZED!
@@ -32,6 +38,8 @@ echo  3. Design Three (Bento): http://localhost:5003
 echo  4. Design Four (3D Switcher): http://localhost:5004
 echo  5. Design Five (Corporate React): http://localhost:5005
 echo  6. Design Six (Premium Vanilla): http://localhost:5006
+echo  7. Design Seven (Corporate Light): http://localhost:5007
+echo  8. Design Eight (Premium Navy/Teal): http://localhost:5008
 echo ==========================================
 echo.
 pause

@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm install --prefix design_seven && npm run build --prefix design_seven"
+    "build": "npm install --prefix design_eight && npm run build --prefix design_eight"
   }
 }
