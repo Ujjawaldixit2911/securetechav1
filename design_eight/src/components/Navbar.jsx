@@ -30,7 +30,7 @@ export default function Navbar({ onOpenEnquiry }) {
         <div className="top-bar-left">
           <div className="top-bar-item">
             <i className="fa-solid fa-square-check" style={{ color: 'var(--accent)' }}></i>
-            <span>ISO 9001:2015 Certified AV Integrator</span>
+            <span>Premium AV Systems Integrator</span>
           </div>
           <div className="top-bar-item">
             <i className="fa-solid fa-award" style={{ color: 'var(--accent)' }}></i>

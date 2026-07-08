@@ -35,7 +35,7 @@ export default function Navbar({ onOpenEnquiry }) {
           <div className="top-bar-left">
             <div className="top-bar-item">
               <i className="fa-solid fa-certificate"></i>
-              <span>ISO 9001:2015 Certified</span>
+              <span>Quality Certified Integrator</span>
             </div>
             <div className="top-bar-item">
               <i className="fa-solid fa-users"></i>

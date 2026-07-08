@@ -91,7 +91,7 @@ export default function Partners() {
             <div 
               key={index} 
               className="partner-logo-box" 
-              style={{ '--hover-color': partner.color }}
+              style={{ color: partner.color, borderColor: `${partner.color}40`, backgroundColor: '#ffffff' }}
               title={`Authorized ${partner.name} Integrator`}
             >
               {partner.svg}

@@ -3,14 +3,14 @@ import './Clients.css';
 
 export default function Clients() {
   const clients = [
-    { name: 'AIIMS', text: 'A.I.I.M.S' },
-    { name: 'IIT Delhi', text: 'I.I.T DELHI' },
-    { name: 'DMRC', text: 'DMRC METRO' },
-    { name: 'Taj Hotels', text: 'TAJ HOTELS' },
-    { name: 'GMR Group', text: 'GMR GROUP' },
-    { name: 'HDFC Bank', text: 'HDFC BANK' },
-    { name: 'Infosys', text: 'Infosys' },
-    { name: 'BSNL Infrastructure', text: 'BSNL TECH' }
+    { name: 'AIIMS', text: 'A.I.I.M.S', color: '#1B5E20' },
+    { name: 'IIT Delhi', text: 'I.I.T DELHI', color: '#D32F2F' },
+    { name: 'DMRC', text: 'DMRC METRO', color: '#0D47A1' },
+    { name: 'Taj Hotels', text: 'TAJ HOTELS', color: '#C5A880' },
+    { name: 'GMR Group', text: 'GMR GROUP', color: '#002C6C' },
+    { name: 'HDFC Bank', text: 'HDFC BANK', color: '#C62828' },
+    { name: 'Infosys', text: 'Infosys', color: '#007ACC' },
+    { name: 'BSNL Infrastructure', text: 'BSNL TECH', color: '#E65100' }
   ];
 
   // Duplicate items to ensure infinite looping without gaps
@@ -27,7 +27,7 @@ export default function Clients() {
         <div className="marquee-wrapper">
           <div className="marquee-track">
             {marqueeItems.map((cli, idx) => (
-              <div key={idx} className="marquee-item" title={cli.name}>
+              <div key={idx} className="marquee-item" title={cli.name} style={{ color: cli.color, opacity: 0.9 }}>
                 <svg className="client-logo-svg" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="140" height="40" rx="4" fill="transparent" />
                   <text 

@@ -21,17 +21,6 @@ export default function Hero() {
           <div className="hero-mockup">
             <img src="/assets/sectors/sector-corporate.png" alt="Integrated Executive Boardroom AV Mockup" className="hero-img" />
           </div>
-          <div className="hero-badge">
-            <div className="badge-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <div className="badge-details">
-              <h4>ISO Certified</h4>
-              <p>Premium Quality Standard</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

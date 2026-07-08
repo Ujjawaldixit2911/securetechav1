@@ -33,7 +33,7 @@ export default function Projects() {
       title: 'AIIMS Smart Lecture Complex',
       category: 'Education Tech',
       image: '/assets/products/solution-smart-classroom.jpeg',
-      class: 'tall',
+      class: 'normal',
       fallbackText: 'AIIMS Classroom AV'
     },
     {
@@ -54,7 +54,7 @@ export default function Projects() {
       title: 'National Cricket Arena sound system',
       category: 'Stadium Audio',
       image: '/assets/products/solution-stadium.png',
-      class: 'normal',
+      class: 'full-width',
       fallbackText: 'Stadium PA arrays'
     }
   ];
@@ -75,7 +75,7 @@ export default function Projects() {
                 src={proj.image} 
                 alt={proj.title} 
                 className="project-img"
-                loading="lazy"
+                loading="eager"
                 onError={(e) => {
                   e.target.src = '/assets/products/solution-boardroom.png';
                 }}

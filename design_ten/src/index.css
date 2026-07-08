@@ -779,8 +779,8 @@ a {
     max-height: 36px;
     max-width: 120px;
     object-fit: contain;
-    filter: grayscale(1) brightness(0) invert(0.6);
-    opacity: 0.7;
+    filter: none;
+    opacity: 1;
     transition: var(--transition-fast);
 }
 

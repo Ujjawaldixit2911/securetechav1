@@ -138,7 +138,7 @@ export default function Solutions() {
                   src={sol.image} 
                   alt={sol.title} 
                   className="solution-img"
-                  loading="lazy"
+                  loading="eager"
                   onError={(e) => {
                     // Fallback to boardroom picture if path differs
                     e.target.src = '/assets/products/solution-boardroom.png';

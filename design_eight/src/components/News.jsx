@@ -41,7 +41,7 @@ export default function News() {
           {newsItems.map((item, idx) => (
             <div className="news-card reveal active" key={idx}>
               <div className="news-image">
-                <img src={item.image} alt={item.title} loading="lazy" />
+                <img src={item.image} alt={item.title} loading="eager" />
                 <span className="news-date">{item.date}</span>
               </div>
               <div className="news-content">

@@ -32,7 +32,7 @@ export default function Projects() {
           {projectsList.map((proj, idx) => (
             <div className="project-card reveal" key={idx}>
               <div className="project-image">
-                <img src={proj.image} alt={proj.title} loading="lazy" />
+                <img src={proj.image} alt={proj.title} loading="eager" />
               </div>
               <div className="project-content">
                 <div>

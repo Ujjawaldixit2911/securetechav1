@@ -771,12 +771,12 @@ a {
     height: 90px;
     transition: var(--transition-fast);
 }
-
 .partner-item img {
     max-height: 40px;
     max-width: 130px;
     object-fit: contain;
-    filter: grayscale(1) opacity(0.6);
+    filter: none;
+    opacity: 1;
     transition: var(--transition-fast);
 }
 

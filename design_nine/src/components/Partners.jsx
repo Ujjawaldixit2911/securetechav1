@@ -46,7 +46,7 @@ export default function Partners() {
                     e.target.style.display = 'none';
                   }}
                   style={{ maxHeight: '45px', maxWidth: '100%', objectFit: 'contain' }}
-                  loading="lazy"
+                  loading="eager"
                 />
                 <span style={{ fontWeight: 700, fontSize: '0.82rem', color: partner.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   {partner.name}

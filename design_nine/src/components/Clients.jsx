@@ -56,7 +56,7 @@ export default function Clients() {
                 >
                   {client.logoAbbr}
                 </div>
-                <span style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--primary)', letterSpacing: '0.02em' }}>
+                <span style={{ fontWeight: 700, fontSize: '0.9rem', color: client.color, letterSpacing: '0.02em' }}>
                   {client.name}
                 </span>
               </div>

@@ -737,14 +737,13 @@ a {
 .marquee-item img {
     height: 45px;
     object-fit: contain;
-    filter: brightness(0) invert(0.65);
-    opacity: 0.8;
+    filter: none;
+    opacity: 1;
     transition: var(--transition-fast);
 }
 
 .marquee-item img:hover {
-    filter: none;
-    opacity: 1;
+    opacity: 0.9;
 }
 
 /* Text-Logo marquee items */

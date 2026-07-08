@@ -88,7 +88,7 @@ export default function Footer() {
                 height="100" 
                 style={{ border: 0 }} 
                 allowFullScreen="" 
-                loading="lazy"
+                loading="eager"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>

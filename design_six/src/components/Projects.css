@@ -27,6 +27,10 @@
   grid-column: span 2;
 }
 
+.project-card.full-width {
+  grid-column: span 3;
+}
+
 .project-img {
   width: 100%;
   height: 100%;
@@ -102,6 +106,10 @@
   .projects-masonry {
     grid-template-columns: repeat(2, 1fr);
   }
+  
+  .project-card.full-width {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 768px) {
@@ -116,5 +124,9 @@
   
   .project-card.tall {
     grid-row: span 1;
+  }
+  
+  .project-card.full-width {
+    grid-column: span 1;
   }
 }

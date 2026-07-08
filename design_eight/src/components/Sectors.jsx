@@ -46,7 +46,7 @@ export default function Sectors() {
         <div className="sectors-grid">
           {sectorsList.map((sector, idx) => (
             <div className="sector-card reveal active" key={idx}>
-              <img src={sector.image} alt={`${sector.title} AV Solution`} loading="lazy" />
+              <img src={sector.image} alt={`${sector.title} AV Solution`} loading="eager" />
               <div className="sector-overlay">
                 <h3>{sector.title}</h3>
                 <p className="sector-desc">{sector.desc}</p>

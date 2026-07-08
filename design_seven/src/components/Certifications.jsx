@@ -3,7 +3,7 @@ import React from 'react';
 const certifications = [
   {
     icon: 'fa-solid fa-stamp',
-    title: 'ISO Certified',
+    title: 'Quality Standards',
     desc: 'Standardized workflows ensuring high-quality design, procurement, and deployment procedures.'
   },
   {

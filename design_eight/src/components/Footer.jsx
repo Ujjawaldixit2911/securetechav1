@@ -73,7 +73,7 @@ export default function Footer({ onOpenEnquiry }) {
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen="" 
-                loading="lazy" 
+                loading="eager" 
                 referrerPolicy="no-referrer-when-downgrade" 
                 title="SecureTech AV Designs Noida Office Location Map"
               ></iframe>
