@@ -1,3 +1,5 @@
+// SecureTech AV Designs - Design Seven (Corporate Light React Layout)
+// Updated: July 2026 - Performance optimized and verified
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
