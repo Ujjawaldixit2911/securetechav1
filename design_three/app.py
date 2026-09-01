@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask_compress import Compress
 import jinja2
 import os
@@ -33,6 +33,13 @@ def solutions():
 @app.route("/CorporateProfile")
 def corporate_profile():
     return render_template("securetech_profile.html")
+
+@app.route("/images/<path:filename>")
+def serve_images(filename):
+    img_dir = os.path.join(base_dir, '../images')
+    if os.path.exists(os.path.join(img_dir, filename)):
+        return send_from_directory(img_dir, filename)
+    return send_from_directory(os.path.join(base_dir, '../secure/static'), filename)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5003)

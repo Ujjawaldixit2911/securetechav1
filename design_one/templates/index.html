@@ -5,42 +5,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <!-- ══ PRIMARY SEO ══ -->
-    <title>SecureTechAV — Defend Your Digital Existence | Neon Fortress</title>
-    <meta name="description" content="Next-generation AI-powered antivirus defending your digital life in real-time with zero system compromise." />
-    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}" />
+    <!-- Primary SEO -->
+    <title>SecureTech AV — Enterprise Audio-Visual Systems Integrator India | Cyber-Neon Edition</title>
+    <meta name="description" content="SecureTech AV provides turnkey AV design, boardroom integration, smart classrooms, auditorium acoustics, and ICT infrastructure across India." />
+    <link rel="icon" href="/images/securetech_av.png" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- CSS STYLING -->
     <style>
         :root {
             --bg-deep: #020408;
             --bg-mid: #060D1A;
+            --bg-card: rgba(6, 13, 26, 0.75);
             --neon-cyan: #00F5FF;
             --neon-purple: #BF00FF;
             --neon-green: #00FF88;
             --text-primary: #F0F8FF;
-            --text-muted: #7A9AB8;
-            --card-bg: rgba(0, 245, 255, 0.03);
-            --card-border: rgba(0, 245, 255, 0.15);
+            --text-muted: #94A3B8;
+            --card-border: rgba(0, 245, 255, 0.2);
+            --card-border-glow: rgba(0, 245, 255, 0.6);
+            --radius-md: 12px;
+            --radius-lg: 18px;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background-color: var(--bg-deep);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 245, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(191, 0, 255, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
         }
 
-        /* 3D Canvas */
+        /* 3D Canvas Background */
         #bg-canvas {
             position: fixed;
             inset: 0;
@@ -50,18 +64,25 @@
             pointer-events: none;
         }
 
-        /* Nav */
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(2, 4, 8, 0.85);
+            z-index: 1000;
+            background: rgba(2, 4, 8, 0.88);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 245, 255, 0.1);
-            height: 72px;
+            border-bottom: 1px solid var(--card-border);
+            height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -75,27 +96,43 @@
             text-decoration: none;
         }
 
-        .logo-text {
+        .logo-badge {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
+            font-size: 18px;
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
             font-size: 20px;
-            color: var(--text-primary);
+            color: #fff;
             letter-spacing: 1px;
         }
 
         .logo-text span {
             color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 245, 255, 0.7);
         }
 
         header nav {
             display: flex;
-            gap: 32px;
+            gap: 28px;
         }
 
         header nav a {
             font-family: 'Orbitron', sans-serif;
             font-size: 11px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--text-muted);
             text-decoration: none;
@@ -108,1511 +145,1409 @@
             text-shadow: 0 0 10px var(--neon-cyan);
         }
 
-        .nav-btn-group {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .btn-outline {
+        .btn-neon {
+            background: transparent;
             border: 1px solid var(--neon-cyan);
             color: var(--neon-cyan);
-            background: transparent;
-            border-radius: 2px;
-            padding: 10px 22px;
             font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 4px;
             cursor: pointer;
-            text-decoration: none;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
         }
 
-        .btn-outline:hover {
-            background: rgba(0, 245, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
-        }
-
-        .btn-filled {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            border-radius: 2px;
-            padding: 11px 22px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 900;
+        .btn-neon:hover {
+            background: var(--neon-cyan);
             color: #000;
-            cursor: pointer;
-            border: none;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-filled:hover {
-            box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.6);
             transform: translateY(-2px);
         }
 
-        /* Mobile nav toggle */
-        .hamburger {
-            display: none;
-            background: none;
+        .btn-solid-neon {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
             border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        #mobile-menu {
-            display: none;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            right: 0;
-            background: rgba(2, 4, 8, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 245, 255, 0.1);
-            padding: 30px 5%;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 99;
-        }
-
-        #mobile-menu a {
+            color: #000;
             font-family: 'Orbitron', sans-serif;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 10px 0;
+            font-weight: 900;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
             transition: all 0.3s ease;
-        }
-
-        #mobile-menu a:hover {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        /* Hero */
-        #hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 55% 45%;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
-            padding: 0 8%;
-            box-sizing: border-box;
+            gap: 8px;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+        }
+
+        .btn-solid-neon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(191, 0, 255, 0.7);
+            color: #000;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 100px 0;
             position: relative;
         }
 
-        .hero-left {
-            max-width: 680px;
-            z-index: 10;
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
         }
 
         .eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--neon-green);
-            border-left: 3px solid var(--neon-green);
-            padding-left: 12px;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-        }
-
-        .hero-title {
-            margin: 0 0 24px 0;
-        }
-
-        .hero-title span.line {
-            display: block;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 68px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.1;
-        }
-
-        .hero-title .line-defend {
-            color: var(--text-primary);
-        }
-
-        .hero-title .line-digital {
-            display: flex;
-            gap: 2px;
-        }
-
-        .hero-title .line-digital span {
             display: inline-block;
-            animation: digital-glow 4s ease-in-out infinite alternate;
-        }
-
-        /* Staggered delay for letters */
-        .hero-title .line-digital span:nth-child(1) { animation-delay: 0.1s; }
-        .hero-title .line-digital span:nth-child(2) { animation-delay: 0.3s; }
-        .hero-title .line-digital span:nth-child(3) { animation-delay: 0.5s; }
-        .hero-title .line-digital span:nth-child(4) { animation-delay: 0.7s; }
-        .hero-title .line-digital span:nth-child(5) { animation-delay: 0.9s; }
-        .hero-title .line-digital span:nth-child(6) { animation-delay: 1.1s; }
-        .hero-title .line-digital span:nth-child(7) { animation-delay: 1.3s; }
-
-        @keyframes digital-glow {
-            0% {
-                color: var(--neon-cyan);
-                text-shadow: 0 0 20px var(--neon-cyan);
-            }
-            100% {
-                color: var(--neon-purple);
-                text-shadow: 0 0 20px var(--neon-purple);
-            }
-        }
-
-        .hero-title .line-existence {
-            -webkit-text-stroke: 1px var(--neon-cyan);
-            color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 16px;
-            color: var(--text-muted);
-            max-width: 480px;
-            line-height: 1.8;
-            margin: 0 0 40px 0;
-        }
-
-        .hero-btn-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .btn-large {
-            height: 52px;
-            padding: 0 36px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             font-family: 'Orbitron', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            border-radius: 2px;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-green) 100%);
-            color: #000;
-            transition: all 0.3s ease;
+            color: var(--neon-cyan);
+            margin-bottom: 12px;
+            background: rgba(0, 245, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
         }
 
-        .btn-large::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(34px, 4.5vw, 54px);
+            font-weight: 900;
+            line-height: 1.15;
+            margin: 18px 0 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h1 span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.75;
+            margin-bottom: 35px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.25);
+            background: var(--bg-mid);
+        }
+
+        .hero-visual img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: all 0.5s ease;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
         }
 
-        .btn-large:hover::before {
-            left: 100%;
+        .hero-visual:hover img {
+            transform: scale(1.04);
         }
 
-        .btn-large-outline {
-            height: 52px;
-            padding: 0 28px;
-            display: inline-flex;
+        .hero-visual-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            background: rgba(2, 4, 8, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            padding: 12px 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            padding: 40px 0;
+            background: rgba(6, 13, 26, 0.8);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            background: rgba(0, 245, 255, 0.02);
+            border: 1px solid rgba(0, 245, 255, 0.1);
+        }
+
+        .stat-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px rgba(0, 245, 255, 0.5);
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .solution-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 15px 35px rgba(0, 245, 255, 0.2);
+            background: rgba(10, 20, 40, 0.85);
+        }
+
+        .solution-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--neon-cyan);
+            font-size: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+        }
+
+        .solution-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 2px;
-            border: 1px solid rgba(191, 0, 255, 0.6);
-            color: var(--neon-purple);
-            background: transparent;
-            cursor: pointer;
-            text-decoration: none;
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .solution-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* Concept Center Feature Box */
+        .concept-box {
+            background: linear-gradient(135deg, rgba(6, 13, 26, 0.9), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--neon-cyan);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .concept-box img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+        }
+
+        /* Industries Grid */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .industry-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
-        .btn-large-outline:hover {
-            background: rgba(191, 0, 255, 0.1);
-            box-shadow: 0 0 25px rgba(191, 0, 255, 0.4);
+        .industry-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 15px 35px rgba(191, 0, 255, 0.25);
         }
 
-        .btn-text {
+        .industry-img-wrap {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .industry-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .industry-card:hover .industry-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .industry-content {
+            padding: 24px;
+        }
+
+        .industry-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 17px;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .industry-content h3 i {
+            color: var(--neon-cyan);
+            font-size: 15px;
+        }
+
+        .industry-content p {
+            color: var(--text-muted);
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+        }
+
+        .project-img-box {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-img-box img {
+            transform: scale(1.06);
+        }
+
+        .project-info {
+            padding: 28px;
+        }
+
+        .project-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .project-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
             color: var(--text-muted);
             font-size: 14px;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            line-height: 1.65;
         }
 
-        .btn-text:hover {
-            color: var(--neon-cyan);
-            text-decoration: underline;
-        }
-
-        .micro-stats {
-            display: flex;
-            gap: 48px;
-        }
-
-        .stat-item .num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--neon-cyan);
-            margin-bottom: 4px;
-        }
-
-        .stat-item .label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-        }
-
-        /* Hero Right Column */
-        .hero-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .shield-container {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .outer-ring {
-            position: absolute;
-            width: 380px;
-            height: 380px;
-            border: 2px dashed rgba(0, 245, 255, 0.3);
-            border-radius: 50%;
-            animation: rotate-ring 20s linear infinite;
-        }
-
-        @keyframes rotate-ring {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .inner-shield-wrap {
-            width: 240px;
-            height: 240px;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            background: rgba(6, 13, 26, 0.8);
-            border: 2px solid var(--neon-cyan);
-            box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        /* Marquee Rows (Partners & Clients) */
+        .marquee-wrapper {
             overflow: hidden;
-        }
-
-        .inner-shield-wrap img {
-            width: 75%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .scanning-line {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(180deg, transparent, var(--neon-cyan), transparent);
-            box-shadow: 0 0 15px var(--neon-cyan);
-            animation: sweep 4s ease-in-out infinite;
-        }
-
-        @keyframes sweep {
-            0% { top: 0%; }
-            50% { top: 100%; }
-            100% { top: 0%; }
-        }
-
-        .orbit-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        .dot-1 { animation: orbit1 8s linear infinite; }
-        .dot-2 { animation: orbit2 8s linear infinite; }
-        .dot-3 { animation: orbit3 8s linear infinite; }
-
-        @keyframes orbit1 {
-            0% { transform: rotate(0deg) translateX(190px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(190px) rotate(-360deg); }
-        }
-
-        @keyframes orbit2 {
-            0% { transform: rotate(120deg) translateX(190px) rotate(-120deg); }
-            100% { transform: rotate(480deg) translateX(190px) rotate(-480deg); }
-        }
-
-        @keyframes orbit3 {
-            0% { transform: rotate(240deg) translateX(190px) rotate(-240deg); }
-            100% { transform: rotate(600deg) translateX(190px) rotate(-600deg); }
-        }
-
-        .system-status {
-            position: absolute;
-            bottom: -60px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--neon-green);
-            letter-spacing: 2px;
+            user-select: none;
             display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .cursor-blink {
-            width: 6px;
-            height: 12px;
-            background-color: var(--neon-green);
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            from, to { background-color: transparent; }
-            50% { background-color: var(--neon-green); }
-        }
-
-        /* Threat Ticker */
-        .threat-ticker-wrap {
-            width: 100%;
-            background: var(--bg-mid);
-            border-top: 1px solid rgba(0, 245, 255, 0.1);
-            border-bottom: 1px solid rgba(0, 245, 255, 0.1);
-            height: 48px;
-            display: flex;
-            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
             position: relative;
-            overflow: hidden;
         }
 
-        .threat-ticker-wrap::before, .threat-ticker-wrap::after {
+        .marquee-wrapper::before, .marquee-wrapper::after {
             content: '';
             position: absolute;
             top: 0;
             bottom: 0;
             width: 100px;
-            z-index: 5;
+            z-index: 2;
             pointer-events: none;
         }
 
-        .threat-ticker-wrap::before {
+        .marquee-wrapper::before {
             left: 0;
             background: linear-gradient(90deg, var(--bg-deep), transparent);
         }
 
-        .threat-ticker-wrap::after {
+        .marquee-wrapper::after {
             right: 0;
             background: linear-gradient(-90deg, var(--bg-deep), transparent);
         }
 
-        .ticker-content {
-            white-space: nowrap;
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--neon-green);
-            letter-spacing: 2px;
-            animation: marquee 25s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Features */
-        .section-wrap {
-            padding: 120px 8%;
-            box-sizing: border-box;
-        }
-
-        .features-bg {
-            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
-        }
-
-        .sec-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--neon-cyan);
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        }
-
-        .sec-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--text-primary);
-            margin: 0 0 60px 0;
-        }
-
-        .grid-tight {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .cyber-card {
-            background: rgba(0, 245, 255, 0.015);
-            border: 1px solid rgba(0, 245, 255, 0.05);
-            padding: 48px 36px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .cyber-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 245, 255, 0.03) 0%, transparent 100%);
-            pointer-events: none;
-        }
-
-        .cyber-card:hover {
-            border-color: rgba(0, 245, 255, 0.4);
-            background: rgba(0, 245, 255, 0.05);
-        }
-
-        .cyber-card:hover::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 20px;
-            height: 20px;
-            background-color: var(--neon-cyan);
-            clip-path: polygon(100% 0, 0 0, 100% 100%);
-        }
-
-        .card-num {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
-            color: rgba(0, 245, 255, 0.3);
-            letter-spacing: 3px;
-            position: absolute;
-            top: 36px;
-            right: 36px;
-        }
-
-        .card-icon {
-            margin-bottom: 24px;
-        }
-
-        .card-icon svg {
-            stroke: var(--neon-cyan);
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .card-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0 0 16px 0;
-            letter-spacing: 1px;
-        }
-
-        .card-body {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* About */
-        .about-bg {
-            background-color: var(--bg-mid);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 48% 52%;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-left-image {
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            border-left: 3px solid var(--neon-cyan);
-            box-shadow: -20px 0 60px rgba(0, 245, 255, 0.15);
-            display: block;
-        }
-
-        .bullets-wrap {
+        .marquee-track {
             display: flex;
-            flex-direction: column;
             gap: 24px;
-            margin-bottom: 40px;
+            animation: marqueeScroll 28s linear infinite;
+            flex-shrink: 0;
         }
 
-        .bullet-row {
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .marquee-card {
+            background: rgba(6, 13, 26, 0.9);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 16px 24px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            gap: 14px;
+            min-width: 220px;
+            transition: all 0.2s;
+        }
+
+        .marquee-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+        }
+
+        .client-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: rgba(0, 245, 255, 0.15);
+            color: var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
-        .bullet-check-box {
-            width: 24px;
-            height: 24px;
-            border: 1px solid var(--neon-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--neon-cyan);
-            font-weight: bold;
-            font-size: 12px;
-            flex-shrink: 0;
-            background: rgba(0, 245, 255, 0.05);
+        .process-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 28px 22px;
+            position: relative;
         }
 
-        .bullet-content .title {
+        .process-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            opacity: 0.6;
+            margin-bottom: 14px;
+        }
+
+        .process-card h3 {
             font-family: 'Orbitron', sans-serif;
             font-size: 15px;
-            color: var(--text-primary);
-            margin: 0 0 6px 0;
-            font-weight: 700;
-            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 8px;
         }
 
-        .bullet-content .desc {
-            font-size: 13px;
+        .process-card p {
             color: var(--text-muted);
-            margin: 0;
+            font-size: 13px;
             line-height: 1.6;
         }
 
-        .link-cta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--neon-cyan);
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .link-cta:hover {
-            text-decoration: underline;
-        }
-
-        /* Section divider skew */
-        .divider-skew {
-            height: 80px;
-            background: var(--bg-deep);
-            clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
-            margin-top: -80px;
-        }
-
-        /* Pricing */
-        .pricing-wrap {
+        /* Testimonials */
+        .testimonials-box {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
             max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background-color: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .price-card {
-            background-color: var(--bg-mid);
-            padding: 60px 32px 48px 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        .price-card.featured {
-            background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(191, 0, 255, 0.08));
-            border: 1px solid var(--neon-cyan);
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 0 40px rgba(0, 245, 255, 0.2), inset 0 0 40px rgba(0, 245, 255, 0.03);
+        .testimonial-stars {
+            color: #fbbf24;
+            margin-bottom: 16px;
+            font-size: 18px;
         }
 
-        .featured-tag {
-            position: absolute;
-            top: 24px;
-            right: 24px;
+        .testimonial-quote {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #fff;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            background-color: var(--neon-cyan);
-            color: #000;
-            padding: 4px 16px;
-            border-radius: 2px;
-        }
-
-        .price-card-top .tier {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .price-card-top .amt {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 56px;
-            font-weight: 900;
-            color: var(--text-primary);
-            line-height: 1;
-            margin-bottom: 30px;
-        }
-
-        .price-card.featured .price-card-top .amt {
+            font-size: 15px;
             color: var(--neon-cyan);
+            font-weight: 700;
         }
 
-        .price-card-top .amt span {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .price-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 48px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 30px;
-        }
-
-        .price-features li {
+        .testimonial-author-role {
             font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 16px;
-            display: flex;
+        }
+
+        /* Quote Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .price-features li::before {
-            content: '✓';
-            color: var(--neon-cyan);
-            font-weight: bold;
+        .modal-backdrop.active {
+            display: flex;
         }
 
-        .price-features li.disabled {
-            text-decoration: line-through;
-            opacity: 0.4;
-        }
-
-        .price-features li.disabled::before {
-            content: '✗';
-            color: var(--neon-purple);
-        }
-
-        .price-card .btn-outline, .price-card .btn-filled {
+        .modal-dialog {
+            background: #060D1A;
+            border: 1px solid var(--neon-cyan);
+            border-radius: var(--radius-lg);
             width: 100%;
-            box-sizing: border-box;
-            text-align: center;
+            max-width: 580px;
+            padding: 36px;
+            box-shadow: 0 0 50px rgba(0, 245, 255, 0.4);
+            position: relative;
         }
 
-        .btn-purple-outline {
-            border: 1px solid var(--neon-purple);
-            color: var(--neon-purple);
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             background: transparent;
-            border-radius: 2px;
-            padding: 11px 22px;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--neon-cyan);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
             font-family: 'Orbitron', sans-serif;
             font-size: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            color: var(--neon-cyan);
             text-transform: uppercase;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            margin-bottom: 6px;
         }
 
-        .btn-purple-outline:hover {
-            background: rgba(191, 0, 255, 0.1);
-            box-shadow: 0 0 20px rgba(191, 0, 255, 0.3);
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            color: #fff;
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        /* Final CTA */
-        .cta-bg {
-            background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.08) 0%, #020408 70%);
-            text-align: center;
-            padding: 120px 8%;
-        }
-
-        .cta-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 52px;
-            font-weight: 900;
-            color: var(--text-primary);
-            margin: 0 0 16px 0;
-            letter-spacing: -1px;
-        }
-
-        .cta-subtext {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 16px;
-            color: var(--neon-green);
-            margin: 0 0 48px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-pulse {
-            height: 60px;
-            padding: 0 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 13px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #000;
-            border-radius: 2px;
-            border: none;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            cursor: pointer;
-            text-decoration: none;
-            animation: glow-pulse 2s ease-in-out infinite;
-            transition: all 0.3s ease;
-        }
-
-        @keyframes glow-pulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.4); }
-            50% { box-shadow: 0 0 60px rgba(0, 245, 255, 0.8); }
-        }
-
-        .btn-pulse:hover {
-            transform: translateY(-2px);
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 12px rgba(0, 245, 255, 0.3);
         }
 
         /* Footer */
         footer {
-            background-color: var(--bg-deep);
-            border-top: 1px solid rgba(0, 245, 255, 0.1);
-            padding: 80px 8% 40px 8%;
-            box-sizing: border-box;
+            background: #010306;
+            border-top: 1px solid var(--card-border);
+            padding: 70px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 80px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo-desc p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            max-width: 320px;
-            margin: 20px 0 0 0;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-col h4 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
             color: var(--neon-cyan);
             text-transform: uppercase;
-            margin: 0 0 24px 0;
+            margin-bottom: 18px;
         }
 
-        .footer-col ul {
+        .footer-col p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .footer-links {
             list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
         }
 
-        .footer-col ul a {
-            font-size: 13px;
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
-        .footer-col ul a:hover {
-            color: var(--text-primary);
-        }
-
-        .footer-status {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--neon-green);
-            letter-spacing: 2px;
+        .footer-links a:hover {
+            color: var(--neon-cyan);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 40px;
             text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
         }
 
-        /* Responsive Setup */
-        @media (max-width: 1024px) {
-            #hero {
-                grid-template-columns: 1fr;
-                padding-top: 140px;
-                text-align: center;
-                gap: 60px;
-            }
-
-            .hero-left {
-                max-width: 100%;
-            }
-
-            .eyebrow {
-                border-left: none;
-                border-bottom: 2px solid var(--neon-green);
-                padding-left: 0;
-                padding-bottom: 8px;
-                display: inline-block;
-            }
-
-            .hero-title .line-digital {
-                justify-content: center;
-            }
-
-            .hero-desc {
-                max-width: 600px;
-                margin: 0 auto 40px auto;
-            }
-
-            .hero-btn-row {
-                justify-content: center;
-            }
-
-            .micro-stats {
-                justify-content: center;
-            }
-
-            .grid-tight {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .pricing-wrap {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                background-color: transparent;
-                border: none;
-                max-width: 450px;
-            }
-
-            .price-card.featured {
-                transform: scale(1);
-            }
+        .mobile-nav-drawer {
+            display: none;
+            position: fixed;
+            top: 76px;
+            left: 0;
+            right: 0;
+            background: rgba(6, 13, 26, 0.98);
+            border-bottom: 1px solid var(--neon-cyan);
+            padding: 20px;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+            backdrop-filter: blur(20px);
         }
 
-        @media (max-width: 768px) {
-            header nav, .nav-btn-group {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-title span.line {
-                font-size: 42px;
-            }
-
-            .grid-tight {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-btn-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .micro-stats {
-                flex-direction: column;
-                gap: 24px;
-            }
+        .mobile-nav-drawer.active {
+            display: flex;
         }
 
-        /* Accessibility: Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            .float-anim, .scanning-line, .orbit-dot, .outer-ring, .ticker-content, .hero-title .line-digital span {
-                animation: none !important;
-            }
-            .reveal {
-                opacity: 1 !important;
-                transform: none !important;
-            }
+        .mobile-nav-drawer a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Comprehensive Responsive Rules */
+        @media (max-width: 992px) {
+            .hero-grid, .concept-box { grid-template-columns: 1fr; gap: 30px; }
+            .stats-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .industries-grid, .projects-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            header nav { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 120px 0 60px; }
+            .concept-box img { height: 240px; }
+        }
+
+        @media (max-width: 640px) {
+            header { padding: 0 16px; height: 68px; }
+            .mobile-nav-drawer { top: 68px; }
+            .logo-text { font-size: 16px; }
+            .stats-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; width: 100%; }
+            .hero-ctas .btn-solid-neon, .hero-ctas .btn-neon { width: 100%; justify-content: center; }
+            .hero-text h1 { font-size: 28px; }
+            .stat-num { font-size: 32px; }
+            .solution-card, .project-info, .industry-content, .testimonials-box { padding: 20px; }
+            .modal-dialog { padding: 24px 18px; }
+            .project-img-box { height: 180px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Three.js Background Canvas -->
+    <!-- 3D Particle Canvas -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- HEADER -->
+    <!-- Navigation Header -->
     <header>
-        <a href="/" class="logo-wrap">
-            <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" height="38" alt="Logo" />
-            <span class="logo-text">SECURETECH<span>AV</span></span>
+        <a href="#home" class="logo-wrap">
+            <div class="logo-badge">ST</div>
+            <div class="logo-text">SECURETECH <span>AV</span></div>
         </a>
-
         <nav>
             <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#about">About</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#contact">Contact</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#concept-center">Concept Center</a>
+            <a href="#industries">Industries</a>
+            <a href="#projects">Projects</a>
+            <a href="#partners">Partners</a>
         </nav>
-
-        <div class="nav-btn-group">
-            <a href="#pricing" class="btn-outline">Free Scan</a>
-            <a href="#pricing" class="btn-filled">Get Protected</a>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="/CorporateProfile" class="btn-neon" style="padding: 8px 12px; font-size: 10px;">Profile</a>
+            <button class="btn-solid-neon" onclick="openQuoteModal()" style="padding: 9px 14px; font-size: 10px;">
+                <i class="fa-solid fa-bolt"></i> Quote
+            </button>
+            <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" id="mobile-icon"></i>
+            </button>
         </div>
-
-        <button class="hamburger" id="hamburger-toggle" aria-label="Toggle Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </header>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu">
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="#home" onclick="toggleMobileNav()">Home</a>
+        <a href="#solutions" onclick="toggleMobileNav()">Solutions</a>
+        <a href="#concept-center" onclick="toggleMobileNav()">Concept Center</a>
+        <a href="#industries" onclick="toggleMobileNav()">Industries</a>
+        <a href="#projects" onclick="toggleMobileNav()">Key Projects</a>
+        <a href="#partners" onclick="toggleMobileNav()">Partners</a>
+        <a href="/CorporateProfile">Corporate Profile</a>
+    </div>
+            <a href="#projects">Projects</a>
+            <a href="#partners">Partners</a>
+        </nav>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="/CorporateProfile" class="btn-neon" style="padding: 8px 14px;">Profile</a>
+            <button class="btn-solid-neon" onclick="openQuoteModal()">
+                <i class="fa-solid fa-bolt"></i> Get A Quote
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">AV Systems Integrator · India</span>
+                    <h1>AV solutions that run <span>without you thinking about them</span></h1>
+                    <p>
+                        SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India. We keep your communication networks running seamlessly.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#solutions" class="btn-solid-neon">
+                            Explore Solutions <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button class="btn-neon" onclick="openQuoteModal()">
+                            Talk to an Expert <i class="fa-solid fa-headset"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <img src="/images/solution-boardroom.png" alt="Corporate Boardroom AV Installation" />
+                    <div class="hero-visual-badge">
+                        <div>
+                            <div style="font-family: 'Orbitron'; font-weight: 700; font-size: 13px; color: #fff;">Smart Boardroom Ecosystem</div>
+                            <div style="font-size: 11px; color: var(--neon-cyan);">4K Video &middot; Ceiling Mic Arrays &middot; Room Automation</div>
+                        </div>
+                        <i class="fa-solid fa-circle-check" style="color: var(--neon-green); font-size: 18px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">5600+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">105+</div>
+                    <div class="stat-label">Skilled Engineers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">25</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">Global OEM Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AV Solutions -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Enterprise Solutions</span>
+                <h2 class="section-title">Turnkey Audio-Visual <span>Infrastructure</span></h2>
+                <p class="section-desc">We design, engineer, and support standardized audio-visual configurations ensuring seamless videoconferencing, boardroom automation, and high network reliability.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+                    <h3>AV System Design</h3>
+                    <p>Bespoke architectural layout modeling, acoustic calculations, and structured cable path maps tailored for commercial facilities.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-desktop"></i></div>
+                    <h3>Smart Classroom Integration</h3>
+                    <p>High-brightness laser displays, touch interactive screens, and distance classroom equipment for universities.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>AV Control Systems</h3>
+                    <p>Simplified room automation setups through touchpanels to coordinate audio levels, lighting, and feeds.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>ICT & Structured Cabling</h3>
+                    <p>High-speed fiber backbones, network switch racks, and standardized commercial cat-cabling topologies.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-volume-high"></i></div>
+                    <h3>Auditorium Sound Systems</h3>
+                    <p>Line-array configurations, digital speaker matrices, and acoustic treatment for crystal-clear acoustics.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                    <h3>Stadium & Arena AV</h3>
+                    <p>Weatherproof high-output speakers, massive outdoor LED billboards, and synchronized delays.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-film"></i></div>
+                    <h3>Cinema & Preview Theatres</h3>
+                    <p>Surround-sound configurations and premium digital screening systems for private and commercial venues.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Commercial/Retail Audio</h3>
+                    <p>Zoned background music channels, paging networks, and digital signage boards for malls and outlets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workplace Concept Center -->
+    <section class="section" id="concept-center" style="padding-top: 20px;">
+        <div class="container">
+            <div class="concept-box">
+                <div>
+                    <span class="eyebrow">Workplace Tech Concept Center</span>
+                    <h2 class="section-title" style="margin: 16px 0 20px; font-size: 32px;">
+                        Experience Workplace AV <span>Before Deployment</span>
+                    </h2>
+                    <p class="section-desc" style="margin-bottom: 30px;">
+                        Walk through immersive workplace environments featuring hybrid meeting rooms, boardrooms, command centers, and integrated AV ecosystems engineered for modern enterprises. See the products and layouts in action before finalizing specs.
+                    </p>
+                    <button class="btn-solid-neon" onclick="openQuoteModal()">
+                        <i class="fa-solid fa-calendar-check"></i> Book A Live Demo
+                    </button>
+                </div>
+                <div>
+                    <img src="/images/advantage_center_v3.jpeg" alt="Workplace Concept Center" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Grid -->
+    <section class="section" id="industries">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Industries We Serve</span>
+                <h2 class="section-title">Tailored AV Integration <span>Across Sectors</span></h2>
+                <p class="section-desc">We engineer bespoke technology configurations matched to the specialized operational workflows of distinct enterprise environments.</p>
+            </div>
+
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-img-wrap">
+                        <img src="/images/sector-corporate.png" alt="Corporate" />
+                    </div>
+                    <div class="industry-content">
+                        <h3><i class="fa-solid fa-building"></i> Corporate</h3>
+                        <p>Videoconferencing boardrooms, smart huddle rooms, and high-productivity collaborative systems.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-wrap">
+                        <img src="/images/sector-education.png" alt="Education" />
+                    </div>
+                    <div class="industry-content">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                        <p>Interactive smart classrooms, lecture halls, and hybrid teaching platforms for universities.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-wrap">
+                        <img src="/images/sector-healthcare.jpg" alt="Healthcare" />
+                    </div>
+                    <div class="industry-content">
+                        <h3><i class="fa-solid fa-user-md"></i> Healthcare</h3>
+                        <p>High-definition telemedicine suites, OT display routing, and clean hospital signage layouts.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-wrap">
+                        <img src="/images/sector-public.png" alt="Government" />
+                    </div>
+                    <div class="industry-content">
+                        <h3><i class="fa-solid fa-landmark"></i> Government</h3>
+                        <p>Secure videoconferencing facilities, legislative councils, and operations command centers.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-wrap">
+                        <img src="/images/sector-retail.png" alt="Hospitality" />
+                    </div>
+                    <div class="industry-content">
+                        <h3><i class="fa-solid fa-hotel"></i> Hospitality</h3>
+                        <p>Integrated banquet sound networks, lobby signage, and automation for hotels and lounges.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-wrap">
+                        <img src="/images/sector-residential.jpeg" alt="Residential" />
+                    </div>
+                    <div class="industry-content">
+                        <h3><i class="fa-solid fa-house-laptop"></i> Residential</h3>
+                        <p>Custom home automation, dedicated acoustic home theaters, and localized sound distributions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="section" id="projects" style="background: rgba(6, 13, 26, 0.6);">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Case Studies</span>
+                <h2 class="section-title">Our Recent Key <span>Installations</span></h2>
+                <p class="section-desc">Explore spatial installations engineered, built, and maintained by our certified technical team across India.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/convention_centres.jpeg" alt="Noida Convention Center" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Auditoriums & Public Spaces</span>
+                        <h3>Noida Convention Center</h3>
+                        <p>High-performance audio networks, motorized projection systems, and stage lighting matrices deployed across three main halls.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/solution-boardroom.png" alt="Corporate HQ Gurugram" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Corporate Workspaces</span>
+                        <h3>Corporate HQ, Gurugram</h3>
+                        <p>Videoconferencing configurations, ceiling microphone arrays, and integrated room control systems for 12 executive boardrooms.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/solution-smart-classroom.jpeg" alt="Technical Smart Campus" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Hybrid Education</span>
+                        <h3>Technical Smart Campus</h3>
+                        <p>Turnkey smart classroom design with laser projections, digital writing screens, and sound delay processors.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/auditorium_view.jpg" alt="State Judicial Council Hall" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Government & Judiciary</span>
+                        <h3>State Judicial Council Hall</h3>
+                        <p>High-definition digital signage routing, encryption conferencing channels, and crystal-clear acoustic calibrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Partners Marquee -->
+    <section class="section" id="partners" style="padding: 70px 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 30px;">
+                <span class="eyebrow">Technology Alliances</span>
+                <h2 class="section-title">Allied With <span>Global AV Leaders</span></h2>
+                <p class="section-desc">We specify and install certified hardware from global leaders with full OEM warranty.</p>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="marquee-card"><div class="client-avatar">BS</div><div><strong style="color:#fff;">Bose Pro</strong><div style="font-size:11px; color:var(--text-muted);">Commercial Audio</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">CS</div><div><strong style="color:#fff;">Christie</strong><div style="font-size:11px; color:var(--text-muted);">Laser Projection</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">CI</div><div><strong style="color:#fff;">Cisco Systems</strong><div style="font-size:11px; color:var(--text-muted);">Video Infrastructure</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">JB</div><div><strong style="color:#fff;">JBL Pro</strong><div style="font-size:11px; color:var(--text-muted);">Sound Reinforcement</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">LG</div><div><strong style="color:#fff;">LG Commercial</strong><div style="font-size:11px; color:var(--text-muted);">LED & Displays</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">QS</div><div><strong style="color:#fff;">QSC Audio</strong><div style="font-size:11px; color:var(--text-muted);">DSP & Matrices</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">SN</div><div><strong style="color:#fff;">Sennheiser</strong><div style="font-size:11px; color:var(--text-muted);">Ceiling Mic Arrays</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">SY</div><div><strong style="color:#fff;">Sony Pro</strong><div style="font-size:11px; color:var(--text-muted);">Cameras & Signage</div></div></div>
+                    <!-- Duplicate for infinite loop -->
+                    <div class="marquee-card"><div class="client-avatar">BS</div><div><strong style="color:#fff;">Bose Pro</strong><div style="font-size:11px; color:var(--text-muted);">Commercial Audio</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">CS</div><div><strong style="color:#fff;">Christie</strong><div style="font-size:11px; color:var(--text-muted);">Laser Projection</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">CI</div><div><strong style="color:#fff;">Cisco Systems</strong><div style="font-size:11px; color:var(--text-muted);">Video Infrastructure</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">JB</div><div><strong style="color:#fff;">JBL Pro</strong><div style="font-size:11px; color:var(--text-muted);">Sound Reinforcement</div></div></div>
+                    <div class="marquee-card"><div class="client-avatar">LG</div><div><strong style="color:#fff;">LG Commercial</strong><div style="font-size:11px; color:var(--text-muted);">LED & Displays</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Marquee -->
+    <section class="section" style="padding: 30px 0 80px;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <span class="eyebrow">Enterprise Clients</span>
+                <h2 class="section-title" style="font-size: 26px;">Trusted by India's Top Organizations</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track" style="animation-direction: reverse; animation-duration: 25s;">
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">IIT</div><div><strong style="color:#fff;">IIT DELHI</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">IIT</div><div><strong style="color:#fff;">IIT JODHPUR</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">AM</div><div><strong style="color:#fff;">AIIMS HOSPITALS</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">TT</div><div><strong style="color:#fff;">TATA ENTERPRISES</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">INF</div><div><strong style="color:#fff;">INFOSYS TECHNOLOGIES</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">WP</div><div><strong style="color:#fff;">WIPRO CORPORATE</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">IC</div><div><strong style="color:#fff;">ICICI BANK</strong></div></div>
+                    <div class="marquee-card"><div class="client-avatar" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">DLF</div><div><strong style="color:#fff;">DLF PROPERTIES</strong></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Step Process -->
+    <section class="section" style="background: rgba(6, 13, 26, 0.7);">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Our Methodology</span>
+                <h2 class="section-title">The SecureTech AV <span>Workflow</span></h2>
+                <p class="section-desc">From initial acoustic calculation to turnkey deployment and ongoing maintenance.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-num">01</div>
+                    <h3>Site Survey & Acoustics</h3>
+                    <p>On-site inspection, spatial acoustic modeling, and stakeholder workflow mapping.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">02</div>
+                    <h3>CAD & System Architecture</h3>
+                    <p>Detailed schematics, rack elevations, line diagrams, and exact hardware specs.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">03</div>
+                    <h3>Turnkey Deployment</h3>
+                    <p>Certified cabling, equipment racking, DSP calibration, and user training.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">04</div>
+                    <h3>AMC & 24/7 Support</h3>
+                    <p>Proactive monitoring, preventive maintenance visits, and rapid dispatch SLA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Client Validation</span>
+                <h2 class="section-title">Trusted By <span>Enterprise Leaders</span></h2>
+            </div>
+
+            <div class="testimonials-box">
+                <div class="testimonial-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial-quote" id="test-quote">
+                    "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution."
+                </div>
+                <div class="testimonial-author-name" id="test-author">Manoj Singh</div>
+                <div class="testimonial-author-role" id="test-role">Director of Infrastructure &middot; State Judicial Department</div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 24px;">
+                    <button class="btn-neon" onclick="prevTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="btn-neon" onclick="nextTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Form -->
+    <div class="modal-backdrop" id="quoteModal">
+        <div class="modal-dialog">
+            <button class="modal-close" onclick="closeQuoteModal()">&times;</button>
+            <span class="eyebrow">Get In Touch</span>
+            <h3 style="font-family: 'Orbitron'; font-size: 20px; color: #fff; margin: 10px 0 20px;">Request an AV Consultation</h3>
+            
+            <form id="consultationForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-input" required placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                    <label>Work Email</label>
+                    <input type="email" class="form-input" required placeholder="john@company.com" />
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-input" required placeholder="+91 98765 43210" />
+                </div>
+                <div class="form-group">
+                    <label>Project Type</label>
+                    <select class="form-select">
+                        <option>Executive Boardroom / Hybrid Meeting</option>
+                        <option>Smart Classroom / Lecture Hall</option>
+                        <option>Auditorium & Arena Acoustics</option>
+                        <option>ICT Infrastructure & Cabling</option>
+                        <option>Workplace Demo Booking</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Brief Requirements</label>
+                    <textarea class="form-textarea" rows="3" placeholder="Tell us about room size, timeline, and requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn-solid-neon" style="width: 100%; justify-content: center; padding: 14px;">
+                    Submit Consultation Request <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
     </div>
 
-    <!-- HERO -->
-    <section id="home">
-        <div class="hero-left">
-            <div class="eyebrow">⬡ THREAT LEVEL: NEUTRALIZED</div>
-            <h1 class="hero-title">
-                <span class="line line-defend">DEFEND YOUR</span>
-                <span class="line line-digital">
-                    <span>D</span><span>I</span><span>G</span><span>I</span><span>T</span><span>A</span><span>L</span>
-                </span>
-                <span class="line line-existence">EXISTENCE</span>
-            </h1>
-            <p class="hero-desc">
-                SecureTechAV uses military-grade AI to detect threats before they exist. Real-time. Zero compromise. Always on.
-            </p>
-            <div class="hero-btn-row">
-                <a href="#pricing" class="btn-large">Download Free</a>
-                <a href="#features" class="btn-large-outline">Watch Demo ▶</a>
-                <a href="#pricing" class="btn-text">Free Scan →</a>
-            </div>
-            <div class="micro-stats">
-                <div class="stat-item">
-                    <div class="num">10M+</div>
-                    <div class="label">Devices Secured</div>
-                </div>
-                <div class="stat-item">
-                    <div class="num">99.9%</div>
-                    <div class="label">Detection Rate</div>
-                </div>
-                <div class="stat-item">
-                    <div class="num">&lt;0.5%</div>
-                    <div class="label">CPU Usage</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-right">
-            <div class="shield-container">
-                <div class="outer-ring"></div>
-                <div class="orbit-dot dot-1"></div>
-                <div class="orbit-dot dot-2"></div>
-                <div class="orbit-dot dot-3"></div>
-                <div class="inner-shield-wrap">
-                    <div class="scanning-line"></div>
-                    <img src="{{ url_for('static', filename='securetech_av.png') }}" alt="SecureTechAV App Screen" />
-                </div>
-                <div class="system-status">
-                    <span>SYSTEM STATUS: PROTECTED</span>
-                    <span class="cursor-blink"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- THREAT TICKER -->
-    <div class="threat-ticker-wrap">
-        <div class="ticker-content">
-            MALWARE BLOCKED: 2,847,291 &bull; RANSOMWARE NEUTRALIZED: 14,203 &bull; PHISHING SITES: 891,440 &bull; THREATS TODAY: 1,247 &bull; ZERO-DAYS PATCHED: 23 &bull; MALWARE BLOCKED: 2,847,291 &bull; RANSOMWARE NEUTRALIZED: 14,203 &bull; PHISHING SITES: 891,440 &bull; THREATS TODAY: 1,247 &bull; ZERO-DAYS PATCHED: 23 &bull;
-        </div>
-    </div>
-
-    <!-- FEATURES -->
-    <section id="features" class="section-wrap features-bg">
-        <div class="sec-eyebrow">// PROTECTION SUITE</div>
-        <h2 class="sec-title">Every Attack Vector. Covered.</h2>
-
-        <div class="grid-tight">
-            <!-- Card 1 -->
-            <div class="cyber-card reveal">
-                <div class="card-num">01</div>
-                <div class="card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <circle cx="12" cy="11" r="3"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">REAL-TIME AI SCAN</h3>
-                <p class="card-body">Continuous threat monitoring powered by behavioral heuristics mapping file processes instantly.</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="cyber-card reveal">
-                <div class="card-num">02</div>
-                <div class="card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">RANSOMWARE VAULT</h3>
-                <p class="card-body">Encrypt folders with localized locks preventing unauthorized applications from rewriting files.</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="cyber-card reveal">
-                <div class="card-num">03</div>
-                <div class="card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="2" y1="12" x2="22" y2="12"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">DARK WEB MONITOR</h3>
-                <p class="card-body">Continuous surveillance checks underground indexes to ensure credentials are secure.</p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="cyber-card reveal">
-                <div class="card-num">04</div>
-                <div class="card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">ZERO-DAY DEFENSE</h3>
-                <p class="card-body">Isolates dynamic code patterns inside clean local sandboxes, neutralizing system leaks.</p>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="cyber-card reveal">
-                <div class="card-num">05</div>
-                <div class="card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">IDENTITY SHIELD</h3>
-                <p class="card-body">Secures personal profile fields and credit scores from keylogging exploits.</p>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="cyber-card reveal">
-                <div class="card-num">06</div>
-                <div class="card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <h3 class="card-title">VPN GUARDIAN</h3>
-                <p class="card-body">Encrypts web nodes with specialized virtual interfaces ensuring packet security.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section-wrap about-bg">
-        <div class="about-grid">
-            <div class="reveal">
-                <img src="{{ url_for('static', filename='about.png') }}" class="about-left-image" alt="SecureTechAV Monitor Operations" />
-            </div>
-
-            <div class="reveal">
-                <div class="sec-eyebrow">// REPUTATION PROTOCOLS</div>
-                <h2 class="sec-title" style="font-size:36px; margin-bottom:30px;">Why 10 Million Chose Us</h2>
-                <div class="bullets-wrap">
-                    <!-- Bullet 1 -->
-                    <div class="bullet-row">
-                        <div class="bullet-check-box">✓</div>
-                        <div class="bullet-content">
-                            <h4 class="title">MILITARY-GRADE ENCRYPTION</h4>
-                            <p class="desc">Lock banking data packets under AES-256 system standard interfaces.</p>
-                        </div>
-                    </div>
-                    <!-- Bullet 2 -->
-                    <div class="bullet-row">
-                        <div class="bullet-check-box">✓</div>
-                        <div class="bullet-content">
-                            <h4 class="title">REAL-TIME CLOUD SCANNING</h4>
-                            <p class="desc">Offload heuristic checks to virtual servers for minimal localized processing.</p>
-                        </div>
-                    </div>
-                    <!-- Bullet 3 -->
-                    <div class="bullet-row">
-                        <div class="bullet-check-box">✓</div>
-                        <div class="bullet-content">
-                            <h4 class="title">AUTOMATIC THREAT UPDATES</h4>
-                            <p class="desc">Databases synchronize hourly to block zero-day exposures silently.</p>
-                        </div>
-                    </div>
-                    <!-- Bullet 4 -->
-                    <div class="bullet-row">
-                        <div class="bullet-check-box">✓</div>
-                        <div class="bullet-content">
-                            <h4 class="title">LIGHTWEIGHT CPU IMPACT</h4>
-                            <p class="desc">Background tasks consume under 0.5% system processing registers.</p>
-                        </div>
-                    </div>
-                    <!-- Bullet 5 -->
-                    <div class="bullet-row">
-                        <div class="bullet-check-box">✓</div>
-                        <div class="bullet-content">
-                            <h4 class="title">MONEY-BACK PROMISE</h4>
-                            <p class="desc">Full refunds active for the initial 30 days of client deployments.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#pricing" class="link-cta">READ OUR SECURITY REPORT →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKEW DIVIDER -->
-    <div class="divider-skew"></div>
-
-    <!-- PRICING -->
-    <section id="pricing" class="section-wrap">
-        <div class="sec-eyebrow" style="text-align:center;">// SECURITY PACKS</div>
-        <h2 class="sec-title" style="text-align:center; margin-bottom:80px;">License Configurations</h2>
-
-        <div class="pricing-wrap">
-            <!-- Free Card -->
-            <div class="price-card reveal">
-                <div class="price-card-top">
-                    <div class="tier">Free Pack</div>
-                    <div class="amt">$0<span>/mo</span></div>
-                    <ul class="price-features">
-                        <li>Basic Scan Sweeps</li>
-                        <li>1 Device Active</li>
-                        <li class="disabled">AI Neural Analyzer</li>
-                        <li class="disabled">Dark Web Alerting</li>
-                        <li class="disabled">Zero-Day Isolation</li>
-                    </ul>
-                </div>
-                <a href="#pricing" class="btn-outline">Free License</a>
-            </div>
-
-            <!-- Pro Card -->
-            <div class="price-card featured reveal">
-                <span class="featured-tag">MOST POPULAR</span>
-                <div class="price-card-top">
-                    <div class="tier">Pro Shield</div>
-                    <div class="amt">$9.99<span>/mo</span></div>
-                    <ul class="price-features">
-                        <li>AI Behavior Scans</li>
-                        <li>5 Devices Active</li>
-                        <li>Dark Web Alerts</li>
-                        <li>Sandbox Protection</li>
-                        <li>24/7 Priority Tickets</li>
-                    </ul>
-                </div>
-                <a href="#pricing" class="btn-filled">Get Pro Shield</a>
-            </div>
-
-            <!-- Enterprise Card -->
-            <div class="price-card reveal">
-                <div class="price-card-top">
-                    <div class="tier">Enterprise</div>
-                    <div class="amt">Custom</div>
-                    <ul class="price-features">
-                        <li>Enterprise Network Shield</li>
-                        <li>Unlimited Devices</li>
-                        <li>SecOps Managers Dedicated</li>
-                        <li>SLA Diagnostics</li>
-                        <li>24/7 Node Support</li>
-                    </ul>
-                </div>
-                <a href="#pricing" class="btn-purple-outline">Contact Sales</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section id="contact" class="cta-bg">
-        <div class="reveal">
-            <h2 class="cta-title">YOUR SYSTEM IS UNPROTECTED.</h2>
-            <div class="cta-subtext">
-                <span>Every second you wait, 4 new threats emerge.</span>
-                <span class="cursor-blink"></span>
-            </div>
-            <a href="#pricing" class="btn-pulse">ACTIVATE PROTECTION NOW</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-logo-desc">
-                <a href="/" class="logo-wrap">
-                    <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" height="38" alt="Logo" />
-                    <span class="logo-text">SECURETECH<span>AV</span></span>
-                </a>
-                <p>Advanced heuristics anti-malware providing zero CPU impact threat neutralization vectors.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrap" style="margin-bottom: 16px;">
+                        <div class="logo-badge">ST</div>
+                        <div class="logo-text">SECURETECH <span>AV</span></div>
+                    </div>
+                    <p>
+                        India's premier turnkey AV systems integrator providing architectural design, hardware provisioning, room acoustics, and AMC support.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#concept-center">Concept Center</a></li>
+                        <li><a href="#industries">Industries</a></li>
+                        <li><a href="#projects">Key Projects</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#solutions">Smart Boardrooms</a></li>
+                        <li><a href="#solutions">Smart Classrooms</a></li>
+                        <li><a href="#solutions">Auditorium Sound</a></li>
+                        <li><a href="#solutions">ICT Networking</a></li>
+                        <li><a href="#solutions">Video Walls</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p style="margin-bottom: 10px;"><i class="fa-solid fa-location-dot" style="color: var(--neon-cyan); margin-right: 8px;"></i> Delhi NCR, Noida, PAN India Support</p>
+                    <p style="margin-bottom: 10px;"><i class="fa-solid fa-envelope" style="color: var(--neon-cyan); margin-right: 8px;"></i> info@securetechav.com</p>
+                    <p><i class="fa-solid fa-phone" style="color: var(--neon-cyan); margin-right: 8px;"></i> +91 98100 00000</p>
+                </div>
             </div>
 
-            <div class="footer-col">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#home">Antivirus</a></li>
-                </ul>
+            <div class="footer-bottom">
+                &copy; 2026 SecureTech AV Integrators Pvt Ltd. All rights reserved.
             </div>
-
-            <div class="footer-col">
-                <h4>Status</h4>
-                <div class="footer-status">SYSTEM STATUS: ALL CLEAR ✓</div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            &copy; 2026 SECURETECHAV DESIGNS LIMITED. [ RUNNING SECURE ]
         </div>
     </footer>
 
-    <!-- Three.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- JS SCRIPTS -->
+    <!-- Interactive Script -->
     <script>
-        // Hamburger Menu Toggle
-        const menuBtn = document.getElementById('hamburger-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const lines = menuBtn.querySelectorAll('span');
+        // Testimonials Data
+        const testList = [
+            {
+                quote: "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution.",
+                author: "Manoj Singh",
+                role: "Director of Infrastructure · State Judicial Department"
+            },
+            {
+                quote: "Our Smart Classroom setup makes it incredibly straightforward for professors to coordinate hybrid lectures. The dual laser projection systems remain bright even under direct daylight.",
+                author: "Dr. Rajesh Dwivedi",
+                role: "Head of Digital Education · Premium Technical Institute"
+            },
+            {
+                quote: "SecureTech AV integrated 12 high-priority videoconferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are top-tier.",
+                author: "Amit Saxena",
+                role: "Chief Technology Officer · Global Financial Services"
+            }
+        ];
 
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.style.display === 'flex';
-            if (!isHidden) {
-                mobileMenu.style.display = 'flex';
-                lines[0].style.transform = 'translateY(8px) rotate(45deg)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+        let currTest = 0;
+        function updateTestimonial() {
+            const t = testList[currTest];
+            document.getElementById('test-quote').innerText = `"${t.quote}"`;
+            document.getElementById('test-author').innerText = t.author;
+            document.getElementById('test-role').innerText = t.role;
+        }
+
+        function nextTestimonial() {
+            currTest = (currTest + 1) % testList.length;
+            updateTestimonial();
+        }
+
+        function prevTestimonial() {
+            currTest = (currTest - 1 + testList.length) % testList.length;
+            updateTestimonial();
+        }
+
+        setInterval(nextTestimonial, 8000);
+
+        // Modal Handling
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.add('active');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('active');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert("Thank you! Our SecureTech AV engineering team will contact you within 24 hours.");
+            closeQuoteModal();
+        }
+
+        // Mobile Nav Drawer Toggle
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileNavDrawer');
+            const icon = document.getElementById('mobile-icon');
+            drawer.classList.toggle('active');
+            if (drawer.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
             } else {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
+                icon.className = 'fa-solid fa-bars';
             }
-        });
+        }
 
-        // Close mobile dropdown on links click
-        const mobileLinks = document.querySelectorAll('#mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            });
-        });
+        // Particle Canvas
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-        // Intersection Observer scroll reveals
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
-        // Three.js 3D Particles Network background
-        let scene, camera, renderer, particleSystem, linesSystem;
-        let mouseX = 0, mouseY = 0;
-
-        function init3D() {
-            const canvas = document.getElementById('bg-canvas');
-            scene = new THREE.Scene();
-
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 300;
-
-            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-            // Particles Geometry
-            const particleCount = 2000;
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-
-            for (let i = 0; i < particleCount * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 600;
-                positions[i + 1] = (Math.random() - 0.5) * 600;
-                positions[i + 2] = (Math.random() - 0.5) * 600;
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 245, 255, ' : 'rgba(191, 0, 255, ';
+                this.alpha = Math.random() * 0.5 + 0.2;
             }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            const material = new THREE.PointsMaterial({
-                color: 0x00F5FF,
-                size: 0.8,
-                transparent: true,
-                opacity: 0.8
-            });
-
-            particleSystem = new THREE.Points(geometry, material);
-            scene.add(particleSystem);
-
-            // Connective lines geometry
-            const lineGeometry = new THREE.BufferGeometry();
-            const linePositions = [];
-            const posArray = geometry.attributes.position.array;
-
-            // Connect nearby points (subsampled to prevent crash)
-            for (let i = 0; i < posArray.length; i += 18) {
-                const x1 = posArray[i];
-                const y1 = posArray[i + 1];
-                const z1 = posArray[i + 2];
-
-                for (let j = i + 3; j < posArray.length; j += 18) {
-                    const x2 = posArray[j];
-                    const y2 = posArray[j + 1];
-                    const z2 = posArray[j + 2];
-
-                    const dist = Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2);
-                    if (dist < 80) {
-                        linePositions.push(x1, y1, z1);
-                        linePositions.push(x2, y2, z2);
-                    }
-                }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
             }
+            draw() {
+                ctx.fillStyle = this.color + this.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
 
-            lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-            const lineMaterial = new THREE.LineBasicMaterial({
-                color: 0x00F5FF,
-                transparent: true,
-                opacity: 0.15
+        for (let i = 0; i < 40; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
             });
-
-            linesSystem = new THREE.LineSegments(lineGeometry, lineMaterial);
-            scene.add(linesSystem);
-
-            window.addEventListener('resize', onWindowResize);
-            window.addEventListener('mousemove', onMouseMove);
-
-            animate();
+            requestAnimationFrame(animateParticles);
         }
-
-        function onMouseMove(event) {
-            mouseX = (event.clientX - window.innerWidth / 2);
-            mouseY = (event.clientY - window.innerHeight / 2);
-        }
-
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            particleSystem.rotation.y += 0.0003;
-            linesSystem.rotation.y += 0.0003;
-
-            camera.position.x += (mouseX * 0.05 - camera.position.x) * 0.05;
-            camera.position.y += (mouseY * -0.05 - camera.position.y) * 0.05;
-            camera.lookAt(scene.position);
-
-            renderer.render(scene, camera);
-        }
-
-        window.onload = init3D;
+        animateParticles();
     </script>
 </body>
-
 </html>

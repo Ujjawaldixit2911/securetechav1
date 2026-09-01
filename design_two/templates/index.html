@@ -5,56 +5,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <!-- ══ PRIMARY SEO ══ -->
-    <title>SecureTechAV — Security That Thinks Ahead | Aurora Shield</title>
-    <meta name="description" content="AI-powered antivirus that stops threats before they become problems. Lightweight, invisible, always protecting." />
-    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}" />
+    <!-- Primary SEO -->
+    <title>SecureTech AV — AV Solutions That Run Seamlessly | Minimalist Water-Flow Edition</title>
+    <meta name="description" content="SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India." />
+    <link rel="icon" href="/images/securetech_av.png" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <!-- CSS STYLING (Clean SaaS Light Theme) -->
+    <!-- CSS STYLING -->
     <style>
         :root {
-            --space-black: #F8FAFC;
-            --aurora-blue: #0EA5E9;
-            --aurora-green: #10B981;
-            --aurora-violet: #8B5CF6;
-            --aurora-pink: #F472B6;
-            --glass-bg: rgba(15, 23, 42, 0.02);
-            --glass-border: rgba(15, 23, 42, 0.08);
-            --text-bright: #0F172A;
-            --text-soft: #334155;
+            --bg-base: #F0F9FF;
+            --bg-surface: rgba(255, 255, 255, 0.92);
+            --bg-subtle: rgba(241, 245, 249, 0.85);
+            --text-primary: #0F172A;
+            --text-muted: #334155;
+            --text-subtle: #64748B;
+            --accent-blue: #0284C7;
+            --accent-sky: #0EA5E9;
+            --accent-dark-blue: #1E3A8A;
+            --border-color: rgba(226, 232, 240, 0.9);
+            --border-hover: rgba(14, 165, 233, 0.4);
+            --shadow-sm: 0 2px 8px rgba(14, 165, 233, 0.06);
+            --shadow-md: 0 12px 30px -5px rgba(2, 132, 199, 0.1);
+            --shadow-lg: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
+            --radius-md: 14px;
+            --radius-lg: 20px;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        body {
-            background-color: var(--space-black);
-            color: var(--text-soft);
-            font-family: 'DM Sans', sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
         }
 
-        /* Canvas Aurora Background */
-        #aurora-canvas {
+        body {
+            background: linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 35%, #F0F9FF 70%, #E6FFFA 100%);
+            background-attachment: fixed;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Fixed Fullscreen Water Bubbles Canvas */
+        #water-bubbles-canvas {
             position: fixed;
             inset: 0;
-            z-index: -1;
             width: 100vw;
             height: 100vh;
             pointer-events: none;
+            z-index: -1;
         }
 
-        /* Glassmorphism check styling support fallback */
-        @supports not (backdrop-filter: blur(1px)) {
-            .glass-panel {
-                background: rgba(255, 255, 255, 0.95) !important;
-            }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
         /* Navbar */
@@ -63,1440 +78,1484 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-            height: 68px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 5%;
+            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.05);
         }
 
         .logo-wrap {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
+        }
+
+        .logo-badge {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #0284C7, #0369A1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
         }
 
         .logo-text {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 18px;
-            color: var(--text-bright);
+            font-size: 19px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
 
         .logo-text span {
-            color: var(--aurora-blue);
+            color: var(--accent-blue);
         }
 
         header nav {
             display: flex;
-            gap: 40px;
+            gap: 32px;
         }
 
         header nav a {
-            font-family: 'DM Sans', sans-serif;
             font-size: 14px;
-            color: var(--text-soft);
+            font-weight: 600;
+            color: var(--text-muted);
             text-decoration: none;
-            position: relative;
-            padding-bottom: 6px;
-            transition: color 0.3s ease;
+            transition: color 0.2s;
         }
 
         header nav a:hover {
-            color: var(--text-bright);
+            color: var(--accent-blue);
         }
 
-        header nav a:hover::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 4px;
-            background-color: var(--aurora-blue);
-            border-radius: 50%;
-        }
-
-        .nav-btn-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-ghost {
-            color: var(--text-soft);
-            background: transparent;
-            border: none;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            cursor: pointer;
-            padding: 10px 16px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .btn-ghost:hover {
-            color: var(--text-bright);
-        }
-
-        .btn-glass {
-            background: rgba(15, 23, 42, 0.04);
-            border: 1px solid rgba(15, 23, 42, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: var(--text-bright);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            border-radius: 8px;
-            padding: 10px 24px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-glass:hover {
-            background: rgba(15, 23, 42, 0.08);
-            border-color: rgba(15, 23, 42, 0.2);
-        }
-
-        .btn-aurora {
-            background: linear-gradient(135deg, var(--aurora-blue), var(--aurora-violet));
+        .btn-minimal-primary {
+            background: linear-gradient(135deg, #0284C7, #0369A1);
             color: #FFFFFF;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
             font-size: 14px;
-            font-weight: 500;
+            padding: 10px 20px;
             border-radius: 8px;
-            padding: 11px 24px;
             border: none;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
-            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
         }
 
-        .btn-aurora:hover {
-            opacity: 0.9;
+        .btn-minimal-primary:hover {
+            background: linear-gradient(135deg, #0369A1, #0284C7);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-minimal-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-minimal-secondary:hover {
+            border-color: var(--accent-blue);
+            background: #FFFFFF;
             transform: translateY(-1px);
         }
 
-        /* Mobile Hamburger */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--text-bright);
-            transition: all 0.3s ease;
-        }
-
-        #mobile-menu {
-            display: none;
-            position: fixed;
-            top: 68px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-            padding: 30px 5%;
-            flex-direction: column;
-            gap: 20px;
-            z-index: 99;
-        }
-
-        #mobile-menu a {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 16px;
-            color: var(--text-soft);
-            text-decoration: none;
-            padding: 10px 0;
-            transition: color 0.3s ease;
-        }
-
-        #mobile-menu a:hover {
-            color: var(--text-bright);
-        }
-
-        /* Solid backing blocks for sections after hero */
-        .content-block {
+        /* Section Commons */
+        .section {
+            padding: 90px 0;
             position: relative;
-            background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%) !important;
-            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+            background: rgba(2, 132, 199, 0.1);
+            border: 1px solid rgba(2, 132, 199, 0.2);
+            padding: 5px 14px;
+            border-radius: 20px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(28px, 3.2vw, 40px);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .section-title span {
+            color: var(--accent-blue);
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.65;
         }
 
         /* Hero */
-        #hero {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 160px 6% 120px 6%;
-            box-sizing: border-box;
-            position: relative;
-            background: transparent !important;
+        .hero {
+            padding: 150px 0 90px;
         }
 
-        .trust-badge {
-            display: inline-block;
-            background: rgba(14, 165, 233, 0.08);
-            border: 1px solid rgba(14, 165, 233, 0.2);
-            color: var(--aurora-blue);
-            font-size: 13px;
-            border-radius: 100px;
-            padding: 8px 20px;
-            margin-bottom: 30px;
-            animation: badge-float 3s ease-in-out infinite;
-        }
-
-        @keyframes badge-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 80px;
-            font-weight: 700;
-            line-height: 1.05;
-            color: var(--text-bright);
-            margin: 0 0 24px 0;
-            letter-spacing: -2px;
-        }
-
-        .hero-title span.gradient {
-            background: linear-gradient(135deg, var(--aurora-blue) 0%, var(--aurora-violet) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 20px;
-            color: var(--text-soft);
-            line-height: 1.7;
-            max-width: 560px;
-            margin: 0 auto 48px auto;
-            font-weight: 300;
-        }
-
-        .hero-btn-row {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .hero-btn-row .btn-aurora {
-            height: 56px;
-            padding: 0 40px;
-            border-radius: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            box-shadow: 0 16px 48px rgba(14, 165, 233, 0.25);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-btn-row .btn-aurora:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 60px rgba(14, 165, 233, 0.35);
-        }
-
-        .hero-btn-row .btn-glass {
-            height: 56px;
-            padding: 0 32px;
-            border-radius: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 15px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-trust-row {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            font-size: 13px;
-            color: var(--text-soft);
-            opacity: 0.8;
-            margin-bottom: 80px;
-        }
-
-        .hero-trust-row span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .hero-trust-row span::before {
-            content: '✓';
-            color: var(--aurora-blue);
-            font-weight: bold;
-        }
-
-        /* Mockup Glass Card */
-        .hero-mockup-wrap {
-            position: relative;
-            background: rgba(255, 255, 255, 0.4) !important;
-            border: 1px solid rgba(15, 23, 42, 0.08) !important;
-            border-radius: 20px;
-            padding: 24px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 32px 80px rgba(15, 23, 42, 0.08);
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .hero-mockup-wrap::after {
-            content: '';
-            position: absolute;
-            inset: 30px;
-            background: radial-gradient(circle, var(--aurora-blue) 0%, var(--aurora-violet) 100%);
-            filter: blur(80px);
-            opacity: 0.08;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .hero-mockup-wrap img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-            background: #FFFFFF;
-            border: 1px solid rgba(15, 23, 42, 0.05);
-        }
-
-        .corner-badge {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 8px;
-            padding: 6px 14px;
-            font-size: 11px;
-            color: var(--text-bright);
-            font-family: 'Space Mono', monospace;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-        }
-
-        .badge-tl { top: 40px; left: -20px; color: var(--aurora-green); }
-        .badge-tr { top: 40px; right: -20px; color: var(--aurora-blue); }
-        .badge-bl { bottom: 40px; left: -20px; }
-        .badge-br { bottom: 40px; right: -20px; }
-
-        /* Companies Strip */
-        .companies-strip {
-            background: rgba(15, 23, 42, 0.01);
-            border-top: 1px solid rgba(15, 23, 42, 0.04);
-            border-bottom: 1px solid rgba(15, 23, 42, 0.04);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .companies-strip span.label {
-            font-size: 13px;
-            color: var(--text-soft);
-            opacity: 0.6;
-            display: block;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .company-logos-row {
-            display: flex;
-            justify-content: center;
-            gap: 64px;
-            flex-wrap: wrap;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: rgba(15, 23, 42, 0.3);
-        }
-
-        /* Skew Visual Separator */
-        .companies-strip.content-block::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(180deg, transparent, #FFFFFF);
-            pointer-events: none;
-        }
-
-        /* Features */
-        .section-wrap {
-            padding: 140px 8%;
-            box-sizing: border-box;
-        }
-
-        .sec-title-wrap {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .sec-title-wrap h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 52px;
-            color: var(--text-bright);
-            margin: 0;
-        }
-
-        .sec-title-wrap h2 span.weight-light {
-            font-weight: 300;
-        }
-
-        .sec-title-wrap h2 span.gradient {
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--aurora-blue), var(--aurora-violet));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .grid-seamless {
+        .hero-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background-color: rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .feature-cell {
-            padding: 48px 36px;
-            background-color: rgba(255, 255, 255, 0.75); /* Translucent white cell */
-            transition: all 0.3s ease;
-        }
-
-        .feature-cell:hover {
-            background-color: rgba(255, 255, 255, 0.95);
-        }
-
-        .cell-icon-box {
-            width: 48px;
-            height: 48px;
-            background: rgba(14, 165, 233, 0.08);
-            border: 1px solid rgba(14, 165, 233, 0.15);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 24px;
-            color: var(--aurora-blue);
-        }
-
-        .cell-bar {
-            height: 2px;
-            width: 40px;
-            background: linear-gradient(90deg, var(--aurora-blue), transparent);
-            margin-bottom: 20px;
-        }
-
-        .cell-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-bright);
-            margin: 0 0 12px 0;
-        }
-
-        .cell-desc {
-            font-size: 14px;
-            color: var(--text-soft);
-            line-height: 1.8;
-            margin: 0;
-            font-weight: 300;
-        }
-
-        /* Showcase split */
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: 45% 55%;
-            gap: 80px;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
             align-items: center;
         }
 
-        .showcase-left-wrap {
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
-            border: 1px solid rgba(15, 23, 42, 0.08);
+        .hero-text {
+            background: rgba(255, 255, 255, 0.82);
+            padding: 36px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: var(--shadow-sm);
         }
 
-        .showcase-left-wrap::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.05));
-            pointer-events: none;
-        }
-
-        .showcase-left-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: contrast(105%);
-        }
-
-        .showcase-eyebrow {
-            font-family: 'Space Mono', monospace;
-            font-size: 11px;
-            color: var(--aurora-blue);
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        }
-
-        .showcase-title {
+        .hero-text h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 44px;
+            font-size: clamp(32px, 3.8vw, 46px);
             font-weight: 700;
-            color: var(--text-bright);
-            line-height: 1.15;
-            margin: 0 0 40px 0;
+            color: var(--text-primary);
+            line-height: 1.2;
+            letter-spacing: -0.8px;
+            margin: 16px 0 18px;
         }
 
-        .showcase-row {
-            border-left: 2px solid var(--aurora-blue);
-            padding-left: 20px;
+        .hero-text h1 span {
+            color: var(--accent-blue);
+        }
+
+        .hero-text p {
+            font-size: 16.5px;
+            color: var(--text-muted);
+            line-height: 1.75;
             margin-bottom: 28px;
         }
 
-        .showcase-row-title {
-            font-size: 16px;
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-img-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(16px);
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: calc(var(--radius-lg) - 6px);
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-subtle);
             font-weight: 600;
-            color: var(--text-bright);
-            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .showcase-row-desc {
-            font-size: 14px;
-            color: var(--text-soft);
-            margin: 0;
-            line-height: 1.6;
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 22px;
         }
 
-        /* Billing Toggle */
-        .billing-toggle-wrap {
+        .solution-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .solution-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            background: #FFFFFF;
+        }
+
+        .solution-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--accent-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin-bottom: 60px;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .solution-card h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .solution-card p {
             font-size: 14px;
-            color: var(--text-bright);
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        .toggle-switch {
-            position: relative;
-            width: 52px;
-            height: 28px;
-            background: rgba(15, 23, 42, 0.08);
-            border: 1px solid var(--glass-border);
-            border-radius: 100px;
-            cursor: pointer;
-            transition: background 0.3s;
+        /* Concept Center Box */
+        .concept-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            align-items: center;
+            backdrop-filter: blur(14px);
         }
 
-        .toggle-btn {
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 20px;
-            height: 20px;
-            background-color: var(--text-bright);
-            border-radius: 50%;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        .concept-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
         }
 
-        .toggle-active .toggle-btn {
-            left: 27px;
-            background-color: var(--aurora-blue);
-        }
-
-        .discount-badge {
-            background-color: var(--aurora-blue);
-            color: #FFFFFF;
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-family: 'Space Mono', monospace;
-        }
-
-        /* Pricing Card Grid */
-        .pricing-seamless {
+        /* Industries */
+        .industries-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background-color: rgba(15, 23, 42, 0.08);
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            border-radius: 24px;
+            gap: 22px;
+        }
+
+        .industry-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            max-width: 960px;
-            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+            backdrop-filter: blur(12px);
         }
 
-        .price-card {
-            background-color: rgba(255, 255, 255, 0.75); /* Translucent light backing */
-            padding: 56px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            border: 1px solid rgba(15, 23, 42, 0.08);
+        .industry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            background: #FFFFFF;
         }
 
-        .price-card.tier-free {
-            background-color: rgba(15, 23, 42, 0.01);
+        .industry-img-box {
+            height: 170px;
+            overflow: hidden;
         }
 
-        .price-card.tier-pro {
-            background-color: rgba(14, 165, 233, 0.04);
-            border: 2px solid var(--aurora-blue);
-            z-index: 10;
+        .industry-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .price-card.tier-enterprise {
-            background-color: rgba(139, 92, 246, 0.04);
-            border: 1px solid rgba(139, 92, 246, 0.2);
+        .industry-card:hover .industry-img-box img {
+            transform: scale(1.05);
         }
 
-        .price-badge {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            background: linear-gradient(135deg, var(--aurora-blue), var(--aurora-violet));
-            color: #FFFFFF;
+        .industry-info {
+            padding: 22px;
+        }
+
+        .industry-info h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 100px;
-            letter-spacing: 1px;
-        }
-
-        .price-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            color: var(--text-bright);
-            margin: 0 0 24px 0;
-        }
-
-        .price-amt-wrap {
-            margin-bottom: 40px;
-        }
-
-        .price-amt {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--text-bright);
-            line-height: 1;
-        }
-
-        .price-amt span.period {
             font-size: 16px;
-            color: var(--text-soft);
-            font-weight: 300;
-        }
-
-        .price-features-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 48px 0;
-            border-top: 1px solid rgba(15, 23, 42, 0.08);
-            padding-top: 30px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            align-items: center;
+            gap: 8px;
         }
 
-        .price-features-list li {
+        .industry-info h3 i {
+            color: var(--accent-blue);
             font-size: 14px;
-            color: var(--text-soft);
+        }
+
+        .industry-info p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-img-wrap {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .project-details {
+            padding: 26px;
+        }
+
+        .project-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .project-details h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .project-details p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Marquee */
+        .marquee-wrapper {
+            overflow: hidden;
+            user-select: none;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 24px;
+            animation: marqueeScroll 26s linear infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .partner-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             gap: 12px;
+            min-width: 200px;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(10px);
         }
 
-        .price-features-list li::before {
-            content: '✓';
-            color: var(--aurora-blue);
-        }
-
-        .price-features-list li.disabled {
-            opacity: 0.35;
-        }
-
-        .price-features-list li.disabled::before {
-            content: '✗';
-            color: var(--aurora-pink);
-        }
-
-        .price-card .btn-glass, .price-card .btn-aurora {
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .btn-purple-outline {
-            background: transparent;
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            color: var(--aurora-violet);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
+        .partner-circle {
+            width: 34px;
+            height: 34px;
             border-radius: 8px;
-            padding: 10px 24px;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .btn-purple-outline:hover {
-            background: rgba(139, 92, 246, 0.1);
-            border-color: rgba(139, 92, 246, 0.6);
-        }
-
-        /* Final CTA */
-        .final-cta-section {
-            padding: 120px 8%;
-            text-align: center;
-        }
-
-        .cta-glass-box {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 80px 40px;
-            background: rgba(255, 255, 255, 0.7) !important;
-            border: 1px solid rgba(15, 23, 42, 0.08) !important;
-            border-radius: 32px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.04);
-        }
-
-        .cta-glass-box h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 48px;
-            color: var(--text-bright);
-            margin: 0 0 16px 0;
-            letter-spacing: -1px;
-        }
-
-        .cta-glass-box p {
-            font-size: 18px;
-            color: var(--text-soft);
-            margin: 0 0 40px 0;
-            font-weight: 300;
-        }
-
-        .cta-input-row {
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--accent-blue);
             display: flex;
-            max-width: 480px;
-            margin: 0 auto 24px auto;
-            border: 1px solid rgba(15, 23, 42, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            background: #FFFFFF;
-            padding: 6px;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
         }
 
-        .cta-input-row input {
-            flex: 1;
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+        }
+
+        .process-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+        }
+
+        .process-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Testimonials */
+        .testimonial-container {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            backdrop-filter: blur(14px);
+        }
+
+        .testimonial-stars {
+            color: #F59E0B;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .testimonial-author-sub {
+            font-size: 13px;
+            color: var(--text-subtle);
+        }
+
+        /* Quote Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content-box {
+            background: #FFFFFF;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 540px;
+            padding: 36px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             background: transparent;
             border: none;
-            color: var(--text-bright);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            padding: 12px 20px;
-            outline: none;
-        }
-
-        .cta-input-row input::placeholder {
-            color: #94A3B8;
-        }
-
-        .cta-input-row button {
-            background: linear-gradient(135deg, var(--aurora-blue), var(--aurora-violet));
-            color: #FFFFFF;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            padding: 0 24px;
+            font-size: 22px;
+            color: var(--text-subtle);
             cursor: pointer;
-            font-size: 14px;
-            transition: opacity 0.3s;
         }
 
-        .cta-input-row button:hover {
-            opacity: 0.9;
+        .form-row {
+            margin-bottom: 16px;
         }
 
-        .cta-trust-info {
+        .form-row label {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 12px;
-            color: #64748B;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .form-ctrl {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: #F8FAFC;
+            font-size: 14px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-ctrl:focus {
+            border-color: var(--accent-blue);
+            background: #FFFFFF;
         }
 
         /* Footer */
         footer {
-            background-color: #F8FAFC !important; /* solid footer light bg */
-            border-top: 1px solid rgba(15, 23, 42, 0.08);
-            padding: 100px 8% 40px 8%;
-            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid var(--border-color);
+            padding: 70px 0 30px;
+            backdrop-filter: blur(14px);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo-desc p {
-            font-size: 13px;
-            color: var(--text-soft);
-            line-height: 1.8;
-            max-width: 320px;
-            margin: 20px 0 0 0;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-col h4 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 12px;
-            letter-spacing: 1px;
-            color: var(--text-bright);
-            text-transform: uppercase;
-            margin: 0 0 24px 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
         }
 
         .footer-col ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
 
         .footer-col ul a {
-            font-size: 13px;
-            color: var(--text-soft);
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
         .footer-col ul a:hover {
-            color: var(--text-bright);
+            color: var(--accent-blue);
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(15, 23, 42, 0.05);
-            padding-top: 40px;
+        .footer-bottom-line {
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 13px;
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-drawer {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav-drawer.active {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: #64748B;
         }
 
-        .footer-bottom-links {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-bottom-links a {
-            color: #64748B;
+        .mobile-nav-drawer a {
+            color: var(--text-primary);
             text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .footer-bottom-links a:hover {
-            color: var(--text-bright);
+        @media (max-width: 992px) {
+            .hero-grid, .concept-card { grid-template-columns: 1fr; gap: 30px; }
+            .stats-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .industries-grid, .projects-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            header nav { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 110px 0 50px; }
+            .concept-card img { height: 240px; }
         }
 
-        /* Scroll reveal observer classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Setup */
-        @media (max-width: 1024px) {
-            #hero {
-                padding-top: 130px;
-            }
-
-            .hero-title {
-                font-size: 56px;
-            }
-
-            .grid-seamless, .pricing-seamless {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                background-color: transparent;
-                border: none;
-                border-radius: 0;
-            }
-
-            .feature-cell {
-                border-radius: 16px;
-                border: 1px solid rgba(15, 23, 42, 0.08);
-            }
-
-            .pricing-seamless {
-                max-width: 440px;
-            }
-
-            .price-card {
-                border-radius: 20px;
-                border: 1px solid rgba(15, 23, 42, 0.08);
-            }
-
-            .showcase-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header nav, .nav-btn-group {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-title {
-                font-size: 42px;
-            }
-
-            .hero-btn-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .hero-trust-row {
-                flex-direction: column;
-                gap: 16px;
-                align-items: center;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .corner-badge {
-                display: none;
-            }
+        @media (max-width: 640px) {
+            header { padding: 0 16px; height: 66px; }
+            .mobile-nav-drawer { top: 66px; }
+            .logo-text { font-size: 16px; }
+            .stats-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; width: 100%; }
+            .hero-ctas .btn-minimal-primary, .hero-ctas .btn-minimal-secondary { width: 100%; justify-content: center; }
+            .hero-text { padding: 22px 18px; }
+            .hero-text h1 { font-size: 26px; }
+            .solution-card, .project-details, .industry-info, .testimonial-container { padding: 20px; }
+            .modal-content-box { padding: 24px 18px; }
+            .project-img-wrap { height: 180px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Canvas Background -->
-    <canvas id="aurora-canvas"></canvas>
+    <!-- Water Bubbles Background Canvas -->
+    <canvas id="water-bubbles-canvas"></canvas>
 
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
-        <div class="logo-wrap" style="padding-left: 5%;">
-            <a href="/" class="logo-wrap">
-                <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" height="36" alt="Logo" />
-                <span class="logo-text">SecureTech<span>AV</span></span>
-            </a>
-        </div>
-
+        <a href="#home" class="logo-wrap">
+            <div class="logo-badge">ST</div>
+            <div class="logo-text">SecureTech <span>AV</span></div>
+        </a>
         <nav>
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#about">About</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#contact">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#concept-center">Concept Center</a>
+            <a href="#industries">Industries</a>
+            <a href="#projects">Projects</a>
+            <a href="#partners">Partners</a>
         </nav>
-
-        <div class="nav-btn-group" style="padding-right: 5%;">
-            <button class="btn-ghost">Sign In</button>
-            <a href="#pricing" class="btn-glass">Free Trial</a>
-            <a href="#pricing" class="btn-aurora">Get Protected →</a>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="/CorporateProfile" class="btn-minimal-secondary" style="padding: 8px 12px; font-size: 12px;">Profile</a>
+            <button class="btn-minimal-primary" onclick="openQuoteModal()" style="padding: 8px 14px; font-size: 12px;">
+                Expert
+            </button>
+            <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" id="mobile-icon"></i>
+            </button>
         </div>
-
-        <button class="hamburger" id="hamburger-toggle" aria-label="Toggle Menu" style="margin-right: 5%;">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </header>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#about">About</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="#home" onclick="toggleMobileNav()">Home</a>
+        <a href="#solutions" onclick="toggleMobileNav()">Solutions</a>
+        <a href="#concept-center" onclick="toggleMobileNav()">Concept Center</a>
+        <a href="#industries" onclick="toggleMobileNav()">Industries</a>
+        <a href="#projects" onclick="toggleMobileNav()">Key Projects</a>
+        <a href="#partners" onclick="toggleMobileNav()">Partners</a>
+        <a href="/CorporateProfile">Corporate Profile</a>
     </div>
 
-    <!-- HERO -->
-    <section id="hero">
-        <div class="trust-badge">🛡️ Now protecting 10 million devices worldwide</div>
-        <h1 class="hero-title">
-            Security That<br/>
-            <span class="gradient">Thinks Ahead</span>
-        </h1>
-        <p class="hero-desc font-inter">
-            AI-powered antivirus that stops threats before they become problems. Lightweight. Invisible. Always protecting.
-        </p>
-
-        <div class="hero-btn-row">
-            <a href="#pricing" class="btn-aurora">Start Free Trial</a>
-            <a href="#how-it-works" class="btn-glass">See How It Works</a>
-        </div>
-
-        <div class="hero-trust-row font-inter">
-            <span>No credit card</span>
-            <span>Cancel anytime</span>
-            <span>30-day free trial</span>
-        </div>
-
-        <!-- Glass card mockup -->
-        <div class="hero-mockup-wrap reveal">
-            <div class="corner-badge badge-tl">🟢 Real-time</div>
-            <div class="corner-badge badge-tr">AI Active</div>
-            <div class="corner-badge badge-bl">0 Threats</div>
-            <div class="corner-badge badge-br">CPU: 0.4%</div>
-            <img src="{{ url_for('static', filename='securetech_av.png') }}" alt="SecureTechAV App Interface" />
-        </div>
-    </section>
-
-    <!-- COMPANIES STRIP (FIRST SECTION AFTER HERO - CONTAINS FADE SEPARATOR) -->
-    <section class="companies-strip content-block">
-        <span class="label font-inter">Trusted by teams at:</span>
-        <div class="company-logos-row">
-            <span>ACME Corp</span>
-            <span>TechFlow</span>
-            <span>DataVault</span>
-            <span>CyberShield</span>
-            <span>NetCore</span>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="section-wrap content-block">
-        <div class="sec-title-wrap">
-            <h2 class="sec-title"><span class="weight-light">Get Protected in</span> 3 Simple Steps</h2>
-            <div class="w-16 h-1 bg-saasBlue mx-auto mt-4"></div>
-        </div>
-
-        <div class="grid-seamless" style="background-color:transparent; border:none;">
-            <!-- Step 1 -->
-            <div class="feature-cell reveal" style="border-radius:16px; border:1px solid rgba(15, 23, 42, 0.08); text-align:center; padding:40px 24px;">
-                <div class="cell-icon-box" style="margin: 0 auto 24px auto;">①</div>
-                <h3 class="cell-title">Download & Install</h3>
-                <p class="cell-desc">Get our lightweight installer file. Set up the shield client on your device in seconds.</p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="feature-cell reveal" style="border-radius:16px; border:1px solid rgba(15, 23, 42, 0.08); text-align:center; padding:40px 24px;">
-                <div class="cell-icon-box" style="margin: 0 auto 24px auto;">②</div>
-                <h3 class="cell-title">Run Smart Scan</h3>
-                <p class="cell-desc">Scan system registers and memory buffers. Neutralize active anomalies instantly.</p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="feature-cell reveal" style="border-radius:16px; border:1px solid rgba(15, 23, 42, 0.08); text-align:center; padding:40px 24px;">
-                <div class="cell-icon-box" style="margin: 0 auto 24px auto;">③</div>
-                <h3 class="cell-title">Stay Protected</h3>
-                <p class="cell-desc">Our heuristics run silently behind the scenes, scanning files dynamically.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features" class="section-wrap content-block">
-        <div class="sec-title-wrap">
-            <h2><span class="weight-light">One product.</span> <span class="gradient">Total protection.</span></h2>
-        </div>
-
-        <div class="grid-seamless">
-            <!-- Cell 1 -->
-            <div class="feature-cell reveal">
-                <div class="cell-icon-box">⚡</div>
-                <div class="cell-bar"></div>
-                <h3 class="cell-title">Real-Time Protection</h3>
-                <p class="cell-desc">Continuously sweeps file additions, blocking trojan anomalies before execution occurs.</p>
-            </div>
-
-            <!-- Cell 2 -->
-            <div class="feature-cell reveal">
-                <div class="cell-icon-box">🧠</div>
-                <div class="cell-bar"></div>
-                <h3 class="cell-title">AI Threat Analysis</h3>
-                <p class="cell-desc">Cloud heuristics model tracks operations, isolating zero-day exploits instantly.</p>
-            </div>
-
-            <!-- Cell 3 -->
-            <div class="feature-cell reveal">
-                <div class="cell-icon-box">🔐</div>
-                <div class="cell-bar"></div>
-                <h3 class="cell-title">Ransomware Defense</h3>
-                <p class="cell-desc">Isolates folder registers to prevent illegal software payloads from locking files.</p>
-            </div>
-
-            <!-- Cell 4 -->
-            <div class="feature-cell reveal">
-                <div class="cell-icon-box">🌐</div>
-                <div class="cell-bar"></div>
-                <h3 class="cell-title">Network Guardian</h3>
-                <p class="cell-desc">Filters traffic packets dynamically to prevent script execution leaks.</p>
-            </div>
-
-            <!-- Cell 5 -->
-            <div class="feature-cell reveal">
-                <div class="cell-icon-box">👁️</div>
-                <div class="cell-bar"></div>
-                <h3 class="cell-title">Dark Web Alerts</h3>
-                <p class="cell-desc">Monitors leaks database to notify you of password vulnerabilities.</p>
-            </div>
-
-            <!-- Cell 6 -->
-            <div class="feature-cell reveal">
-                <div class="cell-icon-box">🚀</div>
-                <div class="cell-bar"></div>
-                <h3 class="cell-title">Zero Performance Hit</h3>
-                <p class="cell-desc">Utilizes cloud-side processing maps, taking under 0.4% local CPU usage.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SHOWCASE -->
-    <section id="about" class="section-wrap content-block">
-        <div class="showcase-grid">
-            <div class="showcase-left-wrap reveal">
-                <img src="{{ url_for('static', filename='about.png') }}" alt="SecureTechAV Monitor Operations" />
-            </div>
-
-            <div class="reveal">
-                <div class="showcase-eyebrow">WHY WE'RE DIFFERENT</div>
-                <h2 class="showcase-title">Complete Privacy Protection</h2>
-                
-                <div class="showcase-row">
-                    <h3 class="showcase-row-title">Safeguard your banking credentials</h3>
-                    <p class="showcase-row-desc">Seals session cookies and password stores from credential grabbers.</p>
-                </div>
-
-                <div class="showcase-row">
-                    <h3 class="showcase-row-title">Blocks webcam spying attempts</h3>
-                    <p class="showcase-row-desc">Restricts hardware drivers unless user permission is logged.</p>
-                </div>
-
-                <div class="showcase-row">
-                    <h3 class="showcase-row-title">Encrypts outgoing internet data</h3>
-                    <p class="showcase-row-desc">Integrated network wrappers secure outbound traffic packets.</p>
-                </div>
-
-                <div class="showcase-row">
-                    <h3 class="showcase-row-title">Anti-phishing email damping</h3>
-                    <p class="showcase-row-desc">Flags malicious links inside templates before clicks execute.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing" class="section-wrap content-block">
-        <div class="sec-title-wrap">
-            <h2>Transparent pricing for everyone</h2>
-        </div>
-
-        <div class="billing-toggle-wrap">
-            <span>Monthly Billing</span>
-            <div class="toggle-switch" id="billing-toggle" aria-label="Toggle Billing Mode">
-                <div class="toggle-btn"></div>
-            </div>
-            <span>Annual Billing</span>
-            <span class="discount-badge">Save 40%</span>
-        </div>
-
-        <div class="pricing-seamless">
-            <!-- Free -->
-            <div class="price-card tier-free reveal">
-                <div>
-                    <h3>Secure Free</h3>
-                    <div class="price-amt-wrap">
-                        <div class="price-amt">$0<span class="period">/mo</span></div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">AV Systems Integrator · India</span>
+                    <h1>AV solutions that run <span>without you thinking about them</span></h1>
+                    <p>
+                        SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India. We keep your communication networks running seamlessly.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#solutions" class="btn-minimal-primary">
+                            Explore Solutions <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button class="btn-minimal-secondary" onclick="openQuoteModal()">
+                            Book a Demo
+                        </button>
                     </div>
-                    <ul class="price-features-list">
-                        <li>Basic Scan Checks</li>
-                        <li>1 Active Device</li>
-                        <li class="disabled">AI Heuristics Engine</li>
-                        <li class="disabled">Dark Web surveillance</li>
+                </div>
+
+                <div class="hero-img-box">
+                    <img src="/images/solution-boardroom.png" alt="Corporate Boardroom AV Integration" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">5600+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">105+</div>
+                    <div class="stat-label">Skilled Engineers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">25</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">Global OEM Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Our Solutions</span>
+                <h2 class="section-title">Turnkey Audio-Visual Infrastructure</h2>
+                <p class="section-desc">We design, engineer, and support standardized audio-visual configurations ensuring seamless videoconferencing, boardroom automation, and network reliability.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+                    <h3>AV System Design</h3>
+                    <p>Bespoke architectural layout modeling, acoustic calculations, and structured cable path maps.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-desktop"></i></div>
+                    <h3>Smart Classroom Integration</h3>
+                    <p>High-brightness laser displays, touch interactive screens, and distance classroom equipment.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>AV Control Systems</h3>
+                    <p>Simplified room automation setups through touchpanels to coordinate audio levels, lighting, and feeds.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>ICT & Structured Cabling</h3>
+                    <p>High-speed fiber backbones, network switch racks, and standardized commercial cat-cabling.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-volume-high"></i></div>
+                    <h3>Auditorium Sound Systems</h3>
+                    <p>Line-array configurations, digital speaker matrices, and acoustic treatment for crystal-clear acoustics.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                    <h3>Stadium & Arena AV</h3>
+                    <p>Weatherproof high-output speakers, massive outdoor LED billboards, and synchronized delays.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-film"></i></div>
+                    <h3>Cinema & Preview Theatres</h3>
+                    <p>Surround-sound configurations and premium digital screening systems for private venues.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Commercial/Retail Audio</h3>
+                    <p>Zoned background music channels, paging networks, and digital signage boards for malls and outlets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workplace Concept Center -->
+    <section class="section" id="concept-center" style="padding-top: 0;">
+        <div class="container">
+            <div class="concept-card">
+                <div>
+                    <span class="eyebrow">Workplace Tech Concept Center</span>
+                    <h2 class="section-title" style="margin: 14px 0 18px; font-size: 30px;">
+                        Come & Experience Our Workplace Concept Center Before Deployment
+                    </h2>
+                    <p class="section-desc" style="margin-bottom: 28px;">
+                        Walk through immersive workplace environments featuring hybrid meeting rooms, boardrooms, command centers, and integrated AV ecosystems engineered for modern enterprises. See the products and layouts in action before selecting your specs.
+                    </p>
+                    <button class="btn-minimal-primary" onclick="openQuoteModal()">
+                        Book a Live Walkthrough <i class="fa-solid fa-calendar-check"></i>
+                    </button>
+                </div>
+                <div>
+                    <img src="/images/advantage_center_v3.jpeg" alt="Workplace Technology Center" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section" id="industries">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Industries We Serve</span>
+                <h2 class="section-title">Tailored AV Integration Across Sectors</h2>
+                <p class="section-desc">We configure bespoke technology setups engineered to match the specialized operational workflows of distinct environments.</p>
+            </div>
+
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-corporate.png" alt="Corporate" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-building"></i> Corporate</h3>
+                        <p>Videoconferencing boardrooms, smart huddle rooms, and collaborative systems.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-education.png" alt="Education" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                        <p>Interactive smart classrooms, lecture halls, and hybrid teaching platforms.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-healthcare.jpg" alt="Healthcare" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-user-md"></i> Healthcare</h3>
+                        <p>High-definition telemedicine suites, OT display routing, and hospital signage.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-public.png" alt="Government" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-landmark"></i> Government</h3>
+                        <p>Secure videoconferencing facilities, legislative councils, and command centers.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-retail.png" alt="Hospitality" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-hotel"></i> Hospitality</h3>
+                        <p>Integrated banquet sound networks, lobby signage, and automation for hotels.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-residential.jpeg" alt="Residential" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-house-laptop"></i> Residential</h3>
+                        <p>Custom home automation, dedicated acoustic home theaters, and distributed sound.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Case Studies & Installations</span>
+                <h2 class="section-title">Our Recent Key Projects</h2>
+                <p class="section-desc">Explore spatial installations engineered, built, and maintained by our certified technical team across India.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <img src="/images/convention_centres.jpeg" alt="Noida Convention Center" />
+                    </div>
+                    <div class="project-details">
+                        <span class="project-tag">Auditoriums & Public Spaces</span>
+                        <h3>Noida Convention Center</h3>
+                        <p>High-performance audio networks, motorized projection systems, and stage lighting matrices deployed across three main halls.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <img src="/images/solution-boardroom.png" alt="Corporate HQ Gurugram" />
+                    </div>
+                    <div class="project-details">
+                        <span class="project-tag">Corporate Workspaces</span>
+                        <h3>Corporate HQ, Gurugram</h3>
+                        <p>Videoconferencing configurations, ceiling microphone arrays, and integrated room control systems for 12 boardrooms.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <img src="/images/solution-smart-classroom.jpeg" alt="Technical Smart Campus" />
+                    </div>
+                    <div class="project-details">
+                        <span class="project-tag">Hybrid Education</span>
+                        <h3>Technical Smart Campus</h3>
+                        <p>Turnkey smart classroom design with laser projections, digital writing screens, and sound delay processors.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-wrap">
+                        <img src="/images/auditorium_view.jpg" alt="State Judicial Council Hall" />
+                    </div>
+                    <div class="project-details">
+                        <span class="project-tag">Government & Judiciary</span>
+                        <h3>State Judicial Council Hall</h3>
+                        <p>High-definition digital signage routing, encryption conferencing channels, and crystal-clear acoustic calibrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Partners Marquee -->
+    <section class="section" id="partners" style="padding: 50px 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(14px); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <span class="eyebrow">Technology Partners</span>
+                <h2 class="section-title" style="font-size: 26px;">Allied With Global AV Innovators</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="partner-box"><div class="partner-circle" style="color:#FF5000;">BS</div><div><strong>Bose Pro</strong><div style="font-size:12px; color:var(--text-subtle);">Commercial Audio</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#E31B23;">CS</div><div><strong>Christie</strong><div style="font-size:12px; color:var(--text-subtle);">Laser Displays</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#049FD9;">CI</div><div><strong>Cisco Systems</strong><div style="font-size:12px; color:var(--text-subtle);">Video Infrastructure</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#FF6600;">JB</div><div><strong>JBL Pro</strong><div style="font-size:12px; color:var(--text-subtle);">Sound Systems</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#A50034;">LG</div><div><strong>LG Electronics</strong><div style="font-size:12px; color:var(--text-subtle);">Displays & LED</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#64748B;">QS</div><div><strong>QSC Audio</strong><div style="font-size:12px; color:var(--text-subtle);">DSP Matrices</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#009FDF;">SN</div><div><strong>Sennheiser</strong><div style="font-size:12px; color:var(--text-subtle);">Ceiling Arrays</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#334155;">SY</div><div><strong>Sony Pro</strong><div style="font-size:12px; color:var(--text-subtle);">Cameras & PTZ</div></div></div>
+                    <!-- Duplicate -->
+                    <div class="partner-box"><div class="partner-circle" style="color:#FF5000;">BS</div><div><strong>Bose Pro</strong><div style="font-size:12px; color:var(--text-subtle);">Commercial Audio</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#E31B23;">CS</div><div><strong>Christie</strong><div style="font-size:12px; color:var(--text-subtle);">Laser Displays</div></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="color:#049FD9;">CI</div><div><strong>Cisco Systems</strong><div style="font-size:12px; color:var(--text-subtle);">Video Infrastructure</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Marquee -->
+    <section class="section" style="padding: 40px 0 80px;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <span class="eyebrow">Trusted Clients</span>
+                <h2 class="section-title" style="font-size: 24px;">Trusted By Leading Organizations</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track" style="animation-direction: reverse;">
+                    <div class="partner-box"><div class="partner-circle" style="background:#fee2e2; color:#dc2626;">IIT</div><div><strong>IIT DELHI</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#dbeafe; color:#2563eb;">IIT</div><div><strong>IIT JODHPUR</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#dcfce7; color:#16a34a;">AM</div><div><strong>AIIMS HOSPITALS</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#fef3c7; color:#d97706;">TT</div><div><strong>TATA ENTERPRISES</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#ede9fe; color:#7c3aed;">INF</div><div><strong>INFOSYS</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#fce7f3; color:#db2777;">WP</div><div><strong>WIPRO</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#e0f2fe; color:#0284c7;">IC</div><div><strong>ICICI BANK</strong></div></div>
+                    <div class="partner-box"><div class="partner-circle" style="background:#dcfce7; color:#15803d;">DLF</div><div><strong>DLF PROPERTIES</strong></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Step Process -->
+    <section class="section" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px);">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Our Process</span>
+                <h2 class="section-title">Structured Engineering Workflow</h2>
+                <p class="section-desc">From site acoustic study to final calibration and long-term maintenance.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-num">01</div>
+                    <h3>Consultation & Acoustics</h3>
+                    <p>Physical inspection, acoustic modeling, and room workflow planning.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">02</div>
+                    <h3>CAD & Architecture</h3>
+                    <p>Detailed schematics, rack elevations, and line diagrams.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">03</div>
+                    <h3>Turnkey Deployment</h3>
+                    <p>Structured cabling, rack integration, and DSP calibration.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">04</div>
+                    <h3>AMC & 24/7 SLA</h3>
+                    <p>Preventive maintenance, rapid dispatch, and dedicated tech support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Client Feedback</span>
+                <h2 class="section-title">Trusted by Industry Leaders</h2>
+            </div>
+
+            <div class="testimonial-container">
+                <div class="testimonial-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial-quote" id="test-quote">
+                    "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution."
+                </div>
+                <div class="testimonial-author-title" id="test-author">Manoj Singh</div>
+                <div class="testimonial-author-sub" id="test-role">Director of Infrastructure &middot; State Judicial Department</div>
+
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 24px;">
+                    <button class="btn-minimal-secondary" onclick="prevTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="btn-minimal-secondary" onclick="nextTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-content-box">
+            <button class="modal-close-btn" onclick="closeQuoteModal()">&times;</button>
+            <span class="eyebrow">Contact Engineering</span>
+            <h3 style="font-family: 'Space Grotesk'; font-size: 20px; color: var(--text-primary); margin: 8px 0 20px;">
+                Request an AV Consultation
+            </h3>
+
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-row">
+                    <label>Your Name</label>
+                    <input type="text" class="form-ctrl" required placeholder="John Doe" />
+                </div>
+                <div class="form-row">
+                    <label>Work Email</label>
+                    <input type="email" class="form-ctrl" required placeholder="john@enterprise.com" />
+                </div>
+                <div class="form-row">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-ctrl" required placeholder="+91 98765 43210" />
+                </div>
+                <div class="form-row">
+                    <label>Requirement Type</label>
+                    <select class="form-ctrl">
+                        <option>Executive Boardroom Integration</option>
+                        <option>Smart Classroom & Lecture Hall</option>
+                        <option>Auditorium Sound & Acoustics</option>
+                        <option>Workplace Concept Center Demo</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>Notes / Requirements</label>
+                    <textarea class="form-ctrl" rows="3" placeholder="Describe your room dimensions and needs..."></textarea>
+                </div>
+                <button type="submit" class="btn-minimal-primary" style="width: 100%; justify-content: center; padding: 12px;">
+                    Submit Consultation Request <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrap" style="margin-bottom: 14px;">
+                        <div class="logo-badge">ST</div>
+                        <div class="logo-text">SecureTech <span>AV</span></div>
+                    </div>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted);">
+                        India's premier turnkey AV systems integrator providing architectural design, hardware provisioning, room acoustics, and AMC support.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#concept-center">Concept Center</a></li>
+                        <li><a href="#industries">Industries</a></li>
+                        <li><a href="#projects">Key Projects</a></li>
                     </ul>
                 </div>
-                <a href="#pricing" class="btn-glass">Free Trial</a>
-            </div>
 
-            <!-- Pro -->
-            <div class="price-card tier-pro reveal">
-                <span class="price-badge">Most Popular</span>
-                <div>
-                    <h3>Secure Pro</h3>
-                    <div class="price-amt-wrap">
-                        <div class="price-amt" id="pro-price" data-monthly="$9.99" data-annual="$5.99">$9.99<span class="period">/mo</span></div>
-                    </div>
-                    <ul class="price-features-list">
-                        <li>AI Real-Time Shields</li>
-                        <li>5 Devices Active</li>
-                        <li>Zero-Day Sandboxing</li>
-                        <li>Dark Web Alerts</li>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solutions">Smart Boardrooms</a></li>
+                        <li><a href="#solutions">Smart Classrooms</a></li>
+                        <li><a href="#solutions">Auditorium Sound</a></li>
+                        <li><a href="#solutions">ICT Networking</a></li>
+                        <li><a href="#solutions">Video Walls</a></li>
                     </ul>
                 </div>
-                <a href="#pricing" class="btn-aurora">Start Free Trial</a>
-            </div>
 
-            <!-- Enterprise -->
-            <div class="price-card tier-enterprise reveal">
-                <div>
-                    <h3>Secure Enterprise</h3>
-                    <div class="price-amt-wrap">
-                        <div class="price-amt">Custom</div>
-                    </div>
-                    <ul class="price-features-list">
-                        <li>Network Node Defense</li>
-                        <li>Unlimited Devices</li>
-                        <li>SecOps Diagnostics</li>
-                        <li>Priority Node support</li>
-                    </ul>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p style="margin-bottom: 8px; font-size: 14px;"><i class="fa-solid fa-location-dot" style="color: var(--accent-blue); margin-right: 8px;"></i> Delhi NCR, Noida, PAN India</p>
+                    <p style="margin-bottom: 8px; font-size: 14px;"><i class="fa-solid fa-envelope" style="color: var(--accent-blue); margin-right: 8px;"></i> info@securetechav.com</p>
+                    <p style="font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--accent-blue); margin-right: 8px;"></i> +91 98100 00000</p>
                 </div>
-                <a href="#pricing" class="btn-purple-outline">Contact Sales</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section id="contact" class="final-cta-section content-block">
-        <div class="cta-glass-box reveal">
-            <h2>Start free. Stay protected.</h2>
-            <p>Free 30-day trial, no credit card required.</p>
-            <div class="cta-input-row font-inter">
-                <input type="email" placeholder="Enter your email" />
-                <button type="button">Get Started</button>
-            </div>
-            <div class="cta-trust-info font-inter">
-                No credit card &bull; Cancel anytime &bull; 30-day trial
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="content-block">
-        <div class="footer-grid font-inter">
-            <div class="footer-logo-desc">
-                <div class="logo-wrap" style="margin-bottom: 20px;">
-                    <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" height="36" alt="Logo" />
-                    <span class="logo-text">SecureTech<span>AV</span></span>
-                </div>
-                <p>AI-driven security shield providing network and computer protection from zero-day threats.</p>
             </div>
 
-            <div class="footer-col">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#pricing">Pricing Plans</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#">Security Alerts</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Alerts Status</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom font-inter">
-            <span>&copy; 2026 SecureTechAV Private Limited. All rights reserved.</span>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy Node</a>
-                <a href="#">Status</a>
+            <div class="footer-bottom-line">
+                &copy; 2026 SecureTech AV Integrators Pvt Ltd. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- JS SCRIPTS -->
+    <!-- Interactive Script & Water Bubbles Animation -->
     <script>
-        // Hamburger Menu Toggle
-        const menuBtn = document.getElementById('hamburger-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const lines = menuBtn.querySelectorAll('span');
-
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.style.display === 'flex';
-            if (!isHidden) {
-                mobileMenu.style.display = 'flex';
-                lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-            } else {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
+        // Testimonials Data
+        const testList = [
+            {
+                quote: "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution.",
+                author: "Manoj Singh",
+                role: "Director of Infrastructure · State Judicial Department"
+            },
+            {
+                quote: "Our Smart Classroom setup makes it incredibly straightforward for professors to coordinate hybrid lectures. The dual laser projection systems remain bright even under direct daylight.",
+                author: "Dr. Rajesh Dwivedi",
+                role: "Head of Digital Education · Premium Technical Institute"
+            },
+            {
+                quote: "SecureTech AV integrated 12 high-priority videoconferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are top-tier.",
+                author: "Amit Saxena",
+                role: "Chief Technology Officer · Global Financial Services"
             }
-        });
-
-        // Close mobile menu on click
-        const mobileLinks = document.querySelectorAll('#mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            });
-        });
-
-        // Billing Toggle Switch
-        const billingToggle = document.getElementById('billing-toggle');
-        const proPrice = document.getElementById('pro-price');
-
-        billingToggle.addEventListener('click', () => {
-            billingToggle.classList.toggle('toggle-active');
-            const isAnnual = billingToggle.classList.contains('toggle-active');
-            
-            if (isAnnual) {
-                proPrice.innerHTML = proPrice.getAttribute('data-annual') + '<span class="period">/mo</span>';
-            } else {
-                proPrice.innerHTML = proPrice.getAttribute('data-monthly') + '<span class="period">/mo</span>';
-            }
-        });
-
-        // Scroll reveals IntersectionObserver
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15
-        });
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // Canvas 2D Aurora background mesh gradient (Light blue color theme)
-        const canvas = document.getElementById('aurora-canvas');
-        const ctx = canvas.getContext('2d');
-
-        let w, h;
-        let mouseX = 0, mouseY = 0;
-        let targetMouseX = 0, targetMouseY = 0;
-
-        function resize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resize);
-        window.addEventListener('mousemove', (e) => {
-            targetMouseX = e.clientX;
-            targetMouseY = e.clientY;
-        });
-
-        resize();
-
-        // 5 Aurora blobs styled with light blue hues
-        const blobs = [
-            { color: '#E0F2FE', r: 320, speed: 0.003, angle: 0, ampX: 200, ampY: 150, startX: w*0.3, startY: h*0.4 },
-            { color: '#BAE6FD', r: 360, speed: 0.002, angle: Math.PI/2, ampX: 250, ampY: 100, startX: w*0.7, startY: h*0.3 },
-            { color: '#7DD3FC', r: 280, speed: 0.004, angle: Math.PI, ampX: 150, ampY: 200, startX: w*0.5, startY: h*0.7 },
-            { color: '#F0F9FF', r: 220, speed: 0.0025, angle: Math.PI*1.5, ampX: 180, ampY: 120, startX: w*0.2, startY: h*0.8 },
-            { color: '#BAE6FD', r: 420, speed: 0.001, angle: 0.7, ampX: 300, ampY: 250, startX: w*0.8, startY: h*0.8 }
         ];
 
-        let time = 0;
+        let currTest = 0;
+        function updateTestimonial() {
+            const t = testList[currTest];
+            document.getElementById('test-quote').innerText = `"${t.quote}"`;
+            document.getElementById('test-author').innerText = t.author;
+            document.getElementById('test-role').innerText = t.role;
+        }
 
-        function animate() {
-            time += 1;
-            ctx.fillStyle = '#F8FAFC'; // Solid Light Gray base instead of dark
-            ctx.fillRect(0, 0, w, h);
+        function nextTestimonial() {
+            currTest = (currTest + 1) % testList.length;
+            updateTestimonial();
+        }
 
-            // Lerp mouse
-            mouseX += (targetMouseX - mouseX) * 0.02;
-            mouseY += (targetMouseY - mouseY) * 0.02;
+        function prevTestimonial() {
+            currTest = (currTest - 1 + testList.length) % testList.length;
+            updateTestimonial();
+        }
 
-            blobs.forEach((blob, idx) => {
-                // Base movement
-                const currentAngle = time * blob.speed + blob.angle;
-                let tx = blob.startX + Math.sin(currentAngle) * blob.ampX;
-                let ty = blob.startY + Math.cos(currentAngle) * blob.ampY;
+        setInterval(nextTestimonial, 8000);
 
-                // Mouse attraction
-                tx += (mouseX - w/2) * (0.05 * (idx + 1));
-                ty += (mouseY - h/2) * (0.05 * (idx + 1));
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.add('active');
+        }
 
-                ctx.globalAlpha = 0.45; // Increased alpha for high contrast visibility on white/light bg
-                ctx.globalCompositeOperation = 'source-over';
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('active');
+        }
 
-                const grad = ctx.createRadialGradient(tx, ty, 0, tx, ty, blob.r);
-                grad.addColorStop(0, blob.color);
-                grad.addColorStop(1, 'transparent');
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert("Thank you! Our SecureTech AV engineering team will contact you within 24 hours.");
+            closeQuoteModal();
+        }
+
+        // Mobile Nav Drawer Toggle
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileNavDrawer');
+            const icon = document.getElementById('mobile-icon');
+            drawer.classList.toggle('active');
+            if (drawer.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        }
+
+        /* ── WATER BUBBLES CANVAS ANIMATION ── */
+        const canvas = document.getElementById('water-bubbles-canvas');
+        const ctx = canvas.getContext('2d');
+        let bubbles = [];
+        let mouseX = -1000;
+        let mouseY = -1000;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        class WaterBubble {
+            constructor(initialRandomY = true) {
+                this.reset(initialRandomY);
+            }
+
+            reset(randomY = false) {
+                this.x = Math.random() * canvas.width;
+                this.y = randomY ? Math.random() * canvas.height : canvas.height + Math.random() * 40 + 20;
+                this.radius = Math.random() * 26 + 10; // 10px to 36px radius
+                this.speed = Math.random() * 0.9 + 0.5; // Upward float speed
+                this.wobbleSpeed = Math.random() * 0.025 + 0.01;
+                this.wobbleDistance = Math.random() * 24 + 10;
+                this.wobbleOffset = Math.random() * Math.PI * 2;
+                this.isDarkBlue = Math.random() > 0.55; // mix of light blue and ocean/dark blue
+                this.baseAlpha = this.isDarkBlue ? (Math.random() * 0.18 + 0.14) : (Math.random() * 0.22 + 0.18);
+            }
+
+            update(time) {
+                this.y -= this.speed;
+                // Organic horizontal floating sine-wave motion
+                this.currentX = this.x + Math.sin(time * this.wobbleSpeed + this.wobbleOffset) * this.wobbleDistance;
+
+                // Subtle mouse avoidance
+                const dx = this.currentX - mouseX;
+                const dy = this.y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    const force = (120 - dist) / 120;
+                    this.currentX += (dx / dist) * force * 15;
+                    this.y += (dy / dist) * force * 15;
+                }
+
+                // If bubble rises past top, reset to bottom
+                if (this.y < -this.radius * 2) {
+                    this.reset(false);
+                }
+            }
+
+            draw() {
+                const cx = this.currentX || this.x;
+                const cy = this.y;
+                const r = this.radius;
+
+                ctx.save();
+                
+                // Outer bubble glow/ring gradient
+                const grad = ctx.createRadialGradient(
+                    cx - r * 0.3, cy - r * 0.3, r * 0.1,
+                    cx, cy, r
+                );
+
+                if (this.isDarkBlue) {
+                    // Deep Royal/Ocean Blue Water Bubble
+                    grad.addColorStop(0, `rgba(224, 242, 254, ${this.baseAlpha * 0.4})`);
+                    grad.addColorStop(0.5, `rgba(2, 132, 199, ${this.baseAlpha * 0.3})`);
+                    grad.addColorStop(0.85, `rgba(3, 105, 161, ${this.baseAlpha * 0.8})`);
+                    grad.addColorStop(1, `rgba(30, 58, 138, ${this.baseAlpha * 0.95})`);
+                } else {
+                    // Light Sky / Cyan Blue Water Bubble
+                    grad.addColorStop(0, `rgba(255, 255, 255, ${this.baseAlpha * 0.5})`);
+                    grad.addColorStop(0.4, `rgba(56, 189, 248, ${this.baseAlpha * 0.4})`);
+                    grad.addColorStop(0.8, `rgba(14, 165, 233, ${this.baseAlpha * 0.75})`);
+                    grad.addColorStop(1, `rgba(2, 132, 199, ${this.baseAlpha * 0.9})`);
+                }
 
                 ctx.fillStyle = grad;
                 ctx.beginPath();
-                ctx.arc(tx, ty, blob.r, 0, Math.PI * 2);
+                ctx.arc(cx, cy, r, 0, Math.PI * 2);
                 ctx.fill();
+
+                // Bubble Outline Ring
+                ctx.strokeStyle = this.isDarkBlue 
+                    ? `rgba(2, 132, 199, ${this.baseAlpha * 0.7})` 
+                    : `rgba(56, 189, 248, ${this.baseAlpha * 0.85})`;
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+
+                // Specular Light Highlight (Gloss reflection on top-left of bubble)
+                ctx.beginPath();
+                ctx.ellipse(
+                    cx - r * 0.35, 
+                    cy - r * 0.35, 
+                    r * 0.28, 
+                    r * 0.14, 
+                    -Math.PI / 4, 
+                    0, 
+                    Math.PI * 2
+                );
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.baseAlpha * 1.5 + 0.25})`;
+                ctx.fill();
+
+                // Secondary soft rim reflection (bottom-right)
+                ctx.beginPath();
+                ctx.arc(cx, cy, r * 0.85, Math.PI * 0.1, Math.PI * 0.45);
+                ctx.strokeStyle = `rgba(255, 255, 255, ${this.baseAlpha * 0.5})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                ctx.restore();
+            }
+        }
+
+        // Initialize 38 floating water bubbles
+        for (let i = 0; i < 38; i++) {
+            bubbles.push(new WaterBubble(true));
+        }
+
+        let animTime = 0;
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            animTime += 1;
+            
+            bubbles.forEach(bubble => {
+                bubble.update(animTime);
+                bubble.draw();
             });
 
             requestAnimationFrame(animate);
@@ -1505,5 +1564,4 @@
         animate();
     </script>
 </body>
-
 </html>

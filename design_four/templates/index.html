@@ -5,222 +5,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <!-- ══ PRIMARY SEO ══ -->
-    <title>SecureTechAV — Autonomous Edge Security & API Shield Grid</title>
-    <meta name="description" content="SecureTechAV provides continuous zero-trust endpoint defense, runtime API shielding, and asynchronous edge threat diagnostics. Secure your infrastructure in seconds." />
-    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}" />
+    <!-- Primary SEO -->
+    <title>SecureTech AV — 3D Spatial Audio-Visual Systems Integrator India</title>
+    <meta name="description" content="SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India." />
+    <link rel="icon" href="/images/securetech_av.png" />
 
-    <!-- Google Fonts: Inter for premium clean UI, JetBrains Mono for system logs -->
+    <!-- Google Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom Green & Bluish-Black CSS System -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- CSS STYLING (3D Spatial Perspective) -->
     <style>
         :root {
-            /* Color System */
-            --bg-base: #030712;      /* Deepest Black */
-            --bg-surface: #0a0f1d;   /* Deep Slate/Bluish Black */
-            --bg-card: #0f172a;      /* Dark Slate Blue */
-            --accent: #10b981;      /* Vibrant Emerald Green (Default) */
-            --accent-hover: #059669;/* Darker Green */
-            --accent-glow: rgba(16, 185, 129, 0.15);
-            --border-muted: rgba(255, 255, 255, 0.05);
-            --border-active: rgba(16, 185, 129, 0.25);
-            
-            /* Text Hierarchy */
-            --text-bright: #f8fafc;
-            --text-soft: #94a3b8;
-            --text-muted: #64748b;
-            
-            /* Typography */
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
-            
-            /* Elevation & Blurs */
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 12px 24px -4px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.6), 0 0 50px rgba(16, 185, 129, 0.02);
-            --blur-glass: blur(20px) saturate(190%);
+            --spatial-bg: #0A0D14;
+            --spatial-card: rgba(16, 22, 34, 0.75);
+            --spatial-border: rgba(255, 255, 255, 0.08);
+            --spatial-border-hover: rgba(245, 158, 11, 0.4);
+            --accent-amber: #F59E0B;
+            --accent-gold: #FBBF24;
+            --accent-blue: #38BDF8;
+            --text-bright: #F8FAFC;
+            --text-muted: #94A3B8;
+            --radius-md: 14px;
+            --radius-lg: 20px;
         }
 
         html {
             scroll-behavior: smooth;
-            background-color: var(--bg-base);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: transparent; /* Transparent so the fixed canvas background renders through */
-            color: var(--text-soft);
-            font-family: var(--font-sans);
-            margin: 0;
-            padding: 0;
+            background-color: var(--spatial-bg);
+            color: var(--text-muted);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            letter-spacing: -0.019em;
-            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.07) 0%, transparent 45%);
+            background-attachment: fixed;
+            perspective: 1000px;
         }
 
-        /* ══ BACKGROUND CANVAS & BLOBS ══ */
-        #bg-canvas {
-            position: fixed;
-            inset: 0;
-            z-index: -10;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            background-color: var(--bg-base);
-        }
-
-        .page-bg-system {
-            position: fixed;
-            inset: 0;
-            z-index: -9; /* Just above canvas, under text elements */
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .glow-blob {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(140px);
-            opacity: 0.18;
-            mix-blend-mode: screen;
-            transition: all 0.5s ease;
-        }
-
-        .blob-1 {
-            width: 55vw;
-            height: 55vw;
-            background: radial-gradient(circle, var(--accent) 0%, rgba(16, 185, 129, 0) 70%);
-            top: -15%;
-            right: -10%;
-            animation: drift-blob-1 25s ease-in-out infinite alternate;
-        }
-
-        .blob-2 {
-            width: 48vw;
-            height: 48vw;
-            background: radial-gradient(circle, var(--accent) 0%, rgba(16, 185, 129, 0) 70%);
-            bottom: -5%;
-            left: -12%;
-            animation: drift-blob-2 22s ease-in-out infinite alternate;
-            opacity: 0.12;
-        }
-
-        @keyframes drift-blob-1 {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-8%, 5%) scale(1.08); }
-        }
-        @keyframes drift-blob-2 {
-            0% { transform: translate(0, 0) scale(1.05); }
-            100% { transform: translate(6%, -8%) scale(0.95); }
-        }
-
-        /* ══ FLOATING CONTROLS STACK (Exactly 5cm Wide Buttons) ══ */
-        .controls-stack {
-            position: fixed;
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1000;
-        }
-
-        .bg-switcher-btn, .theme-switcher-btn {
-            width: 5cm; /* Exactly 5cm Wide */
-            height: 52px;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: var(--blur-glass);
-            -webkit-backdrop-filter: var(--blur-glass);
-            border: 1px solid var(--border-active);
-            border-radius: 10px;
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px var(--accent-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            box-sizing: border-box;
-        }
-
-        .bg-switcher-btn:hover, .theme-switcher-btn:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent);
-            transform: scale(1.02);
-            color: var(--text-bright);
-        }
-
-        .bg-switcher-btn:active, .theme-switcher-btn:active {
-            transform: scale(0.98);
-        }
-
-        .switcher-indicator-dot, .theme-indicator-dot {
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent);
-            animation: pulse-dot 1.5s infinite;
-        }
-
-        @keyframes pulse-dot {
-            0% { transform: scale(0.8); opacity: 0.6; }
-            50% { transform: scale(1.3); opacity: 1; }
-            100% { transform: scale(0.8); opacity: 0.6; }
-        }
-
-        /* ══ LAYOUT CONTAINERS ══ */
         .container {
-            max-width: 1200px;
+            max-width: 1260px;
             margin: 0 auto;
-            padding-left: 24px;
-            padding-right: 24px;
-            box-sizing: border-box;
+            padding: 0 24px;
         }
 
-        .section-padding {
-            padding: 110px 0;
-            position: relative;
-        }
-
-        /* ══ STICKY NAVBAR ══ */
+        /* Navbar */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: var(--blur-glass);
-            -webkit-backdrop-filter: var(--blur-glass);
-            border-bottom: 1px solid var(--border-muted);
-            height: 80px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            height: 70px;
-            background: rgba(3, 7, 18, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .nav-inner {
+            z-index: 1000;
+            background: rgba(10, 13, 20, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--spatial-border);
+            height: 74px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+            padding: 0 5%;
         }
 
         .logo-wrap {
@@ -230,2372 +85,1313 @@
             text-decoration: none;
         }
 
-        .logo-img {
-            height: 32px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-wrap:hover .logo-img {
-            transform: scale(1.08) rotate(-5deg);
+        .logo-badge {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-amber), #D97706);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 18px;
+            color: #0A0D14;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
         }
 
         .logo-text {
-            font-size: 19px;
+            font-family: 'Outfit', sans-serif;
             font-weight: 800;
+            font-size: 20px;
             color: var(--text-bright);
-            letter-spacing: -0.03em;
+            letter-spacing: -0.5px;
         }
 
-        .logo-text span.accent-span {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .logo-status-tag {
-            font-family: var(--font-mono);
-            font-size: 8px;
-            font-weight: 700;
-            color: var(--accent);
-            background: rgba(16, 185, 129, 0.06);
-            border: 1px solid var(--border-active);
-            padding: 2px 8px;
-            border-radius: 99px;
-            margin-left: 10px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-status-tag::before {
-            content: '';
-            display: inline-block;
-            width: 5px;
-            height: 5px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 6px var(--accent);
-            animation: pulse-dot 1.5s infinite;
+        .logo-text span {
+            color: var(--accent-amber);
         }
 
         header nav {
             display: flex;
-            gap: 36px;
+            gap: 28px;
         }
 
         header nav a {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-soft);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s ease;
-            position: relative;
-            padding: 6px 0;
-        }
-
-        header nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.22s ease;
+            transition: color 0.2s;
         }
 
         header nav a:hover {
-            color: var(--text-bright);
+            color: var(--accent-amber);
         }
 
-        header nav a:hover::after {
-            width: 100%;
-        }
-
-        .nav-btn-group {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        /* Buttons Definition */
-        .btn {
+        .btn-spatial-primary {
+            background: linear-gradient(135deg, var(--accent-amber), #D97706);
+            color: #0A0D14;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
             font-size: 13px;
-            font-weight: 600;
-            padding: 10px 22px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 11px 22px;
             border-radius: 8px;
+            border: none;
             cursor: pointer;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
-            text-decoration: none;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            font-family: var(--font-sans);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
 
-        .btn-sm {
-            padding: 8px 16px;
-            font-size: 12px;
+        .btn-spatial-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
         }
 
-        .btn-outline {
-            background: transparent;
+        .btn-spatial-secondary {
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-bright);
-            border: 1px solid var(--border-muted);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: #030712;
-            border: 1px solid transparent;
-            box-shadow: 0 4px 14px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px var(--accent);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-soft);
-            border: none;
-        }
-
-        .btn-ghost:hover {
-            color: var(--text-bright);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        /* Mobile Hamburger */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 11px 22px;
+            border-radius: 8px;
+            border: 1px solid var(--spatial-border);
             cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-            padding: 8px;
-        }
-
-        .hamburger span {
-            width: 20px;
-            height: 2px;
-            background-color: var(--text-bright);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        #mobile-menu {
-            display: none;
-            position: fixed;
-            inset: 0;
-            top: 0;
-            background: rgba(3, 7, 18, 0.99);
-            backdrop-filter: blur(25px);
-            padding: 120px 40px 40px;
-            flex-direction: column;
-            gap: 24px;
-            z-index: 99;
-            align-items: center;
-        }
-
-        #mobile-menu a {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--text-soft);
             text-decoration: none;
-        }
-
-        #mobile-menu a:hover {
-            color: var(--text-bright);
-        }
-
-        /* ══ HERO SECTION ══ */
-        .hero-section {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            min-height: calc(100vh - 80px);
-            padding-top: 130px;
-            padding-bottom: 90px;
-            box-sizing: border-box;
-            position: relative;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-spatial-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section Layout */
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .spatial-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-amber);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            padding: 6px 14px;
+            border-radius: 30px;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 800;
+            color: var(--text-bright);
+            line-height: 1.2;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent-amber);
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 150px 0 80px;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 60px;
+            gap: 50px;
             align-items: center;
-            width: 100%;
         }
 
-        .hero-left {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-tag {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-active);
-            padding: 6px 14px;
-            border-radius: 99px;
-            margin-bottom: 24px;
-        }
-
-        .hero-title {
-            font-size: 58px;
+        .hero-text h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(34px, 4.2vw, 52px);
             font-weight: 800;
-            line-height: 1.1;
             color: var(--text-bright);
-            margin: 0 0 24px 0;
-            letter-spacing: -0.035em;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin: 16px 0 20px;
         }
 
-        .hero-title span.green-text {
-            background: linear-gradient(135deg, var(--accent) 0%, #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: block;
-            margin-top: 4px;
+        .hero-text h1 span {
+            color: var(--accent-amber);
         }
 
-        .hero-desc {
-            font-size: 18px;
-            color: var(--text-soft);
-            line-height: 1.6;
-            max-width: 530px;
-            margin: 0 0 36px 0;
-            font-weight: 400;
-        }
-
-        .hero-btn-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 50px;
-        }
-
-        /* Device mockup container */
-        .hero-right {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-        }
-
-        .device-shadow-glow {
-            position: absolute;
-            width: 85%;
-            height: 85%;
-            background: var(--accent-glow);
-            filter: blur(120px);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        /* Premium Browser Mockup */
-        .browser-mockup {
-            width: 100%;
-            max-width: 480px;
-            background: #090d16;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .browser-mockup:hover {
-            transform: translateY(-6px) scale(1.015);
-            border-color: var(--border-active);
-            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7), 0 0 40px var(--accent-glow);
-        }
-
-        .browser-topbar {
-            height: 38px;
-            background: rgba(11, 16, 28, 0.85);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            justify-content: space-between;
-        }
-
-        .browser-controls {
-            display: flex;
-            gap: 6px;
-        }
-
-        .browser-address {
-            background: rgba(3, 7, 18, 0.5);
-            border-radius: 6px;
-            font-family: var(--font-mono);
-            font-size: 10px;
+        .hero-text p {
+            font-size: 16.5px;
             color: var(--text-muted);
-            padding: 4px 20px;
-            width: 60%;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            white-space: nowrap;
+            line-height: 1.75;
+            margin-bottom: 32px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-spatial-card {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            text-overflow: ellipsis;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 158, 11, 0.15);
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
         }
 
-        .browser-content {
-            background: #070a13;
-            padding: 0;
-            margin: 0;
-            display: block;
+        .hero-spatial-card:hover {
+            transform: rotateY(-4deg) rotateX(4deg) translateY(-5px);
         }
 
-        .browser-content img {
+        .hero-spatial-card img {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
-            opacity: 0.93;
-            transition: opacity 0.3s;
+            object-fit: cover;
         }
 
-        .browser-mockup:hover img {
-            opacity: 1;
-        }
-
-        /* ══ STATS SECTION ══ */
-        .stats-wrapper {
-            border-top: 1px solid var(--border-muted);
-            border-bottom: 1px solid var(--border-muted);
-            background: rgba(10, 15, 29, 0.4);
-            position: relative;
-            z-index: 2;
+        /* Stats Bar */
+        .stats-section {
+            padding: 35px 0;
+            background: rgba(16, 22, 34, 0.6);
+            border-top: 1px solid var(--spatial-border);
+            border-bottom: 1px solid var(--spatial-border);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            text-align: center;
-        }
-
-        .stat-card {
-            padding: 45px 24px;
-            position: relative;
-            transition: background 0.25s ease;
-        }
-
-        .stat-card:hover {
-            background: rgba(255, 255, 255, 0.005);
-        }
-
-        .stat-card:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 25%;
-            height: 50%;
-            width: 1px;
-            background-color: var(--border-muted);
-        }
-
-        .stat-num {
-            font-family: var(--font-mono);
-            font-size: 44px;
-            font-weight: 700;
-            color: var(--text-bright);
-            line-height: 1;
-            margin-bottom: 10px;
-            letter-spacing: -0.03em;
-        }
-
-        .stat-num.accent-num {
-            color: var(--accent);
-            text-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .stat-label {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* ══ SERVICES / FEATURES SECTION ══ */
-        .section-header {
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto 72px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: inline-block;
-            margin-bottom: 14px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-active);
-            padding: 4px 12px;
-            border-radius: 99px;
-        }
-
-        .section-title {
-            font-size: 38px;
-            font-weight: 800;
-            color: var(--text-bright);
-            margin: 0 0 18px 0;
-            letter-spacing: -0.025em;
-        }
-
-        .section-desc {
-            font-size: 16px;
-            color: var(--text-soft);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .service-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-muted);
-            border-radius: 16px;
-            padding: 36px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        /* Radial cursor shine */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), var(--accent-glow), transparent 40%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-active);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .service-icon-box {
-            width: 46px;
-            height: 46px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-soft);
-            margin-bottom: 24px;
-            transition: all 0.25s ease;
-        }
-
-        .service-card:hover .service-icon-box {
-            background: var(--accent-glow);
-            border-color: var(--border-active);
-            color: var(--accent);
-            transform: scale(1.05);
-        }
-
-        .service-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-bright);
-            margin: 0 0 12px 0;
-            letter-spacing: -0.01em;
-        }
-
-        .service-desc {
-            font-size: 14px;
-            color: var(--text-soft);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* ══ DIAGNOSTICS SECTION (ABOUT) ══ */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-left {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .about-bullets-list {
-            margin-top: 36px;
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
-        .about-bullet-row {
+        .stat-card {
+            text-align: center;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--spatial-border);
+        }
+
+        .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--accent-amber);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .solution-card {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-muted);
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .about-bullet-row:last-child {
-            border-bottom: none;
+        .solution-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-amber);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.15);
         }
 
-        .bullet-icon-box {
+        .solution-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--accent-amber);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 26px;
-            height: 26px;
-            border-radius: 6px;
-            background: var(--accent-glow);
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 700;
-            flex-shrink: 0;
-            border: 1px solid var(--border-active);
+            font-size: 22px;
+            margin-bottom: 18px;
         }
 
-        .bullet-content h4 {
-            font-size: 16px;
+        .solution-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-bright);
-            margin: 0 0 6px 0;
+            margin-bottom: 10px;
         }
 
-        .bullet-content p {
+        .solution-card p {
             font-size: 14px;
-            color: var(--text-soft);
-            margin: 0;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* ══ LIVE AUDITS (THREAT FEED) ══ */
-        .threat-feed-container {
-            max-width: 850px;
-            margin: 0 auto 60px auto;
-            position: relative;
-            z-index: 2;
+        /* Concept Center Card */
+        .concept-card {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        .feed-box {
-            background: #05070e;
-            border: 1px solid var(--border-muted);
-            border-radius: 12px;
-            padding: 24px;
-            font-family: var(--font-mono);
-            font-size: 11.5px;
-            box-shadow: var(--shadow-lg);
+        .concept-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--spatial-border);
+        }
+
+        /* Industries */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .industry-card {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-5px);
+        }
+
+        .industry-img-box {
+            height: 175px;
             overflow: hidden;
         }
 
-        .feed-header {
-            display: grid;
-            grid-template-columns: 1.1fr 1.6fr 2.1fr 1fr;
-            color: var(--text-muted);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 12px;
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        .industry-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .feed-rows-container {
-            max-height: 230px;
-            overflow-y: hidden;
-            display: flex;
-            flex-direction: column;
+        .industry-card:hover .industry-img-box img {
+            transform: scale(1.06);
         }
 
-        .feed-row {
-            display: grid;
-            grid-template-columns: 1.1fr 1.6fr 2.1fr 1fr;
-            align-items: center;
-            padding: 9px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-            transition: all 0.4s ease;
+        .industry-info {
+            padding: 22px;
         }
 
-        .feed-time {
-            color: var(--text-muted);
-        }
-
-        .feed-ip {
-            color: var(--text-soft);
-        }
-
-        .feed-vector {
-            color: var(--text-bright);
-            font-weight: 500;
-        }
-
-        .feed-badge {
-            justify-self: start;
-            color: var(--accent);
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-active);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 9.5px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        /* ══ TESTIMONIALS ══ */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonial-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-muted);
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--border-active);
-            transform: translateY(-2px);
-        }
-
-        .stars-row {
-            color: var(--accent);
-            font-size: 13px;
-            margin-bottom: 18px;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-quote {
-            font-size: 14.5px;
-            line-height: 1.65;
-            color: var(--text-soft);
-            margin: 0 0 24px 0;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .author-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--accent-glow);
-            border: 1px solid var(--border-active);
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 11px;
-        }
-
-        .author-info h5 {
-            margin: 0;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-bright);
-        }
-
-        .author-info p {
-            margin: 2px 0 0 0;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        /* ══ PRICING SECTION ══ */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1050px;
-            margin: 0 auto;
-            align-items: stretch;
-            position: relative;
-            z-index: 2;
-        }
-
-        .price-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-muted);
-            border-radius: 20px;
-            padding: 44px 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            box-sizing: border-box;
-        }
-
-        .price-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        /* Accent Highlighted Pro Card */
-        .price-card.pro-card {
-            border-color: var(--border-active);
-            box-shadow: var(--shadow-md), 0 0 40px var(--accent-glow);
-            background: linear-gradient(180deg, #101726 0%, #0a0f1d 100%);
-        }
-
-        .price-card.pro-card::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 20px;
-            padding: 1px;
-            background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .pro-badge-wrap {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-        }
-
-        .pro-badge {
-            background-color: var(--accent);
-            color: #030712;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 99px;
-            letter-spacing: 0.5px;
-        }
-
-        .price-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin: 0 0 16px 0;
-        }
-
-        .price-amount {
-            font-family: var(--font-mono);
-            font-size: 38px;
+        .industry-info h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
             font-weight: 700;
             color: var(--text-bright);
             margin-bottom: 8px;
-            line-height: 1;
-        }
-
-        .price-amount span {
-            font-family: var(--font-sans);
-            font-size: 14px;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-left: 2px;
-        }
-
-        .price-desc {
-            font-size: 13px;
-            color: var(--text-soft);
-            margin: 0 0 32px 0;
-        }
-
-        .price-features {
-            list-style: none;
-            padding: 24px 0 0;
-            margin: 0 0 40px 0;
-            border-top: 1px solid var(--border-muted);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .price-features li {
-            font-size: 14px;
-            color: var(--text-soft);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
-        .price-features li svg {
-            color: var(--accent);
-            flex-shrink: 0;
+        .industry-info h3 i {
+            color: var(--accent-amber);
+            font-size: 14px;
         }
 
-        .price-features li.disabled {
+        .industry-info p {
+            font-size: 13.5px;
             color: var(--text-muted);
-            text-decoration: line-through;
-            opacity: 0.55;
+            line-height: 1.55;
         }
 
-        .price-features li.disabled svg {
-            color: var(--text-muted);
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
         }
 
-        /* ══ CTA BANNER SECTION ══ */
-        .cta-section-wrapper {
-            position: relative;
-            z-index: 2;
+        .project-card {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .cta-box {
-            background: linear-gradient(135deg, #090d16 0%, #04060d 100%);
-            border: 1px solid var(--border-muted);
-            border-radius: 24px;
-            padding: 80px 48px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            position: relative;
+        .project-card:hover {
+            border-color: var(--accent-amber);
+            transform: translateY(-5px);
+        }
+
+        .project-img-box {
+            height: 230px;
             overflow: hidden;
         }
 
-        .cta-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 320px;
-            height: 100px;
-            background: var(--accent-glow);
-            filter: blur(60px);
-            border-radius: 50%;
-            pointer-events: none;
+        .project-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .cta-title {
-            font-size: 40px;
-            font-weight: 800;
+        .project-card:hover .project-img-box img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 26px;
+        }
+
+        .project-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-amber);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .project-info h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
             color: var(--text-bright);
-            margin: 0 0 16px 0;
-            letter-spacing: -0.02em;
+            margin-bottom: 10px;
         }
 
-        .cta-desc {
-            font-size: 16px;
-            color: var(--text-soft);
-            max-width: 530px;
-            margin: 0 auto 36px;
-        }
-
-        .cta-form {
-            display: flex;
-            gap: 12px;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .cta-input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-muted);
-            color: var(--text-bright);
-            font-family: var(--font-sans);
+        .project-info p {
             font-size: 14px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            outline: none;
-            box-sizing: border-box;
-            transition: all 0.2s ease;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        .cta-input:focus {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 0 12px var(--accent-glow);
-        }
-
-        /* ══ FOOTER ══ */
-        footer {
-            background-color: #030408;
-            border-top: 1px solid var(--border-muted);
-            padding: 80px 0 40px 0;
+        /* Marquee */
+        .marquee-wrapper {
+            overflow: hidden;
+            user-select: none;
+            padding: 10px 0;
             position: relative;
-            z-index: 2;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 20px;
+            animation: marqueeScroll 26s linear infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .partner-pill {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-md);
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 200px;
+        }
+
+        .partner-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-amber);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-md);
+            padding: 26px 20px;
+        }
+
+        .process-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--accent-amber);
+            margin-bottom: 10px;
+        }
+
+        .process-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 8px;
+        }
+
+        .process-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Testimonials */
+        .testimonials-box {
+            background: var(--spatial-card);
+            border: 1px solid var(--spatial-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-stars {
+            color: #F59E0B;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-bright);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--accent-amber);
+            font-size: 15px;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-dialog-box {
+            background: #101622;
+            border: 1px solid var(--accent-amber);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 550px;
+            padding: 36px;
+            position: relative;
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.3);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .form-group-item {
+            margin-bottom: 16px;
+        }
+
+        .form-group-item label {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-amber);
+            margin-bottom: 6px;
+        }
+
+        .form-ctrl-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--spatial-border);
+            color: var(--text-bright);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-ctrl-input:focus {
+            border-color: var(--accent-amber);
+        }
+
+        /* Footer */
+        footer {
+            background: #06090F;
+            border-top: 1px solid var(--spatial-border);
+            padding: 70px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo-desc p {
-            font-size: 14px;
-            color: var(--text-soft);
-            line-height: 1.6;
-            max-width: 320px;
-            margin: 20px 0 0 0;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-col h4 {
-            font-size: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
             font-weight: 700;
-            color: var(--text-bright);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin: 0 0 24px 0;
+            letter-spacing: 1px;
+            color: var(--accent-amber);
+            margin-bottom: 16px;
         }
 
         .footer-col ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
 
         .footer-col ul a {
-            font-size: 14px;
-            color: var(--text-soft);
+            color: var(--text-muted);
             text-decoration: none;
+            font-size: 14px;
             transition: color 0.2s;
         }
 
         .footer-col ul a:hover {
+            color: var(--accent-amber);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--spatial-border);
+            color: var(--accent-amber);
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-drawer {
+            display: none;
+            position: fixed;
+            top: 74px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 13, 20, 0.98);
+            border-bottom: 1px solid var(--accent-amber);
+            padding: 20px;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 999;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .mobile-nav-drawer.active {
+            display: flex;
+        }
+
+        .mobile-nav-drawer a {
             color: var(--text-bright);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .footer-bottom-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .footer-bottom-right a {
-            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--spatial-border);
         }
 
-        .footer-bottom-right a:hover {
-            color: var(--text-bright);
+        @media (max-width: 992px) {
+            .hero-grid, .concept-card { grid-template-columns: 1fr; gap: 30px; }
+            .stats-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+            .industries-grid, .projects-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            header nav { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 110px 0 50px; }
+            .concept-card img { height: 240px; }
         }
 
-        .system-status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .system-status-indicator::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 6px var(--accent);
-        }
-
-        /* ══ OBSERVER REVEAL ══ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ══ RESPONSIVE ══ */
-        @media (max-width: 1024px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-                text-align: center;
-            }
-
-            .hero-desc {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-btn-row {
-                justify-content: center;
-            }
-
-            .services-grid, .testimonials-grid, .pricing-grid, .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .about-left {
-                order: 2;
-            }
-
-            .about-right {
-                order: 1;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-card:not(:last-child)::after {
-                display: none;
-            }
-
-            .stat-card {
-                border-bottom: 1px solid var(--border-muted);
-            }
-
-            .stat-card:last-child {
-                border-bottom: none;
-            }
-
-            header nav, .nav-btn-group {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 38px;
-            }
-
-            .hero-btn-row {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .cta-form {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .footer-bottom-right {
-                flex-direction: column;
-                gap: 12px;
-            }
+        @media (max-width: 640px) {
+            header { padding: 0 16px; height: 68px; }
+            .mobile-nav-drawer { top: 68px; }
+            .logo-text { font-size: 16px; }
+            .stats-grid, .solutions-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; width: 100%; }
+            .hero-ctas .btn-spatial-primary, .hero-ctas .btn-spatial-secondary { width: 100%; justify-content: center; }
+            .hero-text h1 { font-size: 26px; }
+            .solution-card, .project-info, .industry-info, .testimonials-box { padding: 20px; }
+            .modal-dialog-box { padding: 24px 18px; }
+            .project-img-box { height: 180px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Fixed full-page background rendering canvas -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- Floating Control Stack on the right (exactly 5cm wide buttons) -->
-    <div class="controls-stack">
-        <button class="theme-switcher-btn" id="theme-switcher">
-            <span class="theme-indicator-dot"></span>
-            <span id="theme-text">Theme: Green</span>
-        </button>
-        <button class="bg-switcher-btn" id="bg-switcher">
-            <span class="switcher-indicator-dot"></span>
-            <span id="switcher-text">BG: Neural Mesh</span>
-        </button>
-    </div>
-
-    <!-- Radial Background glows -->
-    <div class="page-bg-system">
-        <div class="glow-blob blob-1"></div>
-        <div class="glow-blob blob-2"></div>
-    </div>
-
-    <!-- HEADER/NAVBAR -->
-    <header id="main-header">
-        <div class="container nav-inner">
-            <a href="/" class="logo-wrap">
-                <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTechAV Logo" class="logo-img filter brightness-200" />
-                <span class="logo-text">
-                    SecureTech<span class="accent-span">AV</span>
-                    <span class="logo-status-tag">SHIELD GRID ON</span>
-                </span>
-            </a>
-            
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#feed">Audits</a>
-                <a href="#pricing">Pricing</a>
-            </nav>
-
-            <div class="nav-btn-group">
-                <button class="btn btn-ghost">[ Log In ]</button>
-                <a href="#pricing" class="btn btn-primary btn-sm">Deploy Shield</a>
-            </div>
-
-            <!-- Hamburger Button -->
-            <button id="menu-btn" class="hamburger" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header -->
+    <header>
+        <a href="#home" class="logo-wrap">
+            <div class="logo-badge">ST</div>
+            <div class="logo-text">SECURETECH <span>AV</span></div>
+        </a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#concept-center">Concept Center</a>
+            <a href="#industries">Industries</a>
+            <a href="#projects">Projects</a>
+            <a href="#partners">Partners</a>
+        </nav>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="/CorporateProfile" class="btn-spatial-secondary" style="padding: 8px 12px; font-size: 12px;">Profile</a>
+            <button class="btn-spatial-primary" onclick="openQuoteModal()" style="padding: 8px 14px; font-size: 12px;">
+                Quote
+            </button>
+            <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" id="mobile-icon"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#features" class="mobile-link">Features</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#feed" class="mobile-link">Audits</a>
-        <a href="#pricing" class="mobile-link">Pricing</a>
-        <a href="#pricing" class="btn btn-primary mt-4 mobile-link" style="width: 100%;">Deploy Shield</a>
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="#home" onclick="toggleMobileNav()">Home</a>
+        <a href="#solutions" onclick="toggleMobileNav()">Solutions</a>
+        <a href="#concept-center" onclick="toggleMobileNav()">Concept Center</a>
+        <a href="#industries" onclick="toggleMobileNav()">Industries</a>
+        <a href="#projects" onclick="toggleMobileNav()">Key Projects</a>
+        <a href="#partners" onclick="toggleMobileNav()">Partners</a>
+        <a href="/CorporateProfile">Corporate Profile</a>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main>
-        
-        <!-- HERO SECTION -->
-        <section id="home" class="hero-section">
-            <div class="container hero-grid">
-                <!-- Copywriting details -->
-                <div class="hero-left reveal">
-                    <div class="hero-tag">
-                        <span class="live-dot"></span> Next-Gen Endpoint Shield
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="spatial-eyebrow">
+                        <i class="fa-solid fa-cube"></i> AV Systems Integrator · India
                     </div>
-                    
-                    <h1 class="hero-title">
-                        Autonomous Threat
-                        <span class="green-text">Prevention Grid</span>
-                    </h1>
-                    
-                    <p class="hero-desc">
-                        Stop ransomware, malicious binaries, and credential theft before execution. SecureTechAV utilizes asynchronous edge diagnostics to isolate system exploits in under 15 milliseconds.
+                    <h1>AV solutions that run <span>without you thinking about them</span></h1>
+                    <p>
+                        SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India. We keep your communication networks running seamlessly.
                     </p>
-                    
-                    <div class="hero-btn-row">
-                        <a href="#pricing" class="btn btn-primary">Deploy Free Shield</a>
-                        <a href="#features" class="btn btn-outline">Explore Developer API</a>
+                    <div class="hero-ctas">
+                        <a href="#solutions" class="btn-spatial-primary">
+                            Explore Solutions <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button class="btn-spatial-secondary" onclick="openQuoteModal()">
+                            Book a Demo <i class="fa-solid fa-calendar"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Custom Dashboard Image inside browser mockup -->
-                <div class="hero-right reveal">
-                    <div class="device-shadow-glow"></div>
-                    
-                    <!-- Mockup Window -->
-                    <div class="browser-mockup">
-                        <div class="browser-topbar">
-                            <div class="browser-controls">
-                                <span class="browser-dot dot-red"></span>
-                                <span class="browser-dot dot-yellow"></span>
-                                <span class="browser-dot dot-green"></span>
-                            </div>
-                            <div class="browser-address">console.securetechav.com/telemetry</div>
-                            <div style="width: 32px;"></div>
-                        </div>
-                        <div class="browser-content">
-                            <img src="{{ url_for('static', filename='security_dashboard_preview.png') }}" alt="SecureTechAV SaaS Dashboard console" />
-                        </div>
-                    </div>
+                <div class="hero-spatial-card">
+                    <img src="/images/solution-boardroom.png" alt="Boardroom AV Installation" />
                 </div>
-            </div>
-        </section>
-
-        <!-- STATS BLOCK -->
-        <section class="stats-wrapper">
-            <div class="container stats-grid">
-                <div class="stat-card">
-                    <div class="stat-num accent-num stat-count" id="threats-counter" data-target="1409218495" data-decimals="0" data-suffix="">0</div>
-                    <div class="stat-label">Requests Analyzed Today</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">&lt; 12ms</div>
-                    <div class="stat-label">Diagnostic Overhead Latency</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num">99.999%</div>
-                    <div class="stat-label">Threat Mitigation Accuracy</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES / SOLUTIONS SECTION -->
-        <section id="features" class="section-padding">
-            <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">Zero-Trust Modules</span>
-                    <h2 class="section-title">Comprehensive Runtime Protection</h2>
-                    <p class="section-desc">Securing endpoints, applications, and networks with sandboxed edge audits and automated firewall lockdowns.</p>
-                </div>
-
-                <div class="services-grid">
-                    <!-- Solution 1 -->
-                    <div class="service-card reveal">
-                        <div class="service-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <h3 class="service-title">Continuous Verification</h3>
-                        <p class="service-desc">Every system call and API transaction is cryptographically analyzed against environment templates before execution permission.</p>
-                    </div>
-
-                    <!-- Solution 2 -->
-                    <div class="service-card reveal">
-                        <div class="service-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                        </div>
-                        <h3 class="service-title">Neural Behavioral Modeling</h3>
-                        <p class="service-desc">Edge neural models analyze processes, spotting fileless execution loops and injection patterns legacy scanners fail to intercept.</p>
-                    </div>
-
-                    <!-- Solution 3 -->
-                    <div class="service-card reveal">
-                        <div class="service-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        </div>
-                        <h3 class="service-title">Block-Level Kill Switch</h3>
-                        <p class="service-desc">Terminates anomalous file access immediately at the disk register level, neutralizing ransomware threads during initial file accesses.</p>
-                    </div>
-
-                    <!-- Solution 4 -->
-                    <div class="service-card reveal">
-                        <div class="service-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h3 class="service-title">Credential Leak Sentinel</h3>
-                        <p class="service-desc">Continuous monitoring scans public indexes, dump repositories, and leaked developer spaces to flag compromised credentials within 2 minutes.</p>
-                    </div>
-
-                    <!-- Solution 5 -->
-                    <div class="service-card reveal">
-                        <div class="service-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        </div>
-                        <h3 class="service-title">Hardware-Bound Token Shield</h3>
-                        <p class="service-desc">Encrypts and binds session tokens to local hardware identifiers, preventing attackers from hijacking session state cookies.</p>
-                    </div>
-
-                    <!-- Solution 6 -->
-                    <div class="service-card reveal">
-                        <div class="service-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                        </div>
-                        <h3 class="service-title">Asynchronous Edge Compute</h3>
-                        <p class="service-desc">All computational load is offloaded to our nearest edge gateway network, ensuring absolute zero latency degradation on endpoints.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAGNOSTICS / ABOUT SECTION -->
-        <section id="about" class="section-padding" style="background: rgba(10, 15, 29, 0.3);">
-            <div class="container about-grid">
-                <!-- Threat Map image inside browser mockup -->
-                <div class="about-left reveal">
-                    <div class="browser-mockup">
-                        <div class="browser-topbar">
-                            <div class="browser-controls">
-                                <span class="browser-dot dot-red"></span>
-                                <span class="browser-dot dot-yellow"></span>
-                                <span class="browser-dot dot-green"></span>
-                            </div>
-                            <div class="browser-address">console.securetechav.com/network-map</div>
-                            <div style="width: 32px;"></div>
-                        </div>
-                        <div class="browser-content">
-                            <img src="{{ url_for('static', filename='network_threat_map.png') }}" alt="Network Threat Map node console" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right list details -->
-                <div class="about-right reveal">
-                    <span class="section-eyebrow">Enterprise Infrastructure</span>
-                    <h2 class="section-title">Designed for Modern High-Performance Stacks</h2>
-                    <p class="section-desc">Traditional endpoint security slows down developer workstations and creates latency. SecureTechAV integrates silently into the gateway layer.</p>
-
-                    <div class="about-bullets-list">
-                        <!-- Bullet 1 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-icon-box">01</span>
-                            <div class="bullet-content">
-                                <h4>Single-Command Daemon Install</h4>
-                                <p>Secures macOS, Linux nodes, or Windows systems with a single-line shell installation command.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 2 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-icon-box">02</span>
-                            <div class="bullet-content">
-                                <h4>Sandboxed Isolation Vault</h4>
-                                <p>Processes suspected to containing payloads are immediately mirrored into a sandboxed edge virtual machine to dissect behaviors.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 3 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-icon-box">03</span>
-                            <div class="bullet-content">
-                                <h4>Hardware Attestation Checks</h4>
-                                <p>Validates logins using secure hardware chips (TPM/Secure Enclave) to lock out unauthorized actors using stolen passwords.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 4 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-icon-box">04</span>
-                            <div class="bullet-content">
-                                <h4>Unified Infrastructure Console</h4>
-                                <p>Aggregates host diagnostics, API gateways, database logs, and user endpoint states into a single centralized console dashboard.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 5 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-icon-box">05</span>
-                            <div class="bullet-content">
-                                <h4>SOC2 & ISO Compliant Reporting</h4>
-                                <p>Generate audit-ready documentation and logs mapping zero-trust configurations to standard compliance templates.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LIVE AUDITS / logs -->
-        <section id="feed" class="section-padding">
-            <div class="container">
-                <div class="threat-feed-container reveal">
-                    <div style="text-align: center; margin-bottom: 40px;">
-                        <span class="section-eyebrow">Active Telemetry Logs</span>
-                        <h2 class="section-title">Live Edge Event Stream</h2>
-                        <p class="section-desc">Real-time audit log of blocked exploits and request audits processed across our nearest edge nodes.</p>
-                    </div>
-
-                    <div class="feed-box">
-                        <div class="feed-header">
-                            <span>TIMESTAMP</span>
-                            <span>ENDPOINT / SOURCE IP</span>
-                            <span>SIGNATURE</span>
-                            <span>ACTION TAKEN</span>
-                        </div>
-                        <div class="feed-rows-container" id="live-threat-feed">
-                            <!-- Dynamically updated -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonials -->
-                <div class="testimonials-grid">
-                    <!-- Card 1 -->
-                    <div class="testimonial-card reveal">
-                        <div>
-                            <div class="stars-row">★★★★★</div>
-                            <p class="testimonial-quote">
-                                "We migrated our fintech databases to SecureTechAV. The memory block-level lockdown feature blocked a custom API exploit attempt on our main billing server within 15 milliseconds."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ST</div>
-                            <div class="author-info">
-                                <h5>Sarah T.</h5>
-                                <p>VP of Security, FinFlow</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="testimonial-card reveal">
-                        <div>
-                            <div class="stars-row">★★★★★</div>
-                            <p class="testimonial-quote">
-                                "Unlike legacy enterprise antivirus softwares, SecureTechAV runs silently on developers' laptops without slowing down Docker containers or workspace compilation loops."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ME</div>
-                            <div class="author-info">
-                                <h5>Mark E.</h5>
-                                <p>CIO, CloudScale</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="testimonial-card reveal">
-                        <div>
-                            <div class="stars-row">★★★★★</div>
-                            <p class="testimonial-quote">
-                                "The leakage sentinel caught a leaked developer credentials token on a public forum within minutes, alerting us before any network compromise occurred."
-                            </p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">EG</div>
-                            <div class="author-info">
-                                <h5>Elena G.</h5>
-                                <p>Lead DevOps Architect</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PRICING SECTION -->
-        <section id="pricing" class="section-padding" style="background: rgba(10, 15, 29, 0.3);">
-            <div class="container">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">Zero-Trust Subscriptions</span>
-                    <h2 class="section-title">Transparent, Scale-Based Plans</h2>
-                    <p class="section-desc">Protect individual developers, high-growth engineering teams, and enterprise hybrid grids.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <!-- Pack 1 -->
-                    <div class="price-card reveal">
-                        <div>
-                            <div class="price-title">Developer Shield</div>
-                            <div class="price-amount">$0.00<span> / lifetime</span></div>
-                            <p class="price-desc">Essential edge protection and telemetry logs for individual workspaces.</p>
-                            <ul class="price-features">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    1 Active Host node
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Basic File Scans
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Telemetry Log API
-                                </li>
-                                <li class="disabled">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                                    Neural Threat Engine
-                                </li>
-                                <li class="disabled">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                                    Ransomware Kill Switch
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#pricing" class="btn btn-outline" style="width: 100%;">Install Daemon</a>
-                    </div>
-
-                    <!-- Pack 2 (Pro highlighted) -->
-                    <div class="price-card pro-card reveal">
-                        <div class="pro-badge-wrap">
-                            <span class="pro-badge">RECOMMENDED</span>
-                        </div>
-                        <div>
-                            <div class="price-title" style="color: var(--accent);">Team Command</div>
-                            <div class="price-amount pro-amount">$19.00<span> / month</span></div>
-                            <p class="price-desc">Full behavior modeling security layers for growing teams and hosts.</p>
-                            <ul class="price-features">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Up to 10 Host nodes
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Neural Behavioral Engine
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Ransomware Kill Switch
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Identity attestation locks
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Email & Slack Alerts
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#pricing" class="btn btn-primary" style="width: 100%;">Start 14-Day Trial</a>
-                    </div>
-
-                    <!-- Pack 3 -->
-                    <div class="price-card reveal">
-                        <div>
-                            <div class="price-title">Enterprise Grid</div>
-                            <div class="price-amount">$49.00<span> / month</span></div>
-                            <p class="price-desc">Scale network-wide identity attestation for high volume clusters.</p>
-                            <ul class="price-features">
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Unlimited workstations
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Dedicated edge gateway nodes
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    Cryptographic hardware check
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    SIEM logs integration
-                                </li>
-                                <li>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                                    24/7 SecOps Desk SLA
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#pricing" class="btn btn-primary" style="width: 100%;">Connect Infrastructure</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA SECTION -->
-        <section id="contact" class="section-padding cta-section-wrapper">
-            <div class="container">
-                <div class="cta-box reveal">
-                    <h2 class="cta-title">Secure Your Stack in 60 Seconds</h2>
-                    <p class="cta-desc">Deploy our lightweight endpoint protection and secure your servers, gateways, and credentials databases before exploits occur.</p>
-                    
-                    <form class="cta-form" onsubmit="event.preventDefault(); alert('Security dashboard registry initialized.');">
-                        <input type="email" placeholder="Enter workspace security email" class="cta-input" required />
-                        <button type="submit" class="btn btn-primary">Deploy Shield</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-logo-desc">
-                <a href="/" class="logo-wrap">
-                    <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTechAV Logo" class="logo-img filter brightness-200" />
-                    <span class="logo-text">SecureTech<span class="accent-span">AV</span></span>
-                </a>
-                <p>Advanced zero-trust endpoint protection, API gateways, database logs monitoring, and hardware attestation platforms for secure hybrid cloud infrastructure.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>Grid Modules</h4>
-                <ul>
-                    <li><a href="#features">Zero-Trust Shield</a></li>
-                    <li><a href="#features">Runtime Verification</a></li>
-                    <li><a href="#features">Credential Sentinel</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#about">About Grid</a></li>
-                    <li><a href="#">Security Bulletins</a></li>
-                    <li><a href="#">Engineering Log</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Developer</h4>
-                <ul>
-                    <li><a href="#">API Attestation</a></li>
-                    <li><a href="#">Daemon Setup</a></li>
-                    <li><a href="#">System Integrity status</a></li>
-                </ul>
             </div>
         </div>
+    </section>
 
-        <div class="container footer-bottom">
-            <p>&copy; 2026 SecureTechAV Inc. Continuous attestation operational.</p>
-            <div class="footer-bottom-right">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Attestation Logs Terms</a>
-                <span class="system-status-indicator">SHIELD OPERATIONAL</span>
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">5600+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">105+</div>
+                    <div class="stat-label">Skilled Engineers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">25</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">Global OEM Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <div class="spatial-eyebrow">Spatial Engineering</div>
+                <h2 class="section-title">Turnkey Audio-Visual <span>Infrastructure</span></h2>
+                <p class="section-desc">We design, engineer, and support standardized audio-visual configurations ensuring seamless videoconferencing, boardroom automation, and network reliability.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+                    <h3>AV System Design</h3>
+                    <p>Bespoke architectural layout modeling, acoustic calculations, and structured cable path maps.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-desktop"></i></div>
+                    <h3>Smart Classroom Integration</h3>
+                    <p>High-brightness laser displays, touch interactive screens, and distance classroom equipment.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>AV Control Systems</h3>
+                    <p>Simplified room automation setups through touchpanels to coordinate audio levels, lighting, and feeds.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>ICT & Structured Cabling</h3>
+                    <p>High-speed fiber backbones, network switch racks, and standardized commercial cat-cabling.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-volume-high"></i></div>
+                    <h3>Auditorium Sound Systems</h3>
+                    <p>Line-array configurations, digital speaker matrices, and acoustic treatment for crystal-clear acoustics.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                    <h3>Stadium & Arena AV</h3>
+                    <p>Weatherproof high-output speakers, massive outdoor LED billboards, and synchronized delays.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-film"></i></div>
+                    <h3>Cinema & Preview Theatres</h3>
+                    <p>Surround-sound configurations and premium digital screening systems for private venues.</p>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Commercial/Retail Audio</h3>
+                    <p>Zoned background music channels, paging networks, and digital signage boards for malls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workplace Concept Center -->
+    <section class="section" id="concept-center" style="padding-top: 0;">
+        <div class="container">
+            <div class="concept-card">
+                <div>
+                    <div class="spatial-eyebrow">Workplace Tech Concept Center</div>
+                    <h2 class="section-title" style="margin: 14px 0 18px; font-size: 30px;">
+                        Come & Experience Our Workplace Technology Center <span>Before Deployment</span>
+                    </h2>
+                    <p class="section-desc" style="margin-bottom: 28px;">
+                        Walk through immersive workplace environments featuring hybrid meeting rooms, boardrooms, command centers, and integrated AV ecosystems engineered for modern enterprises. See the products and layouts in action before selecting your system specs.
+                    </p>
+                    <button class="btn-spatial-primary" onclick="openQuoteModal()">
+                        Book a Live Demo <i class="fa-solid fa-calendar-check"></i>
+                    </button>
+                </div>
+                <div>
+                    <img src="/images/advantage_center_v3.jpeg" alt="Workplace Concept Center" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section" id="industries">
+        <div class="container">
+            <div class="section-header">
+                <div class="spatial-eyebrow">Industries We Serve</div>
+                <h2 class="section-title">Tailored AV Integration <span>Across Sectors</span></h2>
+                <p class="section-desc">We configure bespoke technology configurations engineered to match the specialized operational workflows of distinct environments.</p>
+            </div>
+
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-corporate.png" alt="Corporate" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-building"></i> Corporate</h3>
+                        <p>Videoconferencing boardrooms, smart huddle rooms, and collaborative systems.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-education.png" alt="Education" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                        <p>Interactive smart classrooms, lecture halls, and hybrid teaching platforms.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-healthcare.jpg" alt="Healthcare" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-user-md"></i> Healthcare</h3>
+                        <p>High-definition telemedicine suites, OT display routing, and hospital signage.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-public.png" alt="Government" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-landmark"></i> Government</h3>
+                        <p>Secure videoconferencing facilities, legislative councils, and command centers.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-retail.png" alt="Hospitality" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-hotel"></i> Hospitality</h3>
+                        <p>Integrated banquet sound networks, lobby signage, and automation for hotels.</p>
+                    </div>
+                </div>
+
+                <div class="industry-card">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-residential.jpeg" alt="Residential" />
+                    </div>
+                    <div class="industry-info">
+                        <h3><i class="fa-solid fa-house-laptop"></i> Residential</h3>
+                        <p>Custom home automation, dedicated acoustic home theaters, and distributed sound.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="section" id="projects" style="background: rgba(16, 22, 34, 0.4);">
+        <div class="container">
+            <div class="section-header">
+                <div class="spatial-eyebrow">Case Studies & Key Deployments</div>
+                <h2 class="section-title">Our Recent Key <span>Projects</span></h2>
+                <p class="section-desc">Explore spatial installations engineered, built, and maintained by our certified technical team across India.</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/convention_centres.jpeg" alt="Noida Convention Center" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Auditoriums & Public Spaces</span>
+                        <h3>Noida Convention Center</h3>
+                        <p>High-performance audio networks, motorized projection systems, and stage lighting matrices deployed across three main halls.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/solution-boardroom.png" alt="Corporate HQ Gurugram" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Corporate Workspaces</span>
+                        <h3>Corporate HQ, Gurugram</h3>
+                        <p>Videoconferencing configurations, ceiling microphone arrays, and integrated room control systems for 12 boardrooms.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/solution-smart-classroom.jpeg" alt="Technical Smart Campus" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Hybrid Education</span>
+                        <h3>Technical Smart Campus</h3>
+                        <p>Turnkey smart classroom design with laser projections, digital writing screens, and sound delay processors.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-box">
+                        <img src="/images/auditorium_view.jpg" alt="State Judicial Council Hall" />
+                    </div>
+                    <div class="project-info">
+                        <span class="project-tag">Government & Judiciary</span>
+                        <h3>State Judicial Council Hall</h3>
+                        <p>High-definition digital signage routing, encryption conferencing channels, and crystal-clear acoustic calibrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Marquee -->
+    <section class="section" id="partners" style="padding: 50px 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <div class="spatial-eyebrow">Technology Alliances</div>
+                <h2 class="section-title" style="font-size: 26px;">Allied With Global AV Leaders</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="partner-pill"><div class="partner-icon">BS</div><div><strong style="color:#fff;">Bose Pro</strong><div style="font-size:11px; color:var(--text-muted);">Commercial Audio</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">CS</div><div><strong style="color:#fff;">Christie</strong><div style="font-size:11px; color:var(--text-muted);">Laser Displays</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">CI</div><div><strong style="color:#fff;">Cisco Systems</strong><div style="font-size:11px; color:var(--text-muted);">Video Infrastructure</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">JB</div><div><strong style="color:#fff;">JBL Pro</strong><div style="font-size:11px; color:var(--text-muted);">Sound Reinforcement</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">LG</div><div><strong style="color:#fff;">LG Electronics</strong><div style="font-size:11px; color:var(--text-muted);">Displays & LED</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">QS</div><div><strong style="color:#fff;">QSC Audio</strong><div style="font-size:11px; color:var(--text-muted);">DSP Matrices</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">SN</div><div><strong style="color:#fff;">Sennheiser</strong><div style="font-size:11px; color:var(--text-muted);">Ceiling Arrays</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">SY</div><div><strong style="color:#fff;">Sony Pro</strong><div style="font-size:11px; color:var(--text-muted);">Cameras & PTZ</div></div></div>
+                    <!-- Duplicate -->
+                    <div class="partner-pill"><div class="partner-icon">BS</div><div><strong style="color:#fff;">Bose Pro</strong><div style="font-size:11px; color:var(--text-muted);">Commercial Audio</div></div></div>
+                    <div class="partner-pill"><div class="partner-icon">CS</div><div><strong style="color:#fff;">Christie</strong><div style="font-size:11px; color:var(--text-muted);">Laser Displays</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Marquee -->
+    <section class="section" style="padding: 30px 0 80px;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <div class="spatial-eyebrow">Enterprise Clients</div>
+                <h2 class="section-title" style="font-size: 24px;">Trusted By Leading Organizations</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track" style="animation-direction: reverse;">
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(239,68,68,0.2); color:#ef4444;">IIT</div><div><strong style="color:#fff;">IIT DELHI</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(59,130,246,0.2); color:#3b82f6;">IIT</div><div><strong style="color:#fff;">IIT JODHPUR</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(16,185,129,0.2); color:#10b981;">AM</div><div><strong style="color:#fff;">AIIMS HOSPITALS</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(245,158,11,0.2); color:#f59e0b;">TT</div><div><strong style="color:#fff;">TATA ENTERPRISES</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(139,92,246,0.2); color:#8b5cf6;">INF</div><div><strong style="color:#fff;">INFOSYS</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(236,72,153,0.2); color:#ec4899;">WP</div><div><strong style="color:#fff;">WIPRO</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(6,182,212,0.2); color:#06b6d4;">IC</div><div><strong style="color:#fff;">ICICI BANK</strong></div></div>
+                    <div class="partner-pill"><div class="partner-icon" style="background:rgba(34,197,94,0.2); color:#22c55e;">DLF</div><div><strong style="color:#fff;">DLF PROPERTIES</strong></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Step Process -->
+    <section class="section" style="background: rgba(16, 22, 34, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <div class="spatial-eyebrow">Our Methodology</div>
+                <h2 class="section-title">The SecureTech AV Workflow</h2>
+                <p class="section-desc">From initial acoustic calculation to turnkey deployment and ongoing maintenance.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-num">01</div>
+                    <h3>Site Survey & Acoustics</h3>
+                    <p>On-site inspection, spatial acoustic modeling, and stakeholder workflow mapping.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">02</div>
+                    <h3>CAD & Architecture</h3>
+                    <p>Detailed schematics, rack elevations, line diagrams, and exact hardware specs.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">03</div>
+                    <h3>Turnkey Deployment</h3>
+                    <p>Certified cabling, equipment racking, DSP calibration, and user training.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-num">04</div>
+                    <h3>AMC & 24/7 Support</h3>
+                    <p>Proactive monitoring, preventive maintenance visits, and rapid dispatch SLA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="spatial-eyebrow">Client Validation</div>
+                <h2 class="section-title">Trusted By Enterprise Leaders</h2>
+            </div>
+
+            <div class="testimonials-box">
+                <div class="testimonial-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial-quote" id="test-quote">
+                    "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution."
+                </div>
+                <div class="testimonial-author" id="test-author">Manoj Singh</div>
+                <div class="testimonial-role" id="test-role">Director of Infrastructure &middot; State Judicial Department</div>
+
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 24px;">
+                    <button class="btn-spatial-secondary" onclick="prevTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="btn-spatial-secondary" onclick="nextTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-dialog-box">
+            <button class="modal-close-btn" onclick="closeQuoteModal()">&times;</button>
+            <div class="spatial-eyebrow">Contact Engineering</div>
+            <h3 style="font-family: 'Outfit'; font-size: 20px; color: #fff; margin: 10px 0 20px;">Request an AV Consultation</h3>
+
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-group-item">
+                    <label>Full Name</label>
+                    <input type="text" class="form-ctrl-input" required placeholder="John Doe" />
+                </div>
+                <div class="form-group-item">
+                    <label>Work Email</label>
+                    <input type="email" class="form-ctrl-input" required placeholder="john@enterprise.com" />
+                </div>
+                <div class="form-group-item">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-ctrl-input" required placeholder="+91 98765 43210" />
+                </div>
+                <div class="form-group-item">
+                    <label>Requirement Type</label>
+                    <select class="form-ctrl-input">
+                        <option>Executive Boardroom Integration</option>
+                        <option>Smart Classroom & Hybrid Lecture Hall</option>
+                        <option>Auditorium Sound & Line Arrays</option>
+                        <option>Workplace Concept Center Demo</option>
+                    </select>
+                </div>
+                <div class="form-group-item">
+                    <label>Project Details</label>
+                    <textarea class="form-ctrl-input" rows="3" placeholder="Describe room size, timeline, and requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn-spatial-primary" style="width: 100%; justify-content: center; padding: 13px;">
+                    Submit Request <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrap" style="margin-bottom: 14px;">
+                        <div class="logo-badge">ST</div>
+                        <div class="logo-text">SECURETECH <span>AV</span></div>
+                    </div>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted);">
+                        India's premier turnkey AV systems integrator providing architectural design, hardware provisioning, room acoustics, and AMC support.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#concept-center">Concept Center</a></li>
+                        <li><a href="#industries">Industries</a></li>
+                        <li><a href="#projects">Key Projects</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solutions">Smart Boardrooms</a></li>
+                        <li><a href="#solutions">Smart Classrooms</a></li>
+                        <li><a href="#solutions">Auditorium Sound</a></li>
+                        <li><a href="#solutions">ICT Networking</a></li>
+                        <li><a href="#solutions">Video Walls</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p style="margin-bottom: 8px; font-size: 14px;"><i class="fa-solid fa-location-dot" style="color: var(--accent-amber); margin-right: 8px;"></i> Delhi NCR, Noida, PAN India</p>
+                    <p style="margin-bottom: 8px; font-size: 14px;"><i class="fa-solid fa-envelope" style="color: var(--accent-amber); margin-right: 8px;"></i> info@securetechav.com</p>
+                    <p style="font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--accent-amber); margin-right: 8px;"></i> +91 98100 00000</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                &copy; 2026 SecureTech AV Integrators Pvt Ltd. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- JS SCRIPTS -->
+    <!-- Interactive Script -->
     <script>
-        // Hamburger Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const lines = menuBtn.querySelectorAll('span');
-
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.style.display === 'flex';
-            if (!isHidden) {
-                mobileMenu.style.display = 'flex';
-                lines[0].style.transform = 'translateY(8px) rotate(45deg)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-            } else {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            }
-        });
-
-        // Close mobile dropdown on links click
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            });
-        });
-
-        // Scrolled header background
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll Reveal Intersection Observer
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.08
-        });
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // Stats Counter animation
-        const statsCount = document.getElementById('threats-counter');
-        const statsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseFloat(el.getAttribute('data-target'));
-                    let current = 0;
-                    const duration = 2000;
-                    const stepTime = 16;
-                    const steps = duration / stepTime;
-                    const increment = target / steps;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            el.textContent = target.toLocaleString('en-US');
-                            clearInterval(timer);
-                        } else {
-                            el.textContent = Math.floor(current).toLocaleString('en-US');
-                        }
-                    }, stepTime);
-                    
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.1 });
-        if (statsCount) {
-            statsObserver.observe(statsCount);
-        }
-
-        // Live Simulated Threat Feed scrolling/tick updates
-        const threatFeed = document.getElementById('live-threat-feed');
-        const endpoints = ['GATEWAY_NORTH_API', 'PROD_K8S_NODE_03', 'DB_AUTH_PRIMARY', 'EDGE_GATE_SG_01', 'DEV_MACBOOK_12', 'AUTH_VAULT_ROUTER'];
-        const attackVectors = ['SQLi Payload Intercepted', 'Zero-Day Sandbox Shield', 'Block Encryption Terminated', 'Cred Leak Token Disabled', 'Cookie Hijack Scoped', 'Unauthorized Root Shell Blocked'];
-
-        function addThreatFeedEntry() {
-            if (!threatFeed) return;
-            const timeStr = new Date().toLocaleTimeString('en-US', { hour12: false });
-            const randomIP = `${Math.floor(Math.random() * 150) + 40}.${Math.floor(Math.random() * 200) + 12}.${Math.floor(Math.random() * 254) + 1}.${Math.floor(Math.random() * 254) + 1}`;
-            const host = endpoints[Math.floor(Math.random() * endpoints.length)];
-            const vector = attackVectors[Math.floor(Math.random() * attackVectors.length)];
-            
-            const newRow = document.createElement('div');
-            newRow.className = 'feed-row';
-            newRow.style.opacity = '0';
-            newRow.style.transform = 'translateY(8px)';
-            newRow.innerHTML = `
-                <span class="feed-time">${timeStr}</span>
-                <span class="feed-ip">${host} (${randomIP})</span>
-                <span class="feed-vector">${vector}</span>
-                <span class="feed-badge">ISOLATED</span>
-            `;
-            
-            // Append and animate in
-            threatFeed.appendChild(newRow);
-            
-            // Trigger layout reflow for animation
-            newRow.offsetHeight;
-            
-            newRow.style.opacity = '1';
-            newRow.style.transform = 'none';
-
-            // Limit row count inside scrolling view to 5 rows
-            if (threatFeed.children.length > 5) {
-                const firstRow = threatFeed.firstElementChild;
-                firstRow.style.opacity = '0';
-                firstRow.style.transform = 'translateY(-8px)';
-                setTimeout(() => {
-                    firstRow.remove();
-                }, 400);
-            }
-        }
-
-        // Initialize first feed rows
-        for (let i = 0; i < 4; i++) {
-            setTimeout(addThreatFeedEntry, i * 200);
-        }
-
-        // Loop feed updates
-        setInterval(addThreatFeedEntry, 4000);
-
-        // Service card mouse movement radial shine effect
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
-        });
-
-        // Helper to parse hex to rgba
-        function hexToRgbA(hex, alpha) {
-            let c;
-            if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
-                c= hex.substring(1).split('');
-                if(c.length== 3){
-                    c= [c[0], c[0], c[1], c[1], c[2], c[2]];
-                }
-                c= '0x' + c.join('');
-                return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+alpha+')';
-            }
-            return `rgba(16, 185, 129, ${alpha})`; // default fallback
-        }
-
-        // ══════════════════════════════════════════════════════════════
-        // ══ INTERACTIVE BACKGROUND ENGINE SWITCHER ══
-        // ══════════════════════════════════════════════════════════════
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        const switcherBtn = document.getElementById('bg-switcher');
-        const switcherText = document.getElementById('switcher-text');
-
-        let w, h;
-        function resize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        // Helper to query active accent color dynamically
-        function getAccentColor() {
-            return getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
-        }
-
-        // 🎨 Color Switcher Controller (Green, Blue, Purple, Yellow, Red)
-        const themeBtn = document.getElementById('theme-switcher');
-        const themeText = document.getElementById('theme-text');
-        
-        const themes = ['green', 'blue', 'purple', 'yellow', 'red'];
-        const themeLabels = {
-            'green': 'Theme: Green',
-            'blue': 'Theme: Blue',
-            'purple': 'Theme: Purple',
-            'yellow': 'Theme: Yellow',
-            'red': 'Theme: Red'
-        };
-        
-        const themeColors = {
-            'green': {
-                '--accent': '#10b981',
-                '--accent-hover': '#059669',
-                '--accent-glow': 'rgba(16, 185, 129, 0.15)',
-                '--border-active': 'rgba(16, 185, 129, 0.25)'
+        const testList = [
+            {
+                quote: "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution.",
+                author: "Manoj Singh",
+                role: "Director of Infrastructure · State Judicial Department"
             },
-            'blue': {
-                '--accent': '#3b82f6',
-                '--accent-hover': '#2563eb',
-                '--accent-glow': 'rgba(59, 130, 246, 0.15)',
-                '--border-active': 'rgba(59, 130, 246, 0.25)'
+            {
+                quote: "Our Smart Classroom setup makes it incredibly straightforward for professors to coordinate hybrid lectures. The dual laser projection systems remain bright even under direct daylight.",
+                author: "Dr. Rajesh Dwivedi",
+                role: "Head of Digital Education · Premium Technical Institute"
             },
-            'purple': {
-                '--accent': '#a855f7',
-                '--accent-hover': '#9333ea',
-                '--accent-glow': 'rgba(168, 85, 247, 0.15)',
-                '--border-active': 'rgba(168, 85, 247, 0.25)'
-            },
-            'yellow': {
-                '--accent': '#f59e0b',
-                '--accent-hover': '#d97706',
-                '--accent-glow': 'rgba(245, 158, 11, 0.15)',
-                '--border-active': 'rgba(245, 158, 11, 0.25)'
-            },
-            'red': {
-                '--accent': '#ef4444',
-                '--accent-hover': '#dc2626',
-                '--accent-glow': 'rgba(239, 68, 68, 0.15)',
-                '--border-active': 'rgba(239, 68, 68, 0.25)'
+            {
+                quote: "SecureTech AV integrated 12 high-priority videoconferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are top-tier.",
+                author: "Amit Saxena",
+                role: "Chief Technology Officer · Global Financial Services"
             }
-        };
-        
-        let currentTheme = 'green';
-        
-        themeBtn.addEventListener('click', () => {
-            const nextIndex = (themes.indexOf(currentTheme) + 1) % themes.length;
-            currentTheme = themes[nextIndex];
-            themeText.textContent = themeLabels[currentTheme];
-            
-            // Apply new variables onto document
-            const colors = themeColors[currentTheme];
-            for (const [prop, val] of Object.entries(colors)) {
-                document.documentElement.style.setProperty(prop, val);
-            }
-        });
-
-        // 5 Canvas Visual Modes: 'neural', 'grid3d', 'matrix', 'rocket', 'vortex'
-        const modes = ['neural', 'grid3d', 'matrix', 'rocket', 'vortex'];
-        const modeLabels = {
-            'neural': 'BG: Neural Mesh',
-            'grid3d': 'BG: 3D Wiregrid',
-            'matrix': 'BG: Matrix Code',
-            'rocket': 'BG: 3D Rockets',
-            'vortex': 'BG: Time Vortex'
-        };
-        let currentMode = 'neural';
-
-        switcherBtn.addEventListener('click', () => {
-            const nextIndex = (modes.indexOf(currentMode) + 1) % modes.length;
-            currentMode = modes[nextIndex];
-            switcherText.textContent = modeLabels[currentMode];
-            ctx.clearRect(0, 0, w, h);
-            if (currentMode === 'matrix') {
-                initMatrix();
-            } else if (currentMode === 'rocket') {
-                initRocket();
-            } else if (currentMode === 'vortex') {
-                initVortex();
-            }
-        });
-
-        // ────────── 1. NEURAL MESH ALGORITHM ──────────
-        const nodes = [];
-        const nodeCount = 50;
-        const connectionDist = 125;
-
-        for (let i = 0; i < nodeCount; i++) {
-            nodes.push({
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                size: Math.random() * 2 + 1,
-                alpha: Math.random() * 0.4 + 0.15
-            });
-        }
-
-        function drawNeural() {
-            ctx.clearRect(0, 0, w, h);
-            const activeAccent = getAccentColor();
-            
-            for (let i = 0; i < nodeCount; i++) {
-                const nodeA = nodes[i];
-                nodeA.x += nodeA.vx;
-                nodeA.y += nodeA.vy;
-
-                if (nodeA.x < 0 || nodeA.x > w) nodeA.vx *= -1;
-                if (nodeA.y < 0 || nodeA.y > h) nodeA.vy *= -1;
-
-                ctx.globalAlpha = nodeA.alpha;
-                ctx.fillStyle = activeAccent;
-                ctx.beginPath();
-                ctx.arc(nodeA.x, nodeA.y, nodeA.size, 0, Math.PI * 2);
-                ctx.fill();
-
-                for (let j = i + 1; j < nodeCount; j++) {
-                    const nodeB = nodes[j];
-                    const dist = Math.hypot(nodeA.x - nodeB.x, nodeA.y - nodeB.y);
-                    if (dist < connectionDist) {
-                        const alpha = (1 - dist / connectionDist) * 0.12;
-                        ctx.strokeStyle = hexToRgbA(activeAccent, alpha);
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(nodeA.x, nodeA.y);
-                        ctx.lineTo(nodeB.x, nodeB.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            ctx.globalAlpha = 1.0;
-        }
-
-        // ────────── 2. 3D WIREGRID HORIZON ALGORITHM ──────────
-        let gridOffset = 0;
-        const gridSpeed = 0.015;
-
-        function drawGrid3D() {
-            ctx.clearRect(0, 0, w, h);
-            const activeAccent = getAccentColor();
-            ctx.strokeStyle = hexToRgbA(activeAccent, 0.12);
-            ctx.lineWidth = 1;
-
-            const horizonY = h * 0.45;
-            const viewHeight = h - horizonY;
-            
-            const vanishingLines = 24;
-            const vanishingX = w / 2;
-            
-            for (let i = 0; i <= vanishingLines; i++) {
-                const fraction = i / vanishingLines;
-                const bottomX = w * (fraction * 1.6 - 0.3);
-                ctx.beginPath();
-                ctx.moveTo(vanishingX, horizonY);
-                ctx.lineTo(bottomX, h);
-                ctx.stroke();
-            }
-
-            gridOffset += gridSpeed;
-            if (gridOffset >= 1) gridOffset -= 1;
-
-            const horLines = 14;
-            for (let i = 0; i < horLines; i++) {
-                const z = i + gridOffset;
-                const ratio = z / horLines;
-                const pRatio = Math.pow(ratio, 2.2); 
-                const y = horizonY + viewHeight * pRatio;
-                const opacity = pRatio * 0.18;
-                
-                ctx.strokeStyle = hexToRgbA(activeAccent, opacity);
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(w, y);
-                ctx.stroke();
-            }
-
-            ctx.strokeStyle = hexToRgbA(activeAccent, 0.25);
-            ctx.beginPath();
-            ctx.moveTo(0, horizonY);
-            ctx.lineTo(w, horizonY);
-            ctx.stroke();
-        }
-
-        // ────────── 3. DIGITAL MATRIX RAIN ALGORITHM ──────────
-        let columns = [];
-        const fontSize = 12;
-        const charSet = "01$@#&%*+=-<>{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        function initMatrix() {
-            const cols = Math.floor(w / fontSize) + 1;
-            columns = [];
-            for (let i = 0; i < cols; i++) {
-                columns.push({
-                    y: Math.random() * -100,
-                    speed: Math.random() * 2 + 1
-                });
-            }
-        }
-
-        initMatrix();
-
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.06)';
-            ctx.fillRect(0, 0, w, h);
-
-            ctx.fillStyle = getAccentColor();
-            ctx.font = `${fontSize}px var(--font-mono)`;
-
-            for (let i = 0; i < columns.length; i++) {
-                const col = columns[i];
-                const char = charSet.charAt(Math.floor(Math.random() * charSet.length));
-                const x = i * fontSize;
-                
-                ctx.fillText(char, x, col.y);
-
-                col.y += col.speed * 4;
-
-                if (col.y > h && Math.random() > 0.98) {
-                    col.y = Math.random() * -50;
-                    col.speed = Math.random() * 2 + 1;
-                }
-            }
-        }
-
-        // ────────── 4. 3D ROCKET FLEET ALGORITHM ──────────
-        let stars = [];
-        const starCount = 120;
-        let sparks = [];
-        let rockets = [];
-        const rocketCount = 6; // Squadron of 6 rockets
-
-        function initRocket() {
-            // stars initialization
-            stars = [];
-            for (let i = 0; i < starCount; i++) {
-                stars.push({
-                    x: (Math.random() - 0.5) * 1200,
-                    y: (Math.random() - 0.5) * 1200,
-                    z: Math.random() * 1000
-                });
-            }
-            
-            // squadron initialization
-            rockets = [];
-            for (let i = 0; i < rocketCount; i++) {
-                rockets.push({
-                    x: (Math.random() - 0.5) * 800,
-                    y: (Math.random() - 0.5) * 800,
-                    z: Math.random() * 900 + 100, // Z depth
-                    speed: Math.random() * 4 + 3.2,
-                    rotSpeed: (Math.random() - 0.5) * 0.03,
-                    angleY: Math.random() * Math.PI * 2,
-                    bobOffset: Math.random() * Math.PI * 2
-                });
-            }
-            sparks = [];
-        }
-
-        // 3D wireframe rocket vertices definition (X, Y, Z)
-        const rocketVertices = [
-            {x: 0,   y: -65, z: 0},   // 0: Nose tip
-            {x: 0,   y: -25, z: 14},  // 1: Upper body front
-            {x: 0,   y: -25, z: -14}, // 2: Upper body back
-            {x: -14, y: -25, z: 0},   // 3: Upper body left
-            {x: 14,  y: -25, z: 0},   // 4: Upper body right
-            {x: 0,   y: 35,  z: 14},  // 5: Lower body front
-            {x: 0,   y: 35,  z: -14}, // 6: Lower body back
-            {x: -14, y: 35,  z: 0},   // 7: Lower body left
-            {x: 14,  y: 35,  z: 0},   // 8: Lower body right
-            {x: -32, y: 45,  z: 0},   // 9: Left fin tip
-            {x: 32,  y: 45,  z: 0},   // 10: Right fin tip
-            {x: 0,   y: 45,  z: 0}    // 11: Thruster center base
         ];
 
-        const rocketEdges = [
-            [0, 1], [0, 2], [0, 3], [0, 4], // Connect nose to body top
-            [1, 3], [3, 2], [2, 4], [4, 1], // Upper body ring
-            [5, 7], [7, 6], [6, 8], [8, 5], // Lower body ring
-            [1, 5], [2, 6], [3, 7], [4, 8], // Vertically connect rings
-            [7, 9], [5, 9],                 // Left fin
-            [8, 10], [5, 10],               // Right fin
-            [5, 11], [6, 11], [7, 11], [8, 11] // Connect to engine base
-        ];
-
-        function drawRocket() {
-            ctx.clearRect(0, 0, w, h);
-            const activeAccent = getAccentColor();
-
-            // 1. Draw Starfield
-            for (let i = 0; i < stars.length; i++) {
-                const s = stars[i];
-                s.z -= 4.5;
-                if (s.z <= 0) {
-                    s.z = 1000;
-                    s.x = (Math.random() - 0.5) * 1200;
-                    s.y = (Math.random() - 0.5) * 1200;
-                }
-
-                const k = 400.0 / s.z;
-                const sx = s.x * k + w / 2;
-                const sy = s.y * k + h / 2;
-
-                if (sx >= 0 && sx < w && sy >= 0 && sy < h) {
-                    const size = Math.max(0.5, (1 - s.z / 1000) * 2.5);
-                    ctx.fillStyle = `rgba(255, 255, 255, ${1 - s.z / 1000})`;
-                    ctx.fillRect(sx, sy, size, size);
-                }
-            }
-
-            // 2. Add sparks and project coordinates for each active rocket
-            for (let rIdx = 0; rIdx < rockets.length; rIdx++) {
-                const r = rockets[rIdx];
-                r.z -= r.speed;
-                r.angleY += r.rotSpeed;
-
-                // Reset rocket when passing Z threshold
-                if (r.z <= 30) {
-                    r.z = 1000;
-                    r.x = (Math.random() - 0.5) * 800;
-                    r.y = (Math.random() - 0.5) * 800;
-                    r.speed = Math.random() * 4 + 3.2;
-                    r.rotSpeed = (Math.random() - 0.5) * 0.03;
-                    r.bobOffset = Math.random() * Math.PI * 2;
-                }
-
-                const rk = 300.0 / r.z; // scale factor relative to Z depth
-                const bob = Math.sin(Date.now() * 0.003 + r.bobOffset) * (rk * 4);
-                const rcx = r.x * rk + w / 2;
-                const rcy = r.y * rk + h / 2 + bob;
-
-                // Offscreen clipping
-                if (rcx < -200 || rcx > w + 200 || rcy < -200 || rcy > h + 200) {
-                    continue;
-                }
-
-                // Add sparks for this rocket's thruster base
-                if (sparks.length < 150) {
-                    const rate = r.z > 600 ? 1 : 2;
-                    for (let sIdx = 0; sIdx < rate; sIdx++) {
-                        sparks.push({
-                            x: rcx + (Math.random() - 0.5) * (rk * 4),
-                            y: rcy + (45 * rk) + (Math.random() - 0.5) * (rk * 3),
-                            vx: (Math.random() - 0.5) * (rk * 2),
-                            vy: Math.random() * (rk * 4) + (rk * 3),
-                            alpha: 1.0,
-                            size: Math.max(0.5, Math.random() * (rk * 3) + (rk * 1.5))
-                        });
-                    }
-                }
-
-                // Project 3D vertices
-                const projectedPoints = [];
-                const pitchX = 0.32;
-
-                for (let v = 0; v < rocketVertices.length; v++) {
-                    const pt = rocketVertices[v];
-                    
-                    // Y Rotation
-                    let rx = pt.x * Math.cos(r.angleY) - pt.z * Math.sin(r.angleY);
-                    let rz = pt.x * Math.sin(r.angleY) + pt.z * Math.cos(r.angleY);
-                    let ry = pt.y;
-
-                    // Pitch X tilt
-                    let finalY = ry * Math.cos(pitchX) - rz * Math.sin(pitchX);
-                    
-                    projectedPoints.push({
-                        x: rx * rk + rcx,
-                        y: finalY * rk + rcy
-                    });
-                }
-
-                // Draw wireframe lines for this rocket
-                ctx.strokeStyle = hexToRgbA(activeAccent, Math.max(0.12, 1 - r.z / 1000));
-                ctx.lineWidth = Math.max(0.6, rk * 1.6);
-
-                for (let e = 0; e < rocketEdges.length; e++) {
-                    const edge = rocketEdges[e];
-                    const ptA = projectedPoints[edge[0]];
-                    const ptB = projectedPoints[edge[1]];
-                    
-                    ctx.beginPath();
-                    ctx.moveTo(ptA.x, ptA.y);
-                    ctx.lineTo(ptB.x, ptB.y);
-                    ctx.stroke();
-                }
-            }
-
-            // 3. Render sparks
-            for (let i = sparks.length - 1; i >= 0; i--) {
-                const p = sparks[i];
-                p.x += p.vx;
-                p.y += p.vy;
-                p.alpha -= 0.035;
-                
-                if (p.alpha <= 0) {
-                    sparks.splice(i, 1);
-                    continue;
-                }
-
-                ctx.globalAlpha = p.alpha;
-                ctx.fillStyle = p.alpha > 0.65 ? '#ffffff' : (p.alpha > 0.35 ? '#f59e0b' : '#ef4444');
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            ctx.globalAlpha = 1.0;
+        let currTest = 0;
+        function updateTestimonial() {
+            const t = testList[currTest];
+            document.getElementById('test-quote').innerText = `"${t.quote}"`;
+            document.getElementById('test-author').innerText = t.author;
+            document.getElementById('test-role').innerText = t.role;
         }
 
-        // ────────── 5. 3D TIME VORTEX ALGORITHM ──────────
-        function initVortex() {
-            ctx.clearRect(0, 0, w, h);
+        function nextTestimonial() {
+            currTest = (currTest + 1) % testList.length;
+            updateTestimonial();
         }
 
-        function drawVortex() {
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.12)'; // clean trails
-            ctx.fillRect(0, 0, w, h);
-            const activeAccent = getAccentColor();
+        function prevTestimonial() {
+            currTest = (currTest - 1 + testList.length) % testList.length;
+            updateTestimonial();
+        }
 
-            const time = Date.now() * 0.001;
-            const rings = 32;
-            const segments = 12;
+        setInterval(nextTestimonial, 8000);
 
-            const ringPoints = []; // save coordinates to draw links between rings
-
-            for (let r = 0; r < rings; r++) {
-                // Ring Z depth offset (0 near, 1 vanishing point)
-                const z = (r + (time * 0.6) % 1) / rings;
-                
-                // Perspective diameter
-                const radius = Math.pow(1 - z, 1.8) * w * 0.55;
-                if (radius <= 2) continue;
-
-                // Winding center path
-                const theta = time * 1.5 + r * 0.1;
-                const cx = w / 2 + Math.cos(theta) * (z * w * 0.15);
-                const cy = h / 2 + Math.sin(theta) * (z * h * 0.15);
-
-                const currentRing = [];
-                
-                // Segment points inside this ring
-                for (let s = 0; s < segments; s++) {
-                    const angle = (s / segments) * Math.PI * 2 + time * 0.1;
-                    const px = cx + Math.cos(angle) * radius;
-                    const py = cy + Math.sin(angle) * radius;
-                    currentRing.push({x: px, y: py});
-                }
-                ringPoints.push({ring: currentRing, z: z});
-            }
-
-            // Draw concentric rings and connect them to form wormhole grid lines
-            for (let r = 0; r < ringPoints.length; r++) {
-                const rp = ringPoints[r];
-                const opacity = (1 - rp.z) * 0.25;
-                ctx.strokeStyle = hexToRgbA(activeAccent, opacity);
-                ctx.lineWidth = (1 - rp.z) * 2.0 + 0.5;
-
-                // Draw circles
-                ctx.beginPath();
-                for (let s = 0; s < segments; s++) {
-                    const pt = rp.ring[s];
-                    if (s === 0) ctx.moveTo(pt.x, pt.y);
-                    else ctx.lineTo(pt.x, pt.y);
-                }
-                ctx.closePath();
-                ctx.stroke();
-
-                // Draw grid connections along tunnel depth (ring to next ring)
-                if (r < ringPoints.length - 1) {
-                    const nextRp = ringPoints[r + 1];
-                    for (let s = 0; s < segments; s++) {
-                        const ptA = rp.ring[s];
-                        const ptB = nextRp.ring[s];
-                        
-                        ctx.beginPath();
-                        ctx.moveTo(ptA.x, ptA.y);
-                        ctx.lineTo(ptB.x, ptB.y);
-                        ctx.stroke();
-                    }
-                }
+        // Mobile Nav Drawer Toggle
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileNavDrawer');
+            const icon = document.getElementById('mobile-icon');
+            drawer.classList.toggle('active');
+            if (drawer.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
-        // ══ MAIN ANIMATION DISPATCHER LOOP ══
-        // ══════════════════════════════════════════════════════════════
-        function animate() {
-            if (currentMode === 'neural') {
-                drawNeural();
-            } else if (currentMode === 'grid3d') {
-                drawGrid3D();
-            } else if (currentMode === 'matrix') {
-                drawMatrix();
-            } else if (currentMode === 'rocket') {
-                drawRocket();
-            } else if (currentMode === 'vortex') {
-                drawVortex();
-            }
-            requestAnimationFrame(animate);
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.add('active');
         }
 
-        animate();
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('active');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert("Thank you! Our SecureTech AV engineering team will contact you within 24 hours.");
+            closeQuoteModal();
+        }
     </script>
 </body>
-
 </html>

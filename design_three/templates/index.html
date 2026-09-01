@@ -5,125 +5,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-    <!-- ══ PRIMARY SEO ══ -->
-    <title>SecureTechAV — Live Security HUD Dashboard | Cyber-Noir</title>
-    <meta name="description" content="SecureTechAV is an elite cybersecurity command-center and real-time defense grid. Tempered by 10 million attacks." />
-    <link rel="icon" href="{{ url_for('static', filename='image-5@2x.webp') }}" />
+    <!-- Primary SEO -->
+    <title>SecureTech AV — Bento Grid Audio-Visual Systems Integrator India</title>
+    <meta name="description" content="SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India." />
+    <link rel="icon" href="/images/securetech_av.png" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- 100% STANDALONE VANILLA CSS (No Tailwind dependency to avoid offline/CDN load issues) -->
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- CSS STYLING (Bento Modular Grid Aesthetic) -->
     <style>
         :root {
-            --hud-black: #06070A;
-            --hud-cyan: #FF3838; /* Red Accent replacing Cyan */
-            --hud-violet: #B91C1C; /* Crimson Accent replacing Violet */
-            --hud-red: #FF3838;
+            --bento-bg: #06070A;
+            --bento-card: rgba(18, 20, 29, 0.7);
+            --bento-card-hover: rgba(25, 28, 42, 0.85);
+            --bento-border: rgba(255, 255, 255, 0.08);
+            --bento-border-hover: rgba(255, 56, 56, 0.4);
+            --accent-red: #FF3838;
+            --accent-crimson: #B91C1C;
+            --accent-cyan: #06B6D4;
             --text-bright: #FFFFFF;
-            --text-muted: #E2E8F0; /* Brighter slate-200 for maximum readability */
-            --text-dim: #94A3B8; /* Brighter slate-400 for maximum readability */
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.12);
+            --text-muted: #94A3B8;
+            --radius-md: 14px;
+            --radius-lg: 20px;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        body {
-            background: transparent; /* CRITICAL: Transparent to let the fixed background layer show through */
-            color: var(--text-muted);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            background-color: var(--bento-bg);
+            color: var(--text-muted);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            letter-spacing: -0.01em;
+            background-image: 
+                radial-gradient(circle at 20% 15%, rgba(255, 56, 56, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 80% 85%, rgba(185, 28, 28, 0.06) 0%, transparent 40%);
+            background-attachment: fixed;
         }
 
-        /* Fixed Full-page Background layer */
-        #hud-background-container {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            background-color: var(--hud-black); /* CRITICAL: Solid color is placed here so it runs behind the grid canvas and glows */
-        }
-
-        #grid-canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Glow Blobs (Enhanced Opacity for better contrast visibility) */
-        .glow-blob {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            mix-blend-mode: screen;
-        }
-
-        .blob-1 {
-            width: 45vw;
-            height: 45vw;
-            background: radial-gradient(circle, rgba(255, 56, 56, 0.16) 0%, transparent 70%);
-            top: 5%;
-            left: 5%;
-            animation: drift-1 25s ease-in-out infinite;
-        }
-
-        .blob-2 {
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(185, 28, 28, 0.15) 0%, transparent 70%);
-            top: 35%;
-            right: 5%;
-            animation: drift-2 30s ease-in-out infinite;
-        }
-
-        .blob-3 {
-            width: 40vw;
-            height: 40vw;
-            background: radial-gradient(circle, rgba(255, 56, 56, 0.12) 0%, transparent 70%);
-            bottom: 10%;
-            left: 15%;
-            animation: drift-3 22s ease-in-out infinite;
-        }
-
-        @keyframes drift-1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(8%, 10%) scale(1.1); }
-        }
-        @keyframes drift-2 {
-            0%, 100% { transform: translate(0, 0) scale(1.05); }
-            50% { transform: translate(-8%, -10%) scale(0.9); }
-        }
-        @keyframes drift-3 {
-            0%, 100% { transform: translate(0, 0) scale(0.95); }
-            50% { transform: translate(6%, -6%) scale(1.05); }
-        }
-
-        /* Container Rules */
-        .container-hud {
-            max-width: 1200px;
+        .container {
+            max-width: 1260px;
             margin: 0 auto;
-            padding-left: 24px;
-            padding-right: 24px;
-            box-sizing: border-box;
-        }
-
-        /* Section Layouts */
-        .section-wrap {
-            padding: 100px 0;
-            position: relative;
-            z-index: 1;
-            box-sizing: border-box;
-            background: transparent;
+            padding: 0 24px;
         }
 
         /* Navbar */
@@ -132,1601 +66,1339 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(6, 7, 10, 0.7);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 76px;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-inner {
+            z-index: 1000;
+            background: rgba(6, 7, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--bento-border);
+            height: 74px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+            padding: 0 5%;
         }
 
         .logo-wrap {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
         }
 
+        .logo-badge {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-crimson));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            color: #FFFFFF;
+            box-shadow: 0 0 15px rgba(255, 56, 56, 0.4);
+        }
+
         .logo-text {
+            font-weight: 800;
             font-size: 20px;
-            font-weight: 700;
             color: var(--text-bright);
             letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent-red);
+        }
+
+        header nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        header nav a {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        header nav a:hover {
+            color: var(--accent-red);
+        }
+
+        .btn-bento-primary {
+            background: linear-gradient(135deg, var(--accent-red), var(--accent-crimson));
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 11px 22px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(255, 56, 56, 0.3);
+        }
+
+        .btn-bento-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 56, 56, 0.5);
+        }
+
+        .btn-bento-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-bright);
+            font-weight: 600;
+            font-size: 13px;
+            padding: 11px 22px;
+            border-radius: 8px;
+            border: 1px solid var(--bento-border);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-bento-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section Layout */
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .bento-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            background: rgba(255, 56, 56, 0.1);
+            border: 1px solid rgba(255, 56, 56, 0.25);
+            padding: 6px 14px;
+            border-radius: 30px;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 800;
+            color: var(--text-bright);
+            line-height: 1.2;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent-red);
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* Hero Bento Layout */
+        .hero {
+            padding: 140px 0 70px;
+        }
+
+        .hero-bento-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+
+        .bento-box {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-box:hover {
+            border-color: var(--bento-border-hover);
+            background: var(--bento-card-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-main-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-main-box h1 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            color: var(--text-bright);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin: 16px 0 18px;
+        }
+
+        .hero-main-box h1 span {
+            color: var(--accent-red);
+        }
+
+        .hero-main-box p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .hero-image-box {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        /* Stats in Bento Grid */
+        .stats-bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .stat-bento-card {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-md);
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .stat-bento-card:hover {
+            border-color: var(--accent-red);
+        }
+
+        .stat-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-bright);
+            margin-bottom: 4px;
+        }
+
+        .stat-num span {
+            color: var(--accent-red);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* Solutions Bento Grid */
+        .solutions-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .solution-bento-item {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-md);
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+
+        .solution-bento-item:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+        }
+
+        .solution-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(255, 56, 56, 0.1);
+            color: var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .solution-bento-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 10px;
+        }
+
+        .solution-bento-item p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Concept Center Bento Card */
+        .concept-bento-card {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .concept-bento-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bento-border);
+        }
+
+        /* Industries Bento Grid */
+        .industries-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .industry-bento-item {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .industry-bento-item:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+        }
+
+        .industry-img-box {
+            height: 170px;
+            overflow: hidden;
+        }
+
+        .industry-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .industry-bento-item:hover .industry-img-box img {
+            transform: scale(1.06);
+        }
+
+        .industry-bento-content {
+            padding: 22px;
+        }
+
+        .industry-bento-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .logo-text span.accent-span {
-            color: var(--hud-cyan);
-            font-weight: 300;
-        }
-
-        header nav {
-            display: flex;
-            gap: 32px;
-        }
-
-        header nav a {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        header nav a:hover {
-            color: var(--hud-cyan);
-        }
-
-        .nav-btn-group {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .btn-ghost-nav {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            color: var(--text-dim);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .btn-ghost-nav:hover {
-            color: var(--text-bright);
-        }
-
-        /* Mobile Hamburger */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--text-bright);
-            transition: all 0.3s ease;
-        }
-
-        #mobile-menu {
-            display: none;
-            position: fixed;
-            inset: 0;
-            top: 76px;
-            background: rgba(6, 7, 10, 0.98);
-            backdrop-filter: blur(24px);
-            padding: 40px;
-            flex-direction: column;
-            gap: 24px;
-            z-index: 99;
-            align-items: center;
-        }
-
-        #mobile-menu a {
-            font-family: 'JetBrains Mono', monospace;
+        .industry-bento-content h3 i {
+            color: var(--accent-red);
             font-size: 14px;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            text-decoration: none;
-            text-transform: uppercase;
         }
 
-        /* Custom components */
-        .hud-panel {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 32px;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            position: relative;
+        .industry-bento-content p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Projects */
+        .projects-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .project-bento-card {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-sizing: border-box;
+            transition: all 0.25s ease;
         }
 
-        .hud-panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .project-bento-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+        }
+
+        .project-img-box {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-img-box img {
             width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--hud-cyan), transparent);
-            transition: all 0.5s ease;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .hud-panel:hover::before {
-            left: 100%;
+        .project-bento-card:hover .project-img-box img {
+            transform: scale(1.05);
         }
 
-        .hud-panel:hover {
-            border-color: rgba(34, 211, 238, 0.4);
-            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.08);
-            transform: translateY(-2px);
+        .project-bento-info {
+            padding: 26px;
         }
 
-        /* Buttons definition */
-        .btn-hud-primary {
-            background: linear-gradient(135deg, var(--hud-cyan) 0%, var(--hud-violet) 100%);
-            color: var(--text-bright);
-            font-family: 'JetBrains Mono', monospace;
+        .project-tag {
+            font-size: 11px;
             font-weight: 700;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 4px;
-            display: inline-block;
-            cursor: pointer;
-            text-decoration: none;
-            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            text-align: center;
-        }
-
-        .btn-hud-primary:hover {
-            box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
-            transform: translateY(-2px);
-        }
-
-        .btn-hud-primary:active {
-            transform: scale(0.97);
-        }
-
-        .btn-hud-outline {
-            background: transparent;
-            color: var(--text-bright);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 13px 32px;
-            border-radius: 4px;
-            display: inline-block;
-            cursor: pointer;
-            text-decoration: none;
-            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            text-align: center;
-        }
-
-        .btn-hud-outline:hover {
-            border-color: var(--hud-cyan);
-            color: var(--hud-cyan);
-            transform: translateY(-2px);
-        }
-
-        .btn-hud-outline:active {
-            transform: scale(0.97);
-        }
-
-        .btn-hud-ghost {
-            background: transparent;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0;
-        }
-
-        .btn-hud-ghost:hover {
-            color: var(--hud-cyan);
-            text-decoration: underline;
-            text-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
-            transform: translateY(-1px);
-        }
-
-        .btn-hud-ghost:active {
-            transform: scale(0.97);
-        }
-
-        .glow-text {
-            text-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
-        }
-
-        .terminal-text {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--hud-cyan);
-            background: rgba(34, 211, 238, 0.05);
-            border: 1px solid rgba(34, 211, 238, 0.15);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .live-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--hud-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--hud-cyan);
-            animation: pulse-dot 1.5s infinite;
-            margin-right: 8px;
-        }
-
-        @keyframes pulse-dot {
-            0% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.6; }
-        }
-
-        /* Viewfinder Frame decoration */
-        .hud-viewfinder-wrap {
-            position: relative;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-        }
-
-        .viewfinder-corner-tl { position: absolute; top: 0; left: 0; width: 16px; height: 16px; border-t-2 border-l-2 border-hud-cyan; }
-        .viewfinder-corner-tr { position: absolute; top: 0; right: 0; width: 16px; height: 16px; border-t-2 border-r-2 border-hud-cyan; }
-        .viewfinder-corner-bl { position: absolute; bottom: 0; left: 0; width: 16px; height: 16px; border-b-2 border-l-2 border-hud-cyan; }
-        .viewfinder-corner-br { position: absolute; bottom: 0; right: 0; width: 16px; height: 16px; border-b-2 border-r-2 border-hud-cyan; }
-
-        /* Grid divider line */
-        .grid-divider {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--hud-cyan) 50%, transparent);
-            opacity: 0.3;
-            position: relative;
-            margin: 60px 0;
-        }
-
-        .grid-divider-glow {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background-color: var(--hud-cyan);
-            filter: blur(3px);
-        }
-
-        /* Radar sweep line */
-        .scan-line {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.15) 50%, transparent);
-            animation: sweep 4s linear infinite;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        @keyframes sweep {
-            0% { top: 0%; }
-            100% { top: 100%; }
-        }
-
-        /* Hero */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-left {
-            position: relative;
-        }
-
-        .hero-badge-row {
-            margin-bottom: 24px;
-        }
-
-        .hero-title {
-            font-size: 64px;
-            font-weight: 800;
-            line-height: 1.1;
-            color: var(--text-bright);
-            margin: 0 0 24px 0;
-            letter-spacing: -2px;
-        }
-
-        .hero-title span.gradient-text {
-            background: linear-gradient(135deg, var(--hud-cyan), var(--hud-violet));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            max-width: 520px;
-            margin: 0 0 40px 0;
-            font-weight: 300;
-        }
-
-        .hero-btn-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .hero-stats-row {
-            display: flex;
-            gap: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 32px;
-        }
-
-        .hero-stat-col {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .hero-stat-val {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--hud-cyan);
-        }
-
-        .hero-stat-lbl {
-            font-size: 9px;
-            letter-spacing: 1.5px;
-            color: var(--text-dim);
-            margin-top: 6px;
-            text-transform: uppercase;
-        }
-
-        .hero-right {
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-glow-shadow {
-            position: absolute;
-            width: 280px;
-            height: 280px;
-            background: rgba(34, 211, 238, 0.1);
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero-right-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Features */
-        .section-header {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px auto;
-        }
-
-        .section-eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: var(--hud-cyan);
-            text-transform: uppercase;
-            margin-bottom: 12px;
+            color: var(--accent-red);
+            margin-bottom: 6px;
             display: block;
         }
 
-        .section-title {
-            font-size: 40px;
-            font-weight: 800;
-            color: var(--text-bright);
-            margin: 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 24px;
-            transition: transform 0.3s;
-        }
-
-        .hud-panel:hover .feature-icon {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px var(--hud-cyan);
-        }
-
-        .feature-title {
-            font-size: 20px;
+        .project-bento-info h3 {
+            font-size: 19px;
             font-weight: 700;
             color: var(--text-bright);
-            margin: 0 0 12px 0;
+            margin-bottom: 10px;
         }
 
-        .feature-desc {
-            font-size: 13px;
+        .project-bento-info p {
+            font-size: 14px;
             color: var(--text-muted);
-            line-height: 1.7;
-            margin: 0;
-            font-weight: 300;
+            line-height: 1.6;
         }
 
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-left {
+        /* Marquee */
+        .marquee-wrapper {
+            overflow: hidden;
+            user-select: none;
+            padding: 10px 0;
             position: relative;
         }
 
-        .about-right {
-            box-sizing: border-box;
-        }
-
-        .about-bullets-list {
-            margin-top: 40px;
+        .marquee-track {
             display: flex;
-            flex-direction: column;
             gap: 20px;
+            animation: marqueeScroll 26s linear infinite;
+            flex-shrink: 0;
         }
 
-        .about-bullet-row {
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .partner-bento-pill {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-md);
+            padding: 14px 22px;
             display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 20px;
+            align-items: center;
+            gap: 12px;
+            min-width: 200px;
         }
 
-        .bullet-num {
+        .partner-bento-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(255, 56, 56, 0.15);
+            color: var(--accent-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        /* Process Steps */
+        .process-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .process-bento-card {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-md);
+            padding: 26px 20px;
+        }
+
+        .process-num {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--hud-cyan);
-            margin-top: 3px;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--accent-red);
+            margin-bottom: 10px;
         }
 
-        .bullet-content h4 {
+        .process-bento-card h3 {
             font-size: 15px;
             font-weight: 700;
             color: var(--text-bright);
-            margin: 0;
+            margin-bottom: 8px;
         }
 
-        .bullet-content p {
-            font-size: 12px;
-            color: var(--text-dim);
-            margin: 4px 0 0 0;
+        .process-bento-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.55;
         }
 
-        /* Threat Feed */
-        .threat-feed-container {
-            max-width: 800px;
-            margin: 0 auto 60px auto;
+        /* Testimonial Box */
+        .testimonial-bento-box {
+            background: var(--bento-card);
+            border: 1px solid var(--bento-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .feed-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 24px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .feed-header {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-dim);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 12px;
+        .testimonial-stars {
+            color: #F59E0B;
             margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .feed-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.5s ease;
-        }
-
-        .feed-time {
-            color: var(--text-dim);
-        }
-
-        .feed-vector {
-            color: var(--text-bright);
-        }
-
-        .feed-badge {
-            color: var(--hud-red);
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 9px;
-            font-weight: 700;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .stars-row {
-            color: var(--hud-cyan);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            margin-bottom: 16px;
+            font-size: 16px;
         }
 
         .testimonial-quote {
-            font-size: 14px;
+            font-size: 18px;
             line-height: 1.7;
-            color: var(--text-muted);
-            margin: 0 0 24px 0;
+            color: var(--text-bright);
             font-style: italic;
+            margin-bottom: 20px;
         }
 
         .testimonial-author {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--text-bright);
-        }
-
-        /* Pricing */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
-            align-items: stretch;
-        }
-
-        .price-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .price-card.pro-card {
-            border-color: rgba(34, 211, 238, 0.6);
-            box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
-            transform: scale(1.03);
-            z-index: 10;
-        }
-
-        .price-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .price-title {
-            font-size: 18px;
             font-weight: 700;
-            color: var(--text-bright);
-            margin: 0;
+            color: var(--accent-red);
+            font-size: 15px;
         }
 
-        .price-tier-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            color: var(--text-dim);
-        }
-
-        .price-amount {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--text-bright);
-            margin-bottom: 24px;
-        }
-
-        .price-amount.pro-amount {
-            color: var(--hud-cyan);
-        }
-
-        .price-amount span {
-            font-size: 12px;
-            color: var(--text-dim);
-            font-weight: 400;
-        }
-
-        .price-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .price-features li {
+        .testimonial-role {
             font-size: 13px;
             color: var(--text-muted);
         }
 
-        .price-features li.disabled {
-            text-decoration: line-through;
-            color: var(--text-dim);
-            opacity: 0.5;
+        /* Quote Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .pro-badge-wrap {
-            text-align: right;
-            margin-bottom: 12px;
+        .modal-overlay.active {
+            display: flex;
         }
 
-        .pro-badge {
-            background-color: var(--hud-cyan);
-            color: var(--hud-black);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 4px;
-            display: inline-block;
+        .modal-dialog-box {
+            background: #0E1118;
+            border: 1px solid var(--accent-red);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 550px;
+            padding: 36px;
+            position: relative;
+            box-shadow: 0 0 40px rgba(255, 56, 56, 0.3);
         }
 
-        /* CTA */
-        .cta-box {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 80px 40px;
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
         }
 
-        .cta-title {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--text-bright);
+        .form-group-item {
             margin-bottom: 16px;
         }
 
-        .cta-desc {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            color: var(--hud-cyan);
-            margin-bottom: 40px;
+        .form-group-item label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-red);
+            margin-bottom: 6px;
         }
 
-        .cta-input-group {
-            display: flex;
-            gap: 12px;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .cta-input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .form-ctrl-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--bento-border);
             color: var(--text-bright);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            padding: 14px 20px;
-            border-radius: 4px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 14px;
             outline: none;
-            box-sizing: border-box;
+            transition: border-color 0.2s;
         }
 
-        .cta-input:focus {
-            border-color: var(--hud-cyan);
-            box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+        .form-ctrl-input:focus {
+            border-color: var(--accent-red);
         }
 
         /* Footer */
         footer {
-            background-color: rgba(0, 0, 0, 0.4);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 80px 0 40px 0;
-            font-family: 'JetBrains Mono', monospace;
-            position: relative;
-            z-index: 1;
+            background: #040507;
+            border-top: 1px solid var(--bento-border);
+            padding: 70px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo-desc p {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            max-width: 320px;
-            margin: 20px 0 0 0;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-col h4 {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            color: var(--hud-cyan);
+            font-size: 14px;
+            font-weight: 700;
             text-transform: uppercase;
-            margin: 0 0 24px 0;
+            letter-spacing: 1px;
+            color: var(--accent-red);
+            margin-bottom: 16px;
         }
 
         .footer-col ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--accent-red);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--bento-border);
+            color: var(--accent-red);
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-drawer {
+            display: none;
+            position: fixed;
+            top: 74px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 12, 18, 0.98);
+            border-bottom: 1px solid var(--accent-red);
+            padding: 20px;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
+            z-index: 999;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 40px;
+        .mobile-nav-drawer.active {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: var(--text-dim);
         }
 
-        .footer-bottom-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
+        .mobile-nav-drawer a {
+            color: var(--text-bright);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--bento-border);
         }
 
-        /* Float Keyframe */
-        .float-anim {
-            animation: hud-float 6s ease-in-out infinite;
+        @media (max-width: 992px) {
+            .hero-bento-grid, .concept-bento-card { grid-template-columns: 1fr; gap: 20px; }
+            .stats-bento, .process-bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .solutions-bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .industries-bento-grid, .projects-bento-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            header nav { display: none; }
+            .mobile-toggle { display: block; }
+            .hero { padding: 110px 0 50px; }
+            .concept-bento-card img { height: 240px; }
         }
 
-        @keyframes hud-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* Reveal animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-grid, .features-grid, .about-grid, .testimonials-grid, .pricing-grid, .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .price-card.pro-card {
-                transform: none;
-            }
-
-            header nav, .nav-btn-group {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero-title {
-                font-size: 44px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-btn-row {
-                flex-direction: column;
-            }
-
-            .cta-input-group {
-                flex-direction: column;
-                max-width: 100%;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-        }
-
-        /* Reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            .scan-line {
-                animation: none !important;
-                display: none !important;
-            }
-            .float-anim {
-                animation: none !important;
-                transform: none !important;
-            }
-            .live-dot {
-                animation: none !important;
-            }
-            .blob-1, .blob-2, .blob-3 {
-                animation: none !important;
-            }
+        @media (max-width: 640px) {
+            header { padding: 0 16px; height: 68px; }
+            .mobile-nav-drawer { top: 68px; }
+            .logo-text { font-size: 16px; }
+            .stats-bento, .solutions-bento-grid, .process-bento-grid, .footer-grid { grid-template-columns: 1fr; }
+            .bento-box { padding: 22px 18px; }
+            .hero-main-box h1 { font-size: 26px; }
+            .modal-dialog-box { padding: 24px 18px; }
+            .project-img-box { height: 180px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- One Continuous Background Layer running behind entire page -->
-    <div id="hud-background-container">
-        <!-- Grid Canvas -->
-        <canvas id="grid-canvas"></canvas>
-        
-        <!-- Drifting soft glows -->
-        <div class="glow-blob blob-1"></div>
-        <div class="glow-blob blob-2"></div>
-        <div class="glow-blob blob-3"></div>
-    </div>
-
-    <!-- HEADER -->
+    <!-- Navigation Header -->
     <header>
-        <div class="container-hud nav-inner">
-            <a href="/" class="logo-wrap">
-                <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTechAV Logo" class="h-9 w-auto filter brightness-200" style="height: 36px;" />
-                <span class="logo-text">
-                    SecureTech<span class="accent-span">AV</span>
-                    <span class="terminal-text" style="font-size: 8px; margin-left: 8px;"><span class="live-dot"></span>ACTIVE</span>
-                </span>
-            </a>
-            
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#feed">Threat Feed</a>
-                <a href="#pricing">Pricing</a>
-            </nav>
-
-            <div class="nav-btn-group">
-                <button class="btn-ghost-nav">[ LOG_IN ]</button>
-                <a href="#pricing" class="btn-hud-primary">Get Protected</a>
-            </div>
-
-            <!-- Hamburger Button -->
-            <button id="menu-btn" class="hamburger" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
+        <a href="#home" class="logo-wrap">
+            <div class="logo-badge">ST</div>
+            <div class="logo-text">SECURETECH <span>AV</span></div>
+        </a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#concept-center">Concept Center</a>
+            <a href="#industries">Industries</a>
+            <a href="#projects">Projects</a>
+            <a href="#partners">Partners</a>
+        </nav>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="/CorporateProfile" class="btn-bento-secondary" style="padding: 8px 12px; font-size: 12px;">Profile</a>
+            <button class="btn-bento-primary" onclick="openQuoteModal()" style="padding: 8px 14px; font-size: 12px;">
+                Quote
+            </button>
+            <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" id="mobile-icon"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#features" class="mobile-link">Features</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#feed" class="mobile-link">Threat Feed</a>
-        <a href="#pricing" class="mobile-link">Pricing</a>
-        <a href="#pricing" class="btn-hud-primary mobile-link mt-4">Get Protected</a>
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="#home" onclick="toggleMobileNav()">Home</a>
+        <a href="#solutions" onclick="toggleMobileNav()">Solutions</a>
+        <a href="#concept-center" onclick="toggleMobileNav()">Concept Center</a>
+        <a href="#industries" onclick="toggleMobileNav()">Industries</a>
+        <a href="#projects" onclick="toggleMobileNav()">Key Projects</a>
+        <a href="#partners" onclick="toggleMobileNav()">Partners</a>
+        <a href="/CorporateProfile">Corporate Profile</a>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <main style="padding-top: 76px;">
-        
-        <!-- HERO -->
-        <section id="home" class="section-wrap" style="min-h-screen: 100vh; display: flex; align-items: center; padding: 120px 0;">
-            <!-- Scan line radar sweep -->
-            <div class="scan-line"></div>
-            
-            <div class="container-hud hero-grid">
-                <!-- Left Details -->
-                <div class="reveal">
-                    <div class="hero-badge-row">
-                        <span class="terminal-text"><span class="live-dot"></span>🛰️ Live Threat Monitoring — 2025 Edition</span>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-bento-grid">
+                <div class="bento-box hero-main-box">
+                    <div class="bento-eyebrow">
+                        <i class="fa-solid fa-layer-group"></i> AV Systems Integrator · India
                     </div>
-                    
-                    <h1 class="hero-title">
-                        Your Digital<br/>
-                        Fortress Is<br/>
-                        <span class="gradient-text glow-text">Always Watching</span>
-                    </h1>
-                    
-                    <p class="hero-desc">
-                        Deploy next-generation protection vectors. Our neural threat monitoring engine analyzes and deletes malware, system exploits, and ransomware leaks in real-time.
+                    <h1>AV solutions that run <span>without you thinking about them</span></h1>
+                    <p>
+                        SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India. We keep your communication networks running seamlessly.
                     </p>
-                    
-                    <div class="hero-btn-row">
-                        <a href="#pricing" class="btn-hud-primary">Activate Protection</a>
-                        <a href="#features" class="btn-hud-outline">Watch Demo</a>
-                    </div>
-
-                    <!-- Live stats readout row in monospace -->
-                    <div class="hero-stats-row">
-                        <div class="hero-stat-col">
-                            <div class="hero-stat-val glow-text stat-count" id="hud-threat-stats" data-target="482193" data-decimals="0" data-suffix="">0</div>
-                            <div class="hero-stat-lbl">THREATS BLOCKED TODAY</div>
-                        </div>
-                        <div class="hero-stat-col">
-                            <div class="hero-stat-val glow-text">99.9%</div>
-                            <div class="hero-stat-lbl">SYSTEM UPTIME</div>
-                        </div>
-                        <div class="hero-stat-col">
-                            <div class="hero-stat-val glow-text">24/7</div>
-                            <div class="hero-stat-lbl">RADAR SCANNING</div>
-                        </div>
+                    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                        <a href="#solutions" class="btn-bento-primary">
+                            Explore Solutions <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button class="btn-bento-secondary" onclick="openQuoteModal()">
+                            Book a Demo <i class="fa-solid fa-calendar"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Right side -->
-                <div class="hero-right reveal">
-                    <div class="hero-glow-shadow"></div>
-                    
-                    <div class="hud-viewfinder-wrap float-anim" style="max-width: 420px; width: 100%; box-sizing: border-box;">
-                        <!-- Viewfinder brackets -->
-                        <div class="viewfinder-corner-tl"></div>
-                        <div class="viewfinder-corner-tr"></div>
-                        <div class="viewfinder-corner-bl"></div>
-                        <div class="viewfinder-corner-br"></div>
-                        
-                        <img src="{{ url_for('static', filename='securetech_av.png') }}" class="hero-right-img" alt="SecureTechAV App Mockup" />
-                    </div>
+                <div class="bento-box hero-image-box">
+                    <img src="/images/solution-boardroom.png" alt="Corporate Boardroom AV Ecosystem" />
                 </div>
             </div>
-        </section>
 
-        <!-- STREAM DIVIDER -->
-        <div class="grid-divider"><div class="grid-divider-glow"></div></div>
-
-        <!-- FEATURES -->
-        <section id="features" class="section-wrap">
-            <div class="container-hud">
-                <!-- Header -->
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">// FEATURES</span>
-                    <h2 class="section-title">Real-Time Defense Grid</h2>
-                    <p style="color: var(--text-dim); font-size: 14px; margin-top: 12px;">Deploying cyber security shields across network boundaries.</p>
+            <!-- Stats Bar -->
+            <div class="stats-bento">
+                <div class="stat-bento-card">
+                    <div class="stat-num">5600<span>+</span></div>
+                    <div class="stat-label">Projects Delivered</div>
                 </div>
-
-                <!-- 2x3 Grid of hud-panels -->
-                <div class="features-grid">
-                    <!-- Feature 1 -->
-                    <div class="hud-panel reveal">
-                        <span class="terminal-text" style="position: absolute; top: 16px; right: 16px; font-size: 8px;">[ACTIVE]</span>
-                        <div class="feature-icon">🛡️</div>
-                        <h3 class="feature-title">Real-Time Scanning</h3>
-                        <p class="feature-desc">Every file, every buffer packet swept in real-time to locate malware variants.</p>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="hud-panel reveal">
-                        <span class="terminal-text" style="position: absolute; top: 16px; right: 16px; font-size: 8px;">[ACTIVE]</span>
-                        <div class="feature-icon">🤖</div>
-                        <h3 class="feature-title">AI Threat Detection</h3>
-                        <p class="feature-desc">Self-training behavior analysis models identify and flag zero-day exploits.</p>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="hud-panel reveal">
-                        <span class="terminal-text" style="position: absolute; top: 16px; right: 16px; font-size: 8px;">[ACTIVE]</span>
-                        <div class="feature-icon">💀</div>
-                        <h3 class="feature-title">Ransomware Lockdown</h3>
-                        <p class="feature-desc">Instantly lock directory registers the moment anomalous encryption occurs.</p>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="hud-panel reveal">
-                        <span class="terminal-text" style="position: absolute; top: 16px; right: 16px; font-size: 8px;">[ACTIVE]</span>
-                        <div class="feature-icon">🌐</div>
-                        <h3 class="feature-title">Dark Web Watch</h3>
-                        <p class="feature-desc">Monitors credentials and password stores on major leak indexes.</p>
-                    </div>
-
-                    <!-- Feature 5 -->
-                    <div class="hud-panel reveal">
-                        <span class="terminal-text" style="position: absolute; top: 16px; right: 16px; font-size: 8px;">[ACTIVE]</span>
-                        <div class="feature-icon">🔐</div>
-                        <h3 class="feature-title">Identity Shield</h3>
-                        <p class="feature-desc">Secures session tokens and cookies from browser scraper packages.</p>
-                    </div>
-
-                    <!-- Feature 6 -->
-                    <div class="hud-panel reveal">
-                        <span class="terminal-text" style="position: absolute; top: 16px; right: 16px; font-size: 8px;">[ACTIVE]</span>
-                        <div class="feature-icon">⚡</div>
-                        <h3 class="feature-title">Zero-Lag Engine</h3>
-                        <p class="feature-desc">Minimal local footprint utilizing cloud diagnostics loops under 0.4% CPU.</p>
-                    </div>
+                <div class="stat-bento-card">
+                    <div class="stat-num">105<span>+</span></div>
+                    <div class="stat-label">Skilled Engineers</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- STREAM DIVIDER -->
-        <div class="grid-divider"><div class="grid-divider-glow"></div></div>
-
-        <!-- ABOUT -->
-        <section id="about" class="section-wrap">
-            <div class="container-hud about-grid">
-                <!-- Left Image inside HUD viewfinder frame -->
-                <div class="about-left reveal">
-                    <div class="hud-viewfinder-wrap">
-                        <div class="viewfinder-corner-tl"></div>
-                        <div class="viewfinder-corner-tr"></div>
-                        <div class="viewfinder-corner-bl"></div>
-                        <div class="viewfinder-corner-br"></div>
-                        
-                        <img src="{{ url_for('static', filename='about.png') }}" class="rounded" style="width: 100%; height: auto; display: block; border-radius: 8px;" alt="Threat Analysis Center" />
-                    </div>
+                <div class="stat-bento-card">
+                    <div class="stat-num">25</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                
-                <!-- Right details -->
-                <div class="about-right reveal">
-                    <span class="section-eyebrow">// ABOUT DIAGNOSTICS</span>
-                    <h2 class="section-title" style="line-height: 1.15; font-size: 36px;">
-                        Engineered Like a Weapon,<br/>
-                        Runs Like a Whisper
-                    </h2>
-
-                    <!-- Bullets -->
-                    <div class="about-bullets-list">
-                        <!-- Bullet 1 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-num">[ 01 ]</span>
-                            <div class="bullet-content">
-                                <h4>AES-256 military-grade encryption standard</h4>
-                                <p>Encrypt outbound system data packets from interceptors.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 2 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-num">[ 02 ]</span>
-                            <div class="bullet-content">
-                                <h4>Scans 1M+ files per second</h4>
-                                <p>Fast scanner technology monitors memory registers instantly.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 3 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-num">[ 03 ]</span>
-                            <div class="bullet-content">
-                                <h4>Less than 1% CPU footprint</h4>
-                                <p>Heuristics mapping offloads scan cycles to avoid PC lags.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 4 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-num">[ 04 ]</span>
-                            <div class="bullet-content">
-                                <h4>Full Windows/Mac compatibility node</h4>
-                                <p>Cross-platform integration nodes secure all device groups.</p>
-                            </div>
-                        </div>
-
-                        <!-- Bullet 5 -->
-                        <div class="about-bullet-row">
-                            <span class="bullet-num">[ 05 ]</span>
-                            <div class="bullet-content">
-                                <h4>30-day money-back guarantee</h4>
-                                <p>Direct support node handles refunds within the first month.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-bento-card">
+                    <div class="stat-num">50<span>+</span></div>
+                    <div class="stat-label">Global OEM Partners</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- STREAM DIVIDER -->
-        <div class="grid-divider"><div class="grid-divider-glow"></div></div>
-
-        <!-- LIVE THREAT FEED & TESTIMONIALS -->
-        <section id="feed" class="section-wrap">
-            <div class="container-hud">
-                
-                <!-- Live threat feed panel -->
-                <div class="threat-feed-container reveal">
-                    <div style="text-align: center; margin-bottom: 32px;">
-                        <span class="section-eyebrow">// LIVE ACTIVITY</span>
-                        <h2 class="section-title" style="font-size: 36px;">Global Threat Activity</h2>
-                        <p style="color: var(--text-dim); font-size: 11px; font-family: 'JetBrains Mono', monospace; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px;">
-                            <span class="live-dot"></span> LIVE THREAT RADAR FEED
-                        </p>
-                    </div>
-
-                    <!-- Fake simulated scrolling terminal list -->
-                    <div class="feed-box" id="live-threat-feed">
-                        <div class="feed-header">
-                            <span>TIMESTAMP</span>
-                            <span>SOURCE IP</span>
-                            <span>ATTACK VECTOR</span>
-                            <span>STATUS</span>
-                        </div>
-                        <!-- Rows injected via JS -->
-                    </div>
-                </div>
-
-                <!-- Testimonials -->
-                <div class="testimonials-grid">
-                    <!-- Testimonial 1 -->
-                    <div class="hud-panel reveal">
-                        <div class="stars-row">★★★★★</div>
-                        <p class="testimonial-quote">
-                            "Caught a ransomware variant my last antivirus didn't even recognize. Sealed the folder before I'd even finished reading the alert."
-                        </p>
-                        <div class="testimonial-author">— Priya M., Freelance Designer</div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="hud-panel reveal">
-                        <div class="stars-row">★★★★★</div>
-                        <p class="testimonial-quote">
-                            "I run a 40-person studio. SecureTechAV is the first security tool nobody on my team complains about."
-                        </p>
-                        <div class="testimonial-author">— Arjun K., Studio Founder</div>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="hud-panel reveal">
-                        <div class="stars-row">★★★★★</div>
-                        <p class="testimonial-quote">
-                            "Switched after a phishing attempt got through my old AV. SecureTechAV flagged the same email type three times since — before I even opened it."
-                        </p>
-                        <div class="testimonial-author">— Rohan D., Finance Analyst</div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- STREAM DIVIDER -->
-        <div class="grid-divider"><div class="grid-divider-glow"></div></div>
-
-        <!-- PRICING -->
-        <section id="pricing" class="section-wrap">
-            <div class="container-hud">
-                <div class="section-header reveal">
-                    <span class="section-eyebrow">// PRICING</span>
-                    <h2 class="section-title">Compare Protection Tiers</h2>
-                </div>
-
-                <div class="pricing-grid">
-                    <!-- Free -->
-                    <div class="hud-panel price-card reveal">
-                        <div>
-                            <div class="price-title-row">
-                                <h3 class="price-title">THE APPRENTICE</h3>
-                                <span class="price-tier-tag">TIER_ID: 01</span>
-                            </div>
-                            <div class="price-amount">$0.00 <span>/ lifetime</span></div>
-                            <ul class="price-features">
-                                <li>✓ Basic File Scans</li>
-                                <li>✓ 1 Active Device</li>
-                                <li>✓ Core Database Checks</li>
-                                <li class="line-through text-zinc-650">✗ AI Heuristic Predictor</li>
-                                <li class="line-through text-zinc-650">✗ Ransomware Shield</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="#pricing" class="btn-hud-outline" style="width: 100%; box-sizing: border-box;">Download Now</a>
-                        </div>
-                    </div>
-
-                    <!-- Pro -->
-                    <div class="hud-panel price-card pro-card reveal">
-                        <div>
-                            <div class="pro-badge-wrap">
-                                <span class="pro-badge">MOST DEPLOYED</span>
-                            </div>
-                            <div class="price-title-row">
-                                <h3 class="price-title" style="color: var(--hud-cyan);">THE BLACKSMITH</h3>
-                                <span class="price-tier-tag" style="color: var(--hud-cyan);">TIER_ID: 02</span>
-                            </div>
-                            <div class="price-amount pro-amount">$9.99 <span>/ month</span></div>
-                            <ul class="price-features">
-                                <li>✓ Real-Time AI Monitor</li>
-                                <li>✓ 5 Device License</li>
-                                <li>✓ Zero-Day Sandbox Shield</li>
-                                <li>✓ Dark Web Breach Scans</li>
-                                <li>✓ Anti-Phishing Cloud Filter</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="#pricing" class="btn-hud-primary" style="width: 100%; box-sizing: border-box; shadow: 0 0 20px rgba(34, 211, 238, 0.4);">Start Free Trial</a>
-                        </div>
-                    </div>
-
-                    <!-- Business -->
-                    <div class="hud-panel price-card reveal">
-                        <div>
-                            <div class="price-title-row">
-                                <h3 class="price-title">THE FOUNDRY</h3>
-                                <span class="price-tier-tag">TIER_ID: 03</span>
-                            </div>
-                            <div class="price-amount">$24.99 <span>/ month</span></div>
-                            <ul class="price-features">
-                                <li>✓ Custom SecOps Dashboard</li>
-                                <li>✓ 25 Device Licenses</li>
-                                <li>✓ Complete Network Shields</li>
-                                <li>✓ Dedicate Support Nodes</li>
-                                <li>✓ Remote Terminal Deploy</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="#pricing" class="btn-hud-primary" style="width: 100%; box-sizing: border-box;">Protect Business</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 48px;">
-                    <a href="#pricing" class="btn-hud-ghost">View All Plans &rarr;</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- STREAM DIVIDER -->
-        <div class="grid-divider"><div class="grid-divider-glow"></div></div>
-
-        <!-- CTA SECTION -->
-        <section id="contact" class="section-wrap" style="background-image: radial-gradient(ellipse 80% 60% at center, rgba(34, 211, 238, 0.06), transparent); padding: 80px 0;">
-            <!-- Scan line radar sweep -->
-            <div class="scan-line"></div>
-            
-            <div class="container-hud cta-box reveal">
-                <h2 class="cta-title glow-text">Deploy Your Defense Today</h2>
-                <p class="cta-desc">Every second you wait, new digital threats emerge.</p>
-                
-                <div class="cta-input-group">
-                    <input type="email" placeholder="Enter security email" class="cta-input" />
-                    <button type="button" class="btn-hud-primary">GET PROTECTED</button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container-hud footer-grid">
-            <div class="footer-logo-desc">
-                <a href="/" class="logo-wrap">
-                    <img src="{{ url_for('static', filename='just_logo_no_text.png') }}" alt="SecureTechAV Logo" class="h-8 filter invert brightness-200" style="height: 32px;" />
-                    <span class="logo-text" style="font-size: 18px;">SecureTech<span class="text-hudCyan">AV</span></span>
-                </a>
-                <p>Protecting the digital frontier, one device at a time. AI-driven cybersecurity models protecting personal computers, enterprise mainframes, and smart nodes.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>// Product</h4>
-                <ul>
-                    <li><a href="#features" class="btn-hud-ghost">Features</a></li>
-                    <li><a href="#pricing" class="btn-hud-ghost">Pricing Packs</a></li>
-                    <li><a href="#home" class="btn-hud-ghost">Malware Shield</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>// Company</h4>
-                <ul>
-                    <li><a href="#about" class="btn-hud-ghost">About Us</a></li>
-                    <li><a href="#" class="btn-hud-ghost">Careers</a></li>
-                    <li><a href="#" class="btn-hud-ghost">Press</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>// Support</h4>
-                <ul>
-                    <li><a href="#" class="btn-hud-ghost">Support Node</a></li>
-                    <li><a href="#" class="btn-hud-ghost">Contact Lab</a></li>
-                    <li><a href="#" class="btn-hud-ghost">Alerts Status</a></li>
-                </ul>
             </div>
         </div>
+    </section>
 
-        <div class="container-hud footer-bottom">
-            <p>&copy; 2026 SecureTechAV. All systems operational.</p>
-            <div class="footer-bottom-right">
-                <span class="btn-hud-ghost">Privacy Node</span>
-                <span style="color: var(--hud-cyan); font-weight: 700; display: flex; align-items: center;"><span class="live-dot"></span>SYSTEM: RUNNING</span>
+    <!-- AV Solutions -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <div class="bento-eyebrow">Modular Architecture</div>
+                <h2 class="section-title">Turnkey Audio-Visual <span>Infrastructure</span></h2>
+                <p class="section-desc">We design, engineer, and support standardized audio-visual configurations ensuring seamless videoconferencing, boardroom automation, and network reliability.</p>
+            </div>
+
+            <div class="solutions-bento-grid">
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-drafting-compass"></i></div>
+                        <h3>AV System Design</h3>
+                        <p>Bespoke architectural layout modeling, acoustic calculations, and structured cable path maps.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-desktop"></i></div>
+                        <h3>Smart Classroom Integration</h3>
+                        <p>High-brightness laser displays, touch interactive screens, and distance classroom equipment.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-sliders"></i></div>
+                        <h3>AV Control Systems</h3>
+                        <p>Simplified room automation setups through touchpanels to coordinate audio levels, lighting, and feeds.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3>ICT & Structured Cabling</h3>
+                        <p>High-speed fiber backbones, network switch racks, and standardized commercial cat-cabling.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-volume-high"></i></div>
+                        <h3>Auditorium Sound Systems</h3>
+                        <p>Line-array configurations, digital speaker matrices, and acoustic treatment for crystal-clear acoustics.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <h3>Stadium & Arena AV</h3>
+                        <p>Weatherproof high-output speakers, massive outdoor LED billboards, and synchronized delays.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-film"></i></div>
+                        <h3>Cinema & Preview Theatres</h3>
+                        <p>Surround-sound configurations and premium digital screening systems for private venues.</p>
+                    </div>
+                </div>
+
+                <div class="solution-bento-item">
+                    <div>
+                        <div class="solution-icon-wrap"><i class="fa-solid fa-store"></i></div>
+                        <h3>Commercial/Retail Audio</h3>
+                        <p>Zoned background music channels, paging networks, and digital signage boards for malls.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workplace Concept Center -->
+    <section class="section" id="concept-center" style="padding-top: 0;">
+        <div class="container">
+            <div class="concept-bento-card">
+                <div>
+                    <div class="bento-eyebrow">Workplace Tech Concept Center</div>
+                    <h2 class="section-title" style="margin: 14px 0 18px; font-size: 30px;">
+                        Come & Experience Our Workplace Technology Center <span>Before Deployment</span>
+                    </h2>
+                    <p class="section-desc" style="margin-bottom: 28px;">
+                        Walk through immersive workplace environments featuring hybrid meeting rooms, boardrooms, command centers, and integrated AV ecosystems engineered for modern enterprises. See the products and layouts in action before selecting your system specs.
+                    </p>
+                    <button class="btn-bento-primary" onclick="openQuoteModal()">
+                        Book a Demo Walkthrough <i class="fa-solid fa-calendar-check"></i>
+                    </button>
+                </div>
+                <div>
+                    <img src="/images/advantage_center_v3.jpeg" alt="Workplace Concept Center" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section" id="industries">
+        <div class="container">
+            <div class="section-header">
+                <div class="bento-eyebrow">Industries We Serve</div>
+                <h2 class="section-title">Tailored AV Integration <span>Across Sectors</span></h2>
+                <p class="section-desc">We configure bespoke technology configurations engineered to match the specialized operational workflows of distinct environments.</p>
+            </div>
+
+            <div class="industries-bento-grid">
+                <div class="industry-bento-item">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-corporate.png" alt="Corporate" />
+                    </div>
+                    <div class="industry-bento-content">
+                        <h3><i class="fa-solid fa-building"></i> Corporate</h3>
+                        <p>Videoconferencing boardrooms, smart huddle rooms, and high-productivity collaborative systems.</p>
+                    </div>
+                </div>
+
+                <div class="industry-bento-item">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-education.png" alt="Education" />
+                    </div>
+                    <div class="industry-bento-content">
+                        <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                        <p>Interactive smart classrooms, lecture halls, and hybrid teaching platforms for universities.</p>
+                    </div>
+                </div>
+
+                <div class="industry-bento-item">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-healthcare.jpg" alt="Healthcare" />
+                    </div>
+                    <div class="industry-bento-content">
+                        <h3><i class="fa-solid fa-user-md"></i> Healthcare</h3>
+                        <p>High-definition telemedicine suites, OT display routing, and clean hospital signage layouts.</p>
+                    </div>
+                </div>
+
+                <div class="industry-bento-item">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-public.png" alt="Government" />
+                    </div>
+                    <div class="industry-bento-content">
+                        <h3><i class="fa-solid fa-landmark"></i> Government</h3>
+                        <p>Secure videoconferencing facilities, legislative councils, and operations command centers.</p>
+                    </div>
+                </div>
+
+                <div class="industry-bento-item">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-retail.png" alt="Hospitality" />
+                    </div>
+                    <div class="industry-bento-content">
+                        <h3><i class="fa-solid fa-hotel"></i> Hospitality</h3>
+                        <p>Integrated banquet sound networks, lobby signage, and automation for hotels and lounges.</p>
+                    </div>
+                </div>
+
+                <div class="industry-bento-item">
+                    <div class="industry-img-box">
+                        <img src="/images/sector-residential.jpeg" alt="Residential" />
+                    </div>
+                    <div class="industry-bento-content">
+                        <h3><i class="fa-solid fa-house-laptop"></i> Residential</h3>
+                        <p>Custom home automation, dedicated acoustic home theaters, and localized sound distributions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section class="section" id="projects" style="background: rgba(18, 20, 29, 0.4);">
+        <div class="container">
+            <div class="section-header">
+                <div class="bento-eyebrow">Case Studies & Key Deployments</div>
+                <h2 class="section-title">Our Recent Key <span>Projects</span></h2>
+                <p class="section-desc">Explore spatial installations engineered, built, and maintained by our certified technical team across India.</p>
+            </div>
+
+            <div class="projects-bento-grid">
+                <div class="project-bento-card">
+                    <div class="project-img-box">
+                        <img src="/images/convention_centres.jpeg" alt="Noida Convention Center" />
+                    </div>
+                    <div class="project-bento-info">
+                        <span class="project-tag">Auditoriums & Public Spaces</span>
+                        <h3>Noida Convention Center</h3>
+                        <p>High-performance audio networks, motorized projection systems, and stage lighting matrices deployed across three main halls.</p>
+                    </div>
+                </div>
+
+                <div class="project-bento-card">
+                    <div class="project-img-box">
+                        <img src="/images/solution-boardroom.png" alt="Corporate HQ Gurugram" />
+                    </div>
+                    <div class="project-bento-info">
+                        <span class="project-tag">Corporate Workspaces</span>
+                        <h3>Corporate HQ, Gurugram</h3>
+                        <p>Videoconferencing configurations, ceiling microphone arrays, and integrated room control systems for 12 boardrooms.</p>
+                    </div>
+                </div>
+
+                <div class="project-bento-card">
+                    <div class="project-img-box">
+                        <img src="/images/solution-smart-classroom.jpeg" alt="Technical Smart Campus" />
+                    </div>
+                    <div class="project-bento-info">
+                        <span class="project-tag">Hybrid Education</span>
+                        <h3>Technical Smart Campus</h3>
+                        <p>Turnkey smart classroom design with laser projections, digital writing screens, and sound delay processors.</p>
+                    </div>
+                </div>
+
+                <div class="project-bento-card">
+                    <div class="project-img-box">
+                        <img src="/images/auditorium_view.jpg" alt="State Judicial Council Hall" />
+                    </div>
+                    <div class="project-bento-info">
+                        <span class="project-tag">Government & Judiciary</span>
+                        <h3>State Judicial Council Hall</h3>
+                        <p>High-definition digital signage routing, encryption conferencing channels, and crystal-clear acoustic calibrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Marquee -->
+    <section class="section" id="partners" style="padding: 50px 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <div class="bento-eyebrow">Technology Alliances</div>
+                <h2 class="section-title" style="font-size: 26px;">Allied With Global AV Leaders</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track">
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">BS</div><div><strong style="color:#fff;">Bose Pro</strong><div style="font-size:11px; color:var(--text-muted);">Commercial Audio</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">CS</div><div><strong style="color:#fff;">Christie</strong><div style="font-size:11px; color:var(--text-muted);">Laser Displays</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">CI</div><div><strong style="color:#fff;">Cisco Systems</strong><div style="font-size:11px; color:var(--text-muted);">Video Infrastructure</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">JB</div><div><strong style="color:#fff;">JBL Pro</strong><div style="font-size:11px; color:var(--text-muted);">Sound Reinforcement</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">LG</div><div><strong style="color:#fff;">LG Electronics</strong><div style="font-size:11px; color:var(--text-muted);">Displays & LED</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">QS</div><div><strong style="color:#fff;">QSC Audio</strong><div style="font-size:11px; color:var(--text-muted);">DSP Matrices</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">SN</div><div><strong style="color:#fff;">Sennheiser</strong><div style="font-size:11px; color:var(--text-muted);">Ceiling Arrays</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">SY</div><div><strong style="color:#fff;">Sony Pro</strong><div style="font-size:11px; color:var(--text-muted);">Cameras & PTZ</div></div></div>
+                    <!-- Duplicate -->
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">BS</div><div><strong style="color:#fff;">Bose Pro</strong><div style="font-size:11px; color:var(--text-muted);">Commercial Audio</div></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon">CS</div><div><strong style="color:#fff;">Christie</strong><div style="font-size:11px; color:var(--text-muted);">Laser Displays</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Marquee -->
+    <section class="section" style="padding: 30px 0 80px;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 25px;">
+                <div class="bento-eyebrow">Enterprise Clients</div>
+                <h2 class="section-title" style="font-size: 24px;">Trusted By Leading Organizations</h2>
+            </div>
+
+            <div class="marquee-wrapper">
+                <div class="marquee-track" style="animation-direction: reverse;">
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(239,68,68,0.2); color:#ef4444;">IIT</div><div><strong style="color:#fff;">IIT DELHI</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(59,130,246,0.2); color:#3b82f6;">IIT</div><div><strong style="color:#fff;">IIT JODHPUR</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(16,185,129,0.2); color:#10b981;">AM</div><div><strong style="color:#fff;">AIIMS HOSPITALS</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(245,158,11,0.2); color:#f59e0b;">TT</div><div><strong style="color:#fff;">TATA ENTERPRISES</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(139,92,246,0.2); color:#8b5cf6;">INF</div><div><strong style="color:#fff;">INFOSYS</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(236,72,153,0.2); color:#ec4899;">WP</div><div><strong style="color:#fff;">WIPRO</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(6,182,212,0.2); color:#06b6d4;">IC</div><div><strong style="color:#fff;">ICICI BANK</strong></div></div>
+                    <div class="partner-bento-pill"><div class="partner-bento-icon" style="background:rgba(34,197,94,0.2); color:#22c55e;">DLF</div><div><strong style="color:#fff;">DLF PROPERTIES</strong></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Step Process -->
+    <section class="section" style="background: rgba(18, 20, 29, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <div class="bento-eyebrow">Our Methodology</div>
+                <h2 class="section-title">The SecureTech AV Workflow</h2>
+                <p class="section-desc">From initial acoustic calculation to turnkey deployment and ongoing maintenance.</p>
+            </div>
+
+            <div class="process-bento-grid">
+                <div class="process-bento-card">
+                    <div class="process-num">01</div>
+                    <h3>Site Survey & Acoustics</h3>
+                    <p>On-site inspection, spatial acoustic modeling, and stakeholder workflow mapping.</p>
+                </div>
+                <div class="process-bento-card">
+                    <div class="process-num">02</div>
+                    <h3>CAD & System Architecture</h3>
+                    <p>Detailed schematics, rack elevations, line diagrams, and exact hardware specs.</p>
+                </div>
+                <div class="process-bento-card">
+                    <div class="process-num">03</div>
+                    <h3>Turnkey Deployment</h3>
+                    <p>Certified cabling, equipment racking, DSP calibration, and user training.</p>
+                </div>
+                <div class="process-bento-card">
+                    <div class="process-num">04</div>
+                    <h3>AMC & 24/7 Support</h3>
+                    <p>Proactive monitoring, preventive maintenance visits, and rapid dispatch SLA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="bento-eyebrow">Client Validation</div>
+                <h2 class="section-title">Trusted By Enterprise Leaders</h2>
+            </div>
+
+            <div class="testimonial-bento-box">
+                <div class="testimonial-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="testimonial-quote" id="test-quote">
+                    "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution."
+                </div>
+                <div class="testimonial-author" id="test-author">Manoj Singh</div>
+                <div class="testimonial-role" id="test-role">Director of Infrastructure &middot; State Judicial Department</div>
+
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 24px;">
+                    <button class="btn-bento-secondary" onclick="prevTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="btn-bento-secondary" onclick="nextTestimonial()" style="padding: 6px 14px;"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-dialog-box">
+            <button class="modal-close-btn" onclick="closeQuoteModal()">&times;</button>
+            <div class="bento-eyebrow">Contact Engineering</div>
+            <h3 style="font-size: 20px; color: #fff; margin: 10px 0 20px;">Request an AV Consultation</h3>
+
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-group-item">
+                    <label>Full Name</label>
+                    <input type="text" class="form-ctrl-input" required placeholder="John Doe" />
+                </div>
+                <div class="form-group-item">
+                    <label>Work Email</label>
+                    <input type="email" class="form-ctrl-input" required placeholder="john@enterprise.com" />
+                </div>
+                <div class="form-group-item">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-ctrl-input" required placeholder="+91 98765 43210" />
+                </div>
+                <div class="form-group-item">
+                    <label>Requirement Type</label>
+                    <select class="form-ctrl-input">
+                        <option>Executive Boardroom Integration</option>
+                        <option>Smart Classroom & Hybrid Lecture Hall</option>
+                        <option>Auditorium Sound & Line Arrays</option>
+                        <option>Workplace Concept Center Demo</option>
+                    </select>
+                </div>
+                <div class="form-group-item">
+                    <label>Project Details</label>
+                    <textarea class="form-ctrl-input" rows="3" placeholder="Describe room size, timeline, and requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn-bento-primary" style="width: 100%; justify-content: center; padding: 13px;">
+                    Submit Request <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrap" style="margin-bottom: 14px;">
+                        <div class="logo-badge">ST</div>
+                        <div class="logo-text">SECURETECH <span>AV</span></div>
+                    </div>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-muted);">
+                        India's premier turnkey AV systems integrator providing architectural design, hardware provisioning, room acoustics, and AMC support.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#concept-center">Concept Center</a></li>
+                        <li><a href="#industries">Industries</a></li>
+                        <li><a href="#projects">Key Projects</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solutions">Smart Boardrooms</a></li>
+                        <li><a href="#solutions">Smart Classrooms</a></li>
+                        <li><a href="#solutions">Auditorium Sound</a></li>
+                        <li><a href="#solutions">ICT Networking</a></li>
+                        <li><a href="#solutions">Video Walls</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p style="margin-bottom: 8px; font-size: 14px;"><i class="fa-solid fa-location-dot" style="color: var(--accent-red); margin-right: 8px;"></i> Delhi NCR, Noida, PAN India</p>
+                    <p style="margin-bottom: 8px; font-size: 14px;"><i class="fa-solid fa-envelope" style="color: var(--accent-red); margin-right: 8px;"></i> info@securetechav.com</p>
+                    <p style="font-size: 14px;"><i class="fa-solid fa-phone" style="color: var(--accent-red); margin-right: 8px;"></i> +91 98100 00000</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                &copy; 2026 SecureTech AV Integrators Pvt Ltd. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- JS SCRIPTS -->
+    <!-- Interactive Script -->
     <script>
-        // Hamburger Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const lines = menuBtn.querySelectorAll('span');
+        const testList = [
+            {
+                quote: "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution.",
+                author: "Manoj Singh",
+                role: "Director of Infrastructure · State Judicial Department"
+            },
+            {
+                quote: "Our Smart Classroom setup makes it incredibly straightforward for professors to coordinate hybrid lectures. The dual laser projection systems remain bright even under direct daylight.",
+                author: "Dr. Rajesh Dwivedi",
+                role: "Head of Digital Education · Premium Technical Institute"
+            },
+            {
+                quote: "SecureTech AV integrated 12 high-priority videoconferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are top-tier.",
+                author: "Amit Saxena",
+                role: "Chief Technology Officer · Global Financial Services"
+            }
+        ];
 
-        menuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.style.display === 'flex';
-            if (!isHidden) {
-                mobileMenu.style.display = 'flex';
-                lines[0].style.transform = 'translateY(7px) rotate(45deg)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+        let currTest = 0;
+        function updateTestimonial() {
+            const t = testList[currTest];
+            document.getElementById('test-quote').innerText = `"${t.quote}"`;
+            document.getElementById('test-author').innerText = t.author;
+            document.getElementById('test-role').innerText = t.role;
+        }
+
+        function nextTestimonial() {
+            currTest = (currTest + 1) % testList.length;
+            updateTestimonial();
+        }
+
+        function prevTestimonial() {
+            currTest = (currTest - 1 + testList.length) % testList.length;
+            updateTestimonial();
+        }
+
+        setInterval(nextTestimonial, 8000);
+
+        // Mobile Nav Drawer Toggle
+        function toggleMobileNav() {
+            const drawer = document.getElementById('mobileNavDrawer');
+            const icon = document.getElementById('mobile-icon');
+            drawer.classList.toggle('active');
+            if (drawer.classList.contains('active')) {
+                icon.className = 'fa-solid fa-xmark';
             } else {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            }
-        });
-
-        // Close mobile dropdown on links click
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            });
-        });
-
-        // Scroll Reveal Intersection Observer
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // Stats Counter animation
-        const stats = document.querySelectorAll('.stat-count');
-        const statsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseFloat(el.getAttribute('data-target'));
-                    const suffix = el.getAttribute('data-suffix') || '';
-                    const decimals = parseInt(el.getAttribute('data-decimals') || '0');
-                    let current = 0;
-                    const duration = 1500;
-                    const stepTime = 15;
-                    const steps = duration / stepTime;
-                    const increment = target / steps;
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            el.textContent = target.toLocaleString('en-US') + suffix;
-                            clearInterval(timer);
-                        } else {
-                            el.textContent = Math.floor(current).toLocaleString('en-US') + suffix;
-                        }
-                    }, stepTime);
-                    
-                    observer.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-        stats.forEach(s => statsObserver.observe(s));
-
-        // Live Simulated Threat Feed scrolling/tick updates
-        const threatFeed = document.getElementById('live-threat-feed');
-        const locations = ['US_EAST_NODE', 'DE_MUNICH_MAIN', 'IN_MUMBAI_GATE', 'UK_LONDON_SYS', 'JP_TOKYO_CENTER', 'SG_EDGE_VAULT'];
-        const attackVectors = ['SQL Injection Payload', 'Trojan.Win32.Generic', 'Buffer Overflow exploit', 'Credential Scraper payload', 'Anomalous SSH connection', 'Unauthorized API signature'];
-
-        function addThreatFeedEntry() {
-            const timeStr = new Date().toLocaleTimeString('en-US', { hour12: false });
-            const randomIP = `192.168.${Math.floor(Math.random() * 254) + 1}.${Math.floor(Math.random() * 254) + 1}`;
-            const loc = locations[Math.floor(Math.random() * locations.length)];
-            const vector = attackVectors[Math.floor(Math.random() * attackVectors.length)];
-            
-            const newRow = document.createElement('div');
-            newRow.className = 'feed-row';
-            newRow.style.opacity = '0';
-            newRow.innerHTML = `
-                <span class="feed-time">${timeStr}</span>
-                <span>${randomIP} (${loc})</span>
-                <span class="feed-vector">${vector}</span>
-                <span class="feed-badge">BLOCKED</span>
-            `;
-            
-            // Append and animate in
-            threatFeed.appendChild(newRow);
-            setTimeout(() => {
-                newRow.style.opacity = '1';
-            }, 50);
-
-            // Limit row count inside scrolling view
-            if (threatFeed.children.length > 7) {
-                const firstRow = threatFeed.children[1]; // index 0 is header
-                firstRow.style.opacity = '0';
-                setTimeout(() => {
-                    firstRow.remove();
-                }, 500);
+                icon.className = 'fa-solid fa-bars';
             }
         }
 
-        // Initialize first feed rows
-        for (let i = 0; i < 4; i++) {
-            addThreatFeedEntry();
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.add('active');
         }
 
-        // Loop feed updates
-        setInterval(addThreatFeedEntry, 3000);
-
-        // 2D Grid Canvas Background
-        const canvas = document.getElementById('grid-canvas');
-        const ctx = canvas.getContext('2d');
-        let w, h;
-        function resize() {
-            w = canvas.width = window.innerWidth;
-            h = canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        const spacing = 45;
-        let offset = 0;
-        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function drawGrid() {
-            ctx.clearRect(0, 0, w, h);
-            ctx.strokeStyle = 'rgba(255, 56, 56, 0.08)'; // Increased opacity red grid line
-            ctx.lineWidth = 1;
-            
-            for (let x = offset; x < w; x += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, h);
-                ctx.stroke();
-            }
-            
-            for (let y = offset; y < h; y += spacing) {
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(w, y);
-                ctx.stroke();
-            }
-            
-            if (!prefersReduced) {
-                offset = (offset + 0.15) % spacing;
-            }
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('active');
         }
 
-        // Circuit node particles
-        const nodes = [];
-        const nodeCount = 45;
-        for (let i = 0; i < nodeCount; i++) {
-            nodes.push({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3,
-                size: Math.random() * 2 + 1,
-                alpha: Math.random() * 0.4 + 0.2 // Increased alpha for high contrast visibility
-            });
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert("Thank you! Our SecureTech AV engineering team will contact you within 24 hours.");
+            closeQuoteModal();
         }
-
-        function updateNodes() {
-            nodes.forEach(node => {
-                if (!prefersReduced) {
-                    node.x += node.vx;
-                    node.y += node.vy;
-                    if (node.x < 0 || node.x > w) node.vx *= -1;
-                    if (node.y < 0 || node.y > h) node.vy *= -1;
-                }
-                
-                ctx.globalAlpha = node.alpha;
-                ctx.fillStyle = '#FF3838';
-                ctx.beginPath();
-                ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-                ctx.fill();
-                
-                nodes.forEach(other => {
-                    const dist = Math.hypot(node.x - other.x, node.y - other.y);
-                    if (dist < 120) {
-                        ctx.strokeStyle = 'rgba(185, 28, 28, 0.18)'; // Red connection line
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(node.x, node.y);
-                        ctx.lineTo(other.x, other.y);
-                        ctx.stroke();
-                    }
-                });
-            });
-            ctx.globalAlpha = 1.0;
-        }
-
-        function animate() {
-            drawGrid();
-            updateNodes();
-            requestAnimationFrame(animate);
-        }
-
-        animate();
     </script>
 </body>
-
 </html>
