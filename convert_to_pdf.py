@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SecureTech AV Designs — HTML Presentation → PDF Converter
+NEX AV Designs — HTML Presentation → PDF Converter
 Uses Playwright (Chromium) for pixel-perfect CSS rendering.
 
 Usage:
@@ -115,7 +115,7 @@ def convert_html_to_pdf(html_path: str, output_pdf: str) -> bool:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Convert SecureTech AV HTML presentation to PDF"
+        description="Convert NEX AV HTML presentation to PDF"
     )
     parser.add_argument(
         "--input", "-i",
@@ -124,8 +124,8 @@ def main():
     )
     parser.add_argument(
         "--output", "-o",
-        default="SecureTech_AV_Corporate_Profile.pdf",
-        help="Output PDF filename  (default: SecureTech_AV_Corporate_Profile.pdf)",
+        default="NEX_AV_Corporate_Profile.pdf",
+        help="Output PDF filename  (default: NEX_AV_Corporate_Profile.pdf)",
     )
     args = parser.parse_args()
 

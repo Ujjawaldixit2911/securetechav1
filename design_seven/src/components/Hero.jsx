@@ -6,10 +6,10 @@ export default function Hero({ onOpenEnquiry }) {
       <div className="container">
         <div className="grid hero-grid">
           <div className="hero-content animate-fade-left animated">
-            <div className="tagline">We Are SecureTech AV — Premium Audio Visual Integrators</div>
+            <div className="tagline">We Are NEX AV — Premium Audio Visual Integrators</div>
             <h1>Transforming Spaces Through Intelligent AV Solutions</h1>
             <p className="hero-description">
-              SecureTech AV Designs delivers end-to-end audio visual solutions — architectural acoustics, boardroom AV, auditorium sound systems, smart classrooms, lighting design, and IT infrastructure — for corporate, education, healthcare, government, and residential sectors across India.
+              NEX AV Designs delivers end-to-end audio visual solutions — architectural acoustics, boardroom AV, auditorium sound systems, smart classrooms, lighting design, and IT infrastructure — for corporate, education, healthcare, government, and residential sectors across India.
             </p>
             <div className="hero-actions">
               <a href="#sectors" className="btn btn-primary">Our Sectors</a>

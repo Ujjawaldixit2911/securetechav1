@@ -102,10 +102,10 @@ export default function About() {
       <div className={`about-content-wrapper container reveal ${isVisible ? 'active' : ''}`}>
         <div className="about-main-grid">
           <div className="about-left-statement">
-            <span className="section-tag">About SecureTech AV</span>
+            <span className="section-tag">About NEX AV</span>
             <h2 className="about-title">Intelligent Spaces, Integrated Seamlessly</h2>
             <p className="about-description">
-              SecureTech AV Designs is an industry-leading Audio-Visual integration firm. We engineer world-class collaborative, instructional, and public environments that unify audio distribution, digital displays, acoustics, and smart room controller nodes.
+              NEX AV Designs is an industry-leading Audio-Visual integration firm. We engineer world-class collaborative, instructional, and public environments that unify audio distribution, digital displays, acoustics, and smart room controller nodes.
             </p>
             <p className="about-subdescription">
               Whether building an executive boardroom, a high-density university lecture hall, or a government briefing facility, our technical compliance and lifecycle support guarantee operational continuity.

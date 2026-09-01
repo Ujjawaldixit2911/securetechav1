@@ -6,7 +6,7 @@ export default function About({ onOpenEnquiry }) {
       <div className="container">
         <div className="grid about-grid">
           <div className="about-img-box animate-fade-left animated">
-            <img src="/images/solution-boardroom.png" alt="SecureTech Executive Boardroom Office" />
+            <img src="/images/solution-boardroom.png" alt="NEX Executive Boardroom Office" />
             <div className="about-badge">
               <span style={{ fontSize: '2rem', display: 'block', color: 'var(--accent)', lineHeight: 1.1 }}>#1</span>
               <span>AV Integrator India</span>
@@ -17,7 +17,7 @@ export default function About({ onOpenEnquiry }) {
             <div className="tagline">About Company</div>
             <h2>Driven By A Passion For Absolute Technology</h2>
             <p className="about-subtitle">
-              SecureTech AV Designs Private Limited specializes in architectural acoustics, advanced sound system design, and prompt post-project maintenance service.
+              NEX AV Designs Private Limited specializes in architectural acoustics, advanced sound system design, and prompt post-project maintenance service.
             </p>
             <p className="about-text">
               Founded on principles of engineering excellence and aesthetic integration, we help corporate enterprises, schools, hospitals, and government offices install intelligent systems that are future-ready, scalable, and simple for users to operate. We represent the absolute pinnacle of AV integration in India.

@@ -69,15 +69,15 @@ export default function WhyUs() {
           {/* Left Column: Heading and Profile link */}
           <div className="whyus-intro">
             <span className="section-eyebrow">Enterprise Trust</span>
-            <h2 className="section-title-b2b">Why Integrators Choose SecureTechAV</h2>
+            <h2 className="section-title-b2b">Why Integrators Choose NEXAV</h2>
             <p className="whyus-intro-desc">
               B2B technology deployment is about minimizing downtime and optimizing interface simplicity. We deliver high-reliability AV systems built to perform.
             </p>
             <div className="whyus-action-row">
               <a 
-                href="/assets/securetech_profile.html" 
+                href="/assets/nex_profile.html" 
                 className="btn-profile-download"
-                download="SecureTechAV_Corporate_Profile"
+                download="NEXAV_Corporate_Profile"
                 onClick={(e) => {
                   // Fallback if local profile download fails, direct anchor link
                 }}

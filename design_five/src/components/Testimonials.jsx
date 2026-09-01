@@ -12,7 +12,7 @@ export default function Testimonials() {
     },
     {
       stars: 5,
-      quote: "SecureTechAV engineered our medical auditorium sound grids and dual projection screens at AIIMS. The audio clarity and system reliability has been absolute.",
+      quote: "NEXAV engineered our medical auditorium sound grids and dual projection screens at AIIMS. The audio clarity and system reliability has been absolute.",
       author: "Dr. Sandeep Sharma",
       designation: "Head of Infrastructure, AIIMS",
       initials: "SS"

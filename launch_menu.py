@@ -1,5 +1,5 @@
 """
-SecureTech AV - Interactive Terminal & Web Launcher
+NEX AV - Interactive Terminal & Web Launcher
 Asks the user which design to open and launches it instantly.
 """
 
@@ -73,7 +73,7 @@ def launch_hub():
     print("\n🌐 Starting Unified Web Hub on http://localhost:5000...")
     hub_script = os.path.join(BASE_DIR, "hub_server.py")
     if os.name == 'nt':
-        subprocess.Popen(f'start "SecureTech AV Hub" cmd /k "cd /d \"{BASE_DIR}\" && python \"{hub_script}\""', shell=True)
+        subprocess.Popen(f'start "NEX AV Hub" cmd /k "cd /d \"{BASE_DIR}\" && python \"{hub_script}\""', shell=True)
     else:
         subprocess.Popen([sys.executable, hub_script], cwd=BASE_DIR)
     
@@ -95,7 +95,7 @@ def launch_all():
 
 def main():
     print("\n" + "=" * 65)
-    print("        🏢 SECURETECH AV - INTERACTIVE DESIGN SELECTOR")
+    print("        🏢 NEX AV - INTERACTIVE DESIGN SELECTOR")
     print("=" * 65)
     print(" Konsi design dekhni hai? Choose a number below:\n")
     for k, v in DESIGNS.items():

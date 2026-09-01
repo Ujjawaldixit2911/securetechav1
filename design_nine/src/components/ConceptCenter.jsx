@@ -24,7 +24,7 @@ export default function ConceptCenter({ onOpenQuote }) {
           <div className="reveal" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '1px solid rgba(10,30,63,0.08)', height: '380px' }}>
             <img 
               src="/images/advantage_center_v3.jpeg" 
-              alt="SecureTech AV Workplace Concept Center" 
+              alt="NEX AV Workplace Concept Center" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>

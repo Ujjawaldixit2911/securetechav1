@@ -9,10 +9,10 @@ export default function Footer() {
           {/* Column 1: Logo & About */}
           <div className="footer-col footer-about">
             <div className="footer-logo">
-              <img src="/securetech_av.png" alt="SecureTech AV Designs Logo" style={{ height: '42px', objectFit: 'contain' }} />
+              <img src="/securetech_av.png" alt="NEX AV Designs Logo" style={{ height: '42px', objectFit: 'contain' }} />
             </div>
             <p>
-              SecureTech AV Designs is India's leading audio-visual integration company, delivering end-to-end solutions across corporate, education, government, and entertainment sectors.
+              NEX AV Designs is India's leading audio-visual integration company, delivering end-to-end solutions across corporate, education, government, and entertainment sectors.
             </p>
             <div className="footer-socials">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
@@ -73,7 +73,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="footer-bottom">
-          <p>&copy; 2026 SecureTech AV Designs Pvt. Ltd. All Rights Reserved.</p>
+          <p>&copy; 2026 NEX AV Designs Pvt. Ltd. All Rights Reserved.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
             <a href="#privacy" style={{ color: 'var(--color-text-muted)' }}>Privacy Policy</a>
             <a href="#terms" style={{ color: 'var(--color-text-muted)' }}>Terms of Service</a>

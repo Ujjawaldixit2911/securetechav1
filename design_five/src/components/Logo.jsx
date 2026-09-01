@@ -6,7 +6,7 @@ export default function Logo({ className = '' }) {
     <div className={`logo-container ${className}`}>
       <img 
         src="/assets/logos/logo-main.png" 
-        alt="SecureTechAV Logo" 
+        alt="NEXAV Logo" 
         className="logo-img"
         onError={(e) => {
           e.target.style.display = 'none';
@@ -19,7 +19,7 @@ export default function Logo({ className = '' }) {
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           <polyline points="9 11 12 14 22 4"/>
         </svg>
-        <span className="logo-text">SecureTech<span className="accent-span">AV</span></span>
+        <span className="logo-text">NEX<span className="accent-span">AV</span></span>
       </div>
     </div>
   );

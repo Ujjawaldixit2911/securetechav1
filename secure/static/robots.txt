@@ -1,11 +1,11 @@
-# SecureTech AV Designs — https://securetechav.com
+# NEX AV Designs — https://nexav.com
 # robots.txt
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://securetechav.com/sitemap.xml
+Sitemap: https://nexav.com/sitemap.xml
 
 # AI Crawler Permissions
 User-agent: GPTBot

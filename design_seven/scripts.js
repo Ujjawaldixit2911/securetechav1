@@ -1,5 +1,5 @@
 /**
- * SECURETECH AV DESIGNS — HOMEPAGE INTERACTIVE ENGINE
+ * NEX AV DESIGNS — HOMEPAGE INTERACTIVE ENGINE
  * Vanilla JS, ES6 standards, Intersection Observer API
  */
 
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fa-solid fa-circle-check"></i>
                     </div>
                     <h3 style="color: var(--primary); margin-bottom: 12px;">Enquiry Submitted Successfully</h3>
-                    <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.5; max-width: 400px; margin: 0 auto 30px auto;">Thank you for contacting SecureTech AV Designs. One of our senior AV consultants will review your project requirements and connect with you shortly.</p>
+                    <p style="color: var(--muted); font-size: 0.95rem; line-height: 1.5; max-width: 400px; margin: 0 auto 30px auto;">Thank you for contacting NEX AV Designs. One of our senior AV consultants will review your project requirements and connect with you shortly.</p>
                     <button class="btn btn-primary" id="successCloseBtn" style="width: 200px;">Close Window</button>
                 </div>
             `;
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statsSection) statsObserver.observe(statsSection);
 
     /* ==========================================
-       6. SECURETECH ROOM CONFIGURATOR (SLIDES)
+       6. NEX ROOM CONFIGURATOR (SLIDES)
        ========================================== */
     let currentStep = 1;
     const totalSteps = 5;

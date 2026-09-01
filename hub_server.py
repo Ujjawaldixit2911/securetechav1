@@ -1,7 +1,7 @@
 """
-SecureTech AV - Unified Design Hub & Master Launcher
+NEX AV - Unified Design Hub & Master Launcher
 Runs on http://localhost:5000
-Allows selecting, auto-launching, and live-previewing any of the 10 SecureTech AV designs.
+Allows selecting, auto-launching, and live-previewing any of the 10 NEX AV designs.
 """
 
 import os
@@ -256,7 +256,7 @@ HUB_HTML_TEMPLATE = """
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SecureTech AV - Design Selector Hub</title>
+  <title>NEX AV - Design Selector Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -635,51 +635,68 @@ HUB_HTML_TEMPLATE = """
     }
 
     .card-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
     }
 
     .btn-launch {
-      grid-column: span 2;
+      width: 100%;
       background: linear-gradient(135deg, var(--card-accent, #0284c7), #06b6d4);
       color: white;
       font-weight: 700;
       justify-content: center;
-      padding: 12px;
+      padding: 12px 16px;
       border-radius: 10px;
+      font-size: 0.95rem;
     }
 
     .btn-launch:hover {
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 22px rgba(6, 182, 212, 0.5);
       transform: translateY(-2px);
     }
 
-    .btn-preview {
-      background: rgba(255, 255, 255, 0.06);
-      color: white;
-      font-weight: 600;
+    .card-device-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-color);
-      justify-content: center;
+      border-radius: 8px;
+      padding: 5px 8px;
+      gap: 6px;
     }
 
-    .btn-preview:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--card-accent, #06b6d4);
-    }
-
-    .btn-direct {
-      background: rgba(255, 255, 255, 0.03);
+    .device-opt-label {
+      font-size: 0.72rem;
       color: var(--text-muted);
-      border: 1px solid var(--border-color);
-      justify-content: center;
-      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding-left: 2px;
     }
 
-    .btn-direct:hover {
-      color: white;
-      background: rgba(255, 255, 255, 0.08);
+    .device-opt-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: #e2e8f0;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .device-opt-btn:hover {
+      background: var(--cyan);
+      color: #070b13;
+      border-color: var(--cyan);
+      transform: translateY(-1px);
     }
 
     /* Modal / Switcher Viewer */
@@ -905,9 +922,9 @@ HUB_HTML_TEMPLATE = """
   <!-- Navigation -->
   <nav class="navbar">
     <a href="/" class="brand">
-      <div class="brand-logo-badge">ST</div>
+      <div class="brand-logo-badge">NX</div>
       <div class="brand-text">
-        <h1>SecureTech AV</h1>
+        <h1>NEX AV</h1>
         <p>Unified Design Hub</p>
       </div>
     </a>
@@ -924,28 +941,11 @@ HUB_HTML_TEMPLATE = """
   <!-- Hero Header -->
   <header class="hero">
     <div class="hero-tag">
-      <span>🚀</span> All 10 SecureTech AV Interactive Prototypes Ready
+      <span>🚀</span> All 10 NEX AV Interactive Prototypes Ready
     </div>
     <h2>Choose Which Design You Want To Explore</h2>
     <p>Select any design below to launch it instantly in a new window or use our integrated live switcher to compare all layouts side-by-side.</p>
   </header>
-
-  <!-- Interactive Question Box -->
-  <div style="padding: 0 2rem;">
-    <div class="ask-modal">
-      <div class="ask-modal-content">
-        <h3>👋 Konsi design dekhni hai? (Quick Jump)</h3>
-        <p>Click on any design below to open directly or test in live viewer:</p>
-      </div>
-      <div class="quick-pill-select">
-        {% for id, d in designs.items() %}
-          <button class="quick-pill" onclick="launchAndOpen({{ id }}, '{{ d.port }}')">
-            {{ d.name }} ({{ d.badge }})
-          </button>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
 
   <!-- Toolbar & Filters -->
   <div class="toolbar">
@@ -985,12 +985,18 @@ HUB_HTML_TEMPLATE = """
         <button class="btn btn-launch" onclick="launchAndOpen({{ id }}, '{{ d.port }}')">
           🚀 Launch & Open Design {{ id }}
         </button>
-        <button class="btn btn-preview" onclick="openEmbeddedViewer({{ id }}, '{{ d.port }}')">
-          🖥️ Live In-Hub Viewer
-        </button>
-        <a class="btn btn-direct" href="http://localhost:{{ d.port }}" target="_blank">
-          🔗 http://localhost:{{ d.port }}
-        </a>
+        <div class="card-device-options">
+          <span class="device-opt-label">Quick Preview:</span>
+          <button class="device-opt-btn" onclick="openEmbeddedViewer({{ id }}, '{{ d.port }}', 'desktop')" title="Preview in Desktop mode">
+            💻 Desktop
+          </button>
+          <button class="device-opt-btn" onclick="openEmbeddedViewer({{ id }}, '{{ d.port }}', 'tablet')" title="Preview in Tablet mode">
+            📱 Tablet
+          </button>
+          <button class="device-opt-btn" onclick="openEmbeddedViewer({{ id }}, '{{ d.port }}', 'mobile')" title="Preview in Mobile mode">
+            📲 Mobile
+          </button>
+        </div>
       </div>
     </div>
     {% endfor %}
@@ -1000,7 +1006,7 @@ HUB_HTML_TEMPLATE = """
   <div class="viewer-overlay" id="viewer-overlay">
     <div class="viewer-header">
       <div class="viewer-title-group">
-        <span style="font-weight: 800; color: var(--cyan); font-family: 'Outfit';">SECURETECH AV</span>
+        <span style="font-weight: 800; color: var(--cyan); font-family: 'Outfit';">NEX AV</span>
         <select class="viewer-select" id="viewer-design-select" onchange="switchViewerDesign(this.value)">
           {% for id, d in designs.items() %}
           <option value="{{ id }}" data-port="{{ d.port }}">
@@ -1106,17 +1112,28 @@ HUB_HTML_TEMPLATE = """
       }
     }
 
-    async function openEmbeddedViewer(id, port) {
+    async function openEmbeddedViewer(id, port, deviceMode = 'desktop') {
       currentViewerId = id;
       document.getElementById('viewer-design-select').value = id;
       const overlay = document.getElementById('viewer-overlay');
       const loader = document.getElementById('viewer-loader');
       const loaderText = document.getElementById('viewer-loader-text');
       const iframe = document.getElementById('viewer-iframe');
+      const wrapper = document.getElementById('iframe-wrapper');
       
+      // Update device buttons and wrapper mode
+      document.querySelectorAll('.device-btn').forEach(b => {
+        if (b.innerText.toLowerCase().includes(deviceMode)) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      wrapper.className = 'viewer-iframe-wrapper ' + (deviceMode === 'desktop' ? '' : deviceMode);
+
       overlay.classList.add('active');
       loader.style.display = 'block';
-      loaderText.innerText = `Preparing Design ${id} on port ${port}...`;
+      loaderText.innerText = `Preparing Design ${id} (${deviceMode.toUpperCase()} VIEW)...`;
       iframe.src = 'about:blank';
 
       try {
@@ -1237,7 +1254,7 @@ if __name__ == "__main__":
     port = 5000
     hub_url = f"http://localhost:{port}"
     print("=" * 60)
-    print(" 🚀 SECURETECH AV - UNIFIED DESIGN HUB")
+    print(" 🚀 NEX AV - UNIFIED DESIGN HUB")
     print(f" 🌐 Master Hub Address: {hub_url}")
     print("=" * 60)
     
@@ -1247,4 +1264,4 @@ if __name__ == "__main__":
     try:
         app.run(host="0.0.0.0", port=port, debug=False)
     except KeyboardInterrupt:
-        print("\nShutting down SecureTech AV Hub...")
+        print("\nShutting down NEX AV Hub...")

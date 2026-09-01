@@ -9,12 +9,12 @@ export default function Footer() {
         <div className="footer-info">
           <a href="#" className="footer-logo-link">
             <div className="footer-logo">
-              <img src="/assets/logos/logo-icon.png" alt="SecureTech Logo" className="footer-logo-img" />
-              <span className="logo-text">SecureTech <span className="logo-accent">AV</span></span>
+              <img src="/assets/logos/logo-icon.png" alt="NEX Logo" className="footer-logo-img" />
+              <span className="logo-text">NEX <span className="logo-accent">AV</span></span>
             </div>
           </a>
           <p>
-            SecureTech AV Designs Private Limited is a premium systems integrator offering turnkey video, acoustic, and ICT network automation infrastructures.
+            NEX AV Designs Private Limited is a premium systems integrator offering turnkey video, acoustic, and ICT network automation infrastructures.
           </p>
           <div className="footer-socials">
             <a href="https://linkedin.com" className="social-circle" aria-label="LinkedIn Profile">
@@ -79,7 +79,7 @@ export default function Footer() {
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                 <polyline points="22,6 12,13 2,6" />
               </svg>
-              <span>sales@securetechav.com</span>
+              <span>sales@nexav.com</span>
             </li>
             <li>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -92,7 +92,7 @@ export default function Footer() {
       </div>
 
       <div className="container footer-bottom-bar">
-        <p>Copyright &copy; 2026 SecureTech AV Designs Private Limited. All rights reserved.</p>
+        <p>Copyright &copy; 2026 NEX AV Designs Private Limited. All rights reserved.</p>
         <div className="footer-legal-links">
           <a href="#contact">Privacy Policy</a>
           <a href="#contact">Terms of Use</a>

@@ -1,5 +1,5 @@
 @echo off
-title SecureTech AV - Multi Design Runner
+title NEX AV - Multi Design Runner
 echo ==========================================
 echo  STARTING ALL 3 HOME PAGE DESIGNS...
 echo ==========================================

@@ -53,7 +53,7 @@ export default function Navbar({ onOpenEnquiry }) {
             </div>
             <div className="top-bar-item">
               <i className="fa-solid fa-envelope"></i>
-              <a href="mailto:info@securetechav.com">info@securetechav.com</a>
+              <a href="mailto:info@nexav.com">info@nexav.com</a>
             </div>
             <div className="top-bar-socials">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
@@ -68,8 +68,8 @@ export default function Navbar({ onOpenEnquiry }) {
       {/* Main Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
         <div className="container">
-          <a href="#home" className="logo-container" aria-label="SecureTech AV Designs Home">
-            <img src="/securetech_av.png" alt="SecureTech AV Designs Logo" />
+          <a href="#home" className="logo-container" aria-label="NEX AV Designs Home">
+            <img src="/securetech_av.png" alt="NEX AV Designs Logo" />
           </a>
           
           <ul className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`} id="nav-menu">
@@ -77,7 +77,6 @@ export default function Navbar({ onOpenEnquiry }) {
             <li><a href="#about" className="nav-link" onClick={closeMobileMenu}>About Us</a></li>
             <li><a href="#solutions" className="nav-link" onClick={closeMobileMenu}>Solutions</a></li>
             <li><a href="#configurator" className="nav-link" onClick={closeMobileMenu}>Room Configurator</a></li>
-            <li><a href="#profile" className="nav-link" onClick={closeMobileMenu}>Corporate Profile</a></li>
             <li><a href="#contact" className="nav-link" onClick={closeMobileMenu}>Contact Us</a></li>
             {mobileMenuOpen && (
               <li style={{ marginTop: '20px' }}>

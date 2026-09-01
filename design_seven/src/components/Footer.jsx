@@ -8,7 +8,7 @@ export default function Footer({ onOpenEnquiry }) {
           
           {/* Col 1 */}
           <div className="footer-col">
-            <img src="/securetech_av.png" alt="SecureTech AV Logo" className="footer-logo" />
+            <img src="/securetech_av.png" alt="NEX AV Logo" className="footer-logo" />
             <p>India's leading AV system integrator delivering architectural acoustics, smart boardroom technology, stadium sound, and connected hybrid spaces.</p>
             <div className="top-bar-socials" style={{ marginTop: '20px' }}>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontSize: '1.2rem', marginRight: '16px' }}><i className="fa-brands fa-linkedin"></i></a>
@@ -58,7 +58,7 @@ export default function Footer({ onOpenEnquiry }) {
                 allowFullScreen="" 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade" 
-                title="SecureTech AV Designs Location Map"
+                title="NEX AV Designs Location Map"
               ></iframe>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function Footer({ onOpenEnquiry }) {
         </div>
         
         <div className="footer-bottom">
-          <p>Copyright &copy; 2026 SecureTech AV Designs Private Limited. All rights reserved.</p>
+          <p>Copyright &copy; 2026 NEX AV Designs Private Limited. All rights reserved.</p>
           <div className="footer-bottom-links">
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Use</a>

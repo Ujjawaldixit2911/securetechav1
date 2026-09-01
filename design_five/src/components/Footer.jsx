@@ -76,13 +76,13 @@ export default function Footer() {
               <strong>Phone:</strong> +91 11 4056 9901
             </p>
             <p className="footer-contact-item">
-              <strong>Email:</strong> info@securetechav.com
+              <strong>Email:</strong> info@nexav.com
             </p>
 
             {/* Embedded Google Map */}
             <div className="footer-map-wrapper">
               <iframe 
-                title="SecureTechAV Head Office Location Map"
+                title="NEXAV Head Office Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x390ce114c0000001:0xd99ca82664cb99df!2sOkhla+Industrial+Area,+New+Delhi,+Delhi,+India!5m2!1s1en!2s2in!5m2!1s1en!2s2in"
                 width="100%" 
                 height="100" 
@@ -95,9 +95,9 @@ export default function Footer() {
 
             {/* Clean Download Profile button inside footer */}
             <a 
-              href="/assets/securetech_profile.html" 
+              href="/assets/nex_profile.html" 
               className="btn-footer-profile"
-              download="SecureTechAV_Corporate_Profile"
+              download="NEXAV_Corporate_Profile"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="btn-footer-profile-icon">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -112,7 +112,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="footer-bottom-bar">
-          <p className="footer-copyright">&copy; 2026 SecureTechAV Private Limited. All rights reserved.</p>
+          <p className="footer-copyright">&copy; 2026 NEXAV Private Limited. All rights reserved.</p>
           <div className="footer-legal-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms & Conditions</a>

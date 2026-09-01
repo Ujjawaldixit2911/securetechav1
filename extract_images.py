@@ -1,6 +1,6 @@
 import re
 
-path = 'c:/Users/shiva/OneDrive/Desktop/anu_bhai/securetech_profile.html'
+path = 'c:/Users/shiva/OneDrive/Desktop/anu_bhai/nex_profile.html'
 with open(path, 'rb') as f:
     content = f.read()
 

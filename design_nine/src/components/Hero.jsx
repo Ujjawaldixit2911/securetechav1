@@ -10,7 +10,7 @@ export default function Hero({ onOpenQuote }) {
           <span className="eyebrow">AV Systems Integrator · India</span>
           <h1>AV solutions that run without you thinking about them</h1>
           <p>
-            SecureTech AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India. We keep your communication networks running seamlessly.
+            NEX AV provides end-to-end design, installation, and support services for corporate boardrooms, educational spaces, and public facilities across India. We keep your communication networks running seamlessly.
           </p>
           <div className="hero-ctas">
             <a href="#solutions" className="btn btn-primary">
@@ -27,7 +27,7 @@ export default function Hero({ onOpenQuote }) {
           {/* CODE COMMENT: Swap the src attribute below with a real boardroom installation photo */}
           <img 
             src="/images/solution-boardroom.png" 
-            alt="SecureTech AV Corporate Boardroom Installation" 
+            alt="NEX AV Corporate Boardroom Installation" 
             onError={(e) => {
               e.target.style.display = 'none';
               e.target.nextSibling.style.display = 'flex';

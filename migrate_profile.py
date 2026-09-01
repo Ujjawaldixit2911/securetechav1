@@ -4,8 +4,8 @@ import re
 import urllib.parse
 
 base_dir = r"c:\Users\shiva\OneDrive\Desktop\anu_bhai"
-src_html = os.path.join(base_dir, "securetech_profile.html")
-dest_html = os.path.join(base_dir, r"secure\templates\securetech_profile.html")
+src_html = os.path.join(base_dir, "nex_profile.html")
+dest_html = os.path.join(base_dir, r"secure\templates\nex_profile.html")
 dest_img_dir = os.path.join(base_dir, r"secure\static\images\profile")
 
 os.makedirs(dest_img_dir, exist_ok=True)

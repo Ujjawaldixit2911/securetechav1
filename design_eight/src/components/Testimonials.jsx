@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const testimonials = [
   {
     initials: 'MS',
-    quote: "The courtroom sound and acoustic treatment executed by SecureTech AV at our judiciary complex has completely resolved microphonic feedback and echo issues. The preset matrices work flawlessly.",
+    quote: "The courtroom sound and acoustic treatment executed by NEX AV at our judiciary complex has completely resolved microphonic feedback and echo issues. The preset matrices work flawlessly.",
     author: 'Manoj Singh',
     role: 'Director of Infrastructure, State Judicial Department'
   },
@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     initials: 'AS',
-    quote: "SecureTech AV integrated 12 high-priority video conferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are impeccable.",
+    quote: "NEX AV integrated 12 high-priority video conferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are impeccable.",
     author: 'Amit Saxena',
     role: 'Chief Technology Officer, Global Financial Services'
   }

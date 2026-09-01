@@ -5,7 +5,7 @@ const reviews = [
     author: 'Manoj Singh',
     role: 'Director of Infrastructure, Judicial Department',
     avatar: 'MS',
-    quote: 'The courtroom sound upgrade executed by SecureTech AV at the judiciary complex has completely resolved microphones feedback and echo problems. The DSP presets are flawless.'
+    quote: 'The courtroom sound upgrade executed by NEX AV at the judiciary complex has completely resolved microphones feedback and echo problems. The DSP presets are flawless.'
   },
   {
     author: 'Dr. Rajesh Dwivedi',
@@ -17,7 +17,7 @@ const reviews = [
     author: 'Amit Saxena',
     role: 'Chief Technology Officer, Global FinTech Group',
     avatar: 'AS',
-    quote: 'SecureTech AV integrated 12 videoconferencing rooms and our primary control hub in record time. Professional support, clean rack cabling, and highly reliable engineers.'
+    quote: 'NEX AV integrated 12 videoconferencing rooms and our primary control hub in record time. Professional support, clean rack cabling, and highly reliable engineers.'
   }
 ];
 

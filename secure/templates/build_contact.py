@@ -13,7 +13,7 @@ prefix = prefix.replace('href="/Contactus" class="nav-link"', 'href="/Contactus"
 prefix = prefix.replace('href="/Contactus">Contact Us</a>', 'href="/Contactus" style="color:#E87D2F;">Contact Us</a>')
 
 # Change title
-prefix = re.sub(r"<title>.*?</title>", "<title>Contact Us — SecureTech AV Designs</title>", prefix)
+prefix = re.sub(r"<title>.*?</title>", "<title>Contact Us — NEX AV Designs</title>", prefix)
 
 contact_specific_css = """
         .contact-hero {
@@ -96,7 +96,7 @@ contact_content = """
         <div class="contact-wrap">
             <div class="contact-info fade-up" style="--delay:.1s">
                 <h2>Get in Touch with</h2>
-                <h2><span class="orange">Securetech AV Designs</span> 👋</h2>
+                <h2><span class="orange">NEX AV Designs</span> 👋</h2>
                 <p class="subtitle">Feel free to connect with us for any of your needs regarding our services. Our support team is ready to solve any of your issues. Just push a text and we will get back to you immediately.</p>
                 <h4>INDIA</h4>
                 <hr style="margin-bottom:24px;border:0;border-top:2px solid #1e1e1e;width:40px">
@@ -106,7 +106,7 @@ contact_content = """
                 </div>
                 <div class="contact-detail">
                     <img src="{{ url_for('static', filename='message.png') }}" alt="Email">
-                    <div>ashish@securetechav.com</div>
+                    <div>ashish@nexav.com</div>
                 </div>
                 <div class="contact-detail">
                     <img src="{{ url_for('static', filename='phone.png') }}" alt="Phone">
@@ -126,7 +126,7 @@ contact_content = """
                 <input type="text" name="location" placeholder="Location*" required>
                 <textarea name="message" placeholder="Message (Optional)"></textarea>
                 <button type="submit" class="btn-submit">
-                    Connect with Securetech today
+                    Connect with NEX today
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -139,7 +139,7 @@ contact_content = """
                 <h2>Get Ready to get</h2>
                 <h2>Your <span class="orange">AV Solution</span></h2>
                 <div class="info-row">
-                    <span>info@securetechav.com</span>
+                    <span>info@nexav.com</span>
                     <span>+91 7008166042</span>
                 </div>
             </div>

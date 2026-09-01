@@ -14,9 +14,9 @@ export default function Footer({ onOpenEnquiry }) {
           
           {/* Column 1: Company Profile */}
           <div className="footer-col footer-about">
-            <img src="/securetech_av.png" alt="SecureTech AV Designs Logo" />
+            <img src="/securetech_av.png" alt="NEX AV Designs Logo" />
             <p>
-              SecureTech AV Designs Pvt Ltd is India's leading AV system integrator, delivering professional acoustic blueprints, high-priority boardrooms, and smart digital collaborative systems.
+              NEX AV Designs Pvt Ltd is India's leading AV system integrator, delivering professional acoustic blueprints, high-priority boardrooms, and smart digital collaborative systems.
             </p>
             <div className="footer-social-title">Follow Us</div>
             <div className="footer-socials">
@@ -38,7 +38,7 @@ export default function Footer({ onOpenEnquiry }) {
               <li><a href="#testimonials">Testimonials</a></li>
               <li>
                 <a 
-                  href="/securetech_profile.html" 
+                  href="/nex_profile.html" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
@@ -62,7 +62,7 @@ export default function Footer({ onOpenEnquiry }) {
               </div>
               <div className="footer-contact-item">
                 <i className="fa-solid fa-envelope"></i>
-                <a href="mailto:info@securetechav.com">info@securetechav.com</a>
+                <a href="mailto:info@nexav.com">info@nexav.com</a>
               </div>
             </div>
             
@@ -75,7 +75,7 @@ export default function Footer({ onOpenEnquiry }) {
                 allowFullScreen="" 
                 loading="eager" 
                 referrerPolicy="no-referrer-when-downgrade" 
-                title="SecureTech AV Designs Noida Office Location Map"
+                title="NEX AV Designs Noida Office Location Map"
               ></iframe>
             </div>
           </div>
@@ -100,7 +100,7 @@ export default function Footer({ onOpenEnquiry }) {
         </div>
 
         <div className="footer-bottom">
-          <p>Copyright &copy; 2026 SecureTech AV Designs Pvt Ltd. All rights reserved.</p>
+          <p>Copyright &copy; 2026 NEX AV Designs Pvt Ltd. All rights reserved.</p>
           <div className="footer-bottom-links" style={{ display: 'flex', gap: '20px' }}>
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Use</a>

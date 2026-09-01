@@ -102,7 +102,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                   value={formData.company}
                   onChange={handleInputChange}
                   required 
-                  placeholder="e.g. SecureTech AV Client Org"
+                  placeholder="e.g. NEX AV Client Org"
                 />
               </div>
 

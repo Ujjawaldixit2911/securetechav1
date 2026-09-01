@@ -33,7 +33,7 @@ export default function WhyUs() {
       <div className="container">
         <div className="grid why-choose-grid">
           <div className="why-choose-content animate-fade-left animated">
-            <div className="tagline">Why SecureTech AV</div>
+            <div className="tagline">Why NEX AV</div>
             <h2>Engineered For Flawless Operation</h2>
             <p style={{ marginBottom: '40px' }}>
               We go beyond standard product supply. Our team designs sound dynamics, coordinates signal pathways, structures network grids, and maintains your systems for years to come.

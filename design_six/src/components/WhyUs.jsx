@@ -68,7 +68,7 @@ export default function WhyUs() {
           {/* Right Column: Copy & Checklist */}
           <div className="why-us-content">
             <span className="section-tag">Value Proposition</span>
-            <h2>Why Choose SecureTech AV</h2>
+            <h2>Why Choose NEX AV</h2>
             <p className="why-us-desc">
               We align design frameworks with enterprise standards, delivering systems on timeline, on budget, and built for future workflows.
             </p>

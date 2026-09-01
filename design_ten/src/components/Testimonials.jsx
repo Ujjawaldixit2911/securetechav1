@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const testimonialsList = [
   {
-    quote: "SecureTech AV transformed our boardroom into a world-class conferencing space. Professional, prompt, and precise.",
+    quote: "NEX AV transformed our boardroom into a world-class conferencing space. Professional, prompt, and precise.",
     author: "Facilities Head",
     org: "Corporate Client"
   },

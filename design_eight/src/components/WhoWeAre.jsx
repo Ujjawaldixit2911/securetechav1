@@ -12,7 +12,7 @@ export default function WhoWeAre({ onOpenEnquiry }) {
               <h2 style={{ marginTop: '10px' }}>Pioneering the Future of Corporate & Academic Communication</h2>
             </span>
             <h3>
-              SecureTech AV Designs is India's leading AV system integrator delivering end-to-end audio-visual solutions — trusted by 150+ clients.
+              NEX AV Designs is India's leading AV system integrator delivering end-to-end audio-visual solutions — trusted by 150+ clients.
             </h3>
             <p>
               We design, build, integrate, and support custom collaboration environments. From high-priority boardrooms and smart university classrooms to high-volume stadiums and auditoriums, we connect people with technology to cultivate exceptional workspace experiences.

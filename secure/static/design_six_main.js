@@ -1,5 +1,5 @@
 /* 
- * SecureTech AV Designs — JavaScript
+ * NEX AV Designs — JavaScript
  * Design Six — Interactive & Animation Features
  */
 

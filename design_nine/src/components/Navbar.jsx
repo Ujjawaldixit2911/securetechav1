@@ -20,8 +20,8 @@ export default function Navbar({ onOpenQuote }) {
     <header className="header-wrapper">
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
-          <a href="#home" className="logo-container" aria-label="SecureTech AV Designs Home">
-            <img src="/securetech_av.png" alt="SecureTech AV Designs Logo" style={{ height: '48px', objectFit: 'contain' }} />
+          <a href="#home" className="logo-container" aria-label="NEX AV Designs Home">
+            <img src="/securetech_av.png" alt="NEX AV Designs Logo" style={{ height: '48px', objectFit: 'contain' }} />
           </a>
 
           <ul className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>

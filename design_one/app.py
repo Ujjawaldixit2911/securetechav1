@@ -32,7 +32,7 @@ def solutions():
 
 @app.route("/CorporateProfile")
 def corporate_profile():
-    return render_template("securetech_profile.html")
+    return render_template("nex_profile.html")
 
 @app.route("/images/<path:filename>")
 def serve_images(filename):

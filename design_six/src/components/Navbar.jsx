@@ -27,8 +27,8 @@ export default function Navbar() {
         <div className="navbar-container">
           <a href="#" className="navbar-logo-link" onClick={closeMobileMenu}>
             <div className="logo-wrapper">
-              <img src="/assets/logos/logo-icon.png" alt="SecureTech AV Logo" className="nav-logo-img" />
-              <span className="logo-text">SecureTech <span className="logo-accent">AV</span></span>
+              <img src="/assets/logos/logo-icon.png" alt="NEX AV Logo" className="nav-logo-img" />
+              <span className="logo-text">NEX <span className="logo-accent">AV</span></span>
             </div>
           </a>
 

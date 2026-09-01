@@ -44,7 +44,7 @@ export default function Navbar({ onOpenEnquiry }) {
           </div>
           <div className="top-bar-item">
             <i className="fa-solid fa-envelope"></i>
-            <a href="mailto:info@securetechav.com">info@securetechav.com</a>
+            <a href="mailto:info@nexav.com">info@nexav.com</a>
           </div>
           <div className="top-bar-socials">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
@@ -58,8 +58,8 @@ export default function Navbar({ onOpenEnquiry }) {
       {/* Main Navbar */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
-          <a href="#home" className="logo-container" aria-label="SecureTech AV Designs Home">
-            <img src="/securetech_av.png" alt="SecureTech AV Designs Logo" />
+          <a href="#home" className="logo-container" aria-label="NEX AV Designs Home">
+            <img src="/securetech_av.png" alt="NEX AV Designs Logo" />
           </a>
 
           <ul className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>

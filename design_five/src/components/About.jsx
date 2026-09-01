@@ -29,7 +29,7 @@ export default function About() {
           <div className="about-statement">
             <h2 className="about-title">Intelligent Spaces, Integrated Seamlessly</h2>
             <p className="about-description">
-              SecureTechAV is an industry-leading Audio-Visual integration firm. We deliver tailored technology infrastructures that empower teams, enhance collaboration, and create interactive experiences.
+              NEXAV is an industry-leading Audio-Visual integration firm. We deliver tailored technology infrastructures that empower teams, enhance collaboration, and create interactive experiences.
             </p>
             <p className="about-subdescription">
               From automated corporate boardrooms to state-of-the-art auditoriums, our technical architectures seamlessly unify sound, visual displays, and room controls.

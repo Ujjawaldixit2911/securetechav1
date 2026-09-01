@@ -5,7 +5,7 @@ export default function Testimonials() {
   const reviews = [
     {
       stars: 5,
-      quote: "We recently engaged Securetech AV Designs Pvt Ltd for a comprehensive AV integration project across our offices, including conference rooms, boardrooms, townhall spaces, and auditorium. Their technical compliance and execution standards were exceptional.",
+      quote: "We recently engaged NEX AV Designs Pvt Ltd for a comprehensive AV integration project across our offices, including conference rooms, boardrooms, townhall spaces, and auditorium. Their technical compliance and execution standards were exceptional.",
       author: "Abhishek Mishra",
       designation: "Project Consultant, Corporate Office Services",
       initials: "AM",

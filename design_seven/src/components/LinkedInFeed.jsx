@@ -7,7 +7,7 @@ export default function LinkedInFeed() {
         <div className="section-header animate-fade-up animated">
           <div className="tagline">Corporate Activity</div>
           <h2>Connect on LinkedIn</h2>
-          <p>Follow our official LinkedIn page for regular insights, new site integrations, and corporate updates from SecureTech AV Designs.</p>
+          <p>Follow our official LinkedIn page for regular insights, new site integrations, and corporate updates from NEX AV Designs.</p>
         </div>
         
         <div className="grid linkedin-grid">
@@ -16,10 +16,10 @@ export default function LinkedInFeed() {
             <div className="li-header">
               <div className="li-profile">
                 <div className="li-avatar">
-                  <img src="/just_logo_no_text.png" alt="SecureTech Logo" />
+                  <img src="/just_logo_no_text.png" alt="NEX Logo" />
                 </div>
                 <div className="li-meta">
-                  <h5>SecureTech AV Designs <i className="fa-solid fa-circle-check" style={{ color: '#0F4C81', fontSize: '0.8rem' }}></i></h5>
+                  <h5>NEX AV Designs <i className="fa-solid fa-circle-check" style={{ color: '#0F4C81', fontSize: '0.8rem' }}></i></h5>
                   <p>1,036 followers · 2d ago</p>
                 </div>
               </div>
@@ -43,10 +43,10 @@ export default function LinkedInFeed() {
             <div className="li-header">
               <div className="li-profile">
                 <div className="li-avatar">
-                  <img src="/just_logo_no_text.png" alt="SecureTech Logo" />
+                  <img src="/just_logo_no_text.png" alt="NEX Logo" />
                 </div>
                 <div className="li-meta">
-                  <h5>SecureTech AV Designs <i className="fa-solid fa-circle-check" style={{ color: '#0F4C81', fontSize: '0.8rem' }}></i></h5>
+                  <h5>NEX AV Designs <i className="fa-solid fa-circle-check" style={{ color: '#0F4C81', fontSize: '0.8rem' }}></i></h5>
                   <p>1,036 followers · 1w ago</p>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 """
-SecureTech AV Designs — Flask Web Application
+NEX AV Designs — Flask Web Application
 Run:  python app.py
 """
 
@@ -40,7 +40,7 @@ def solutions():
 
 @app.route("/CorporateProfile")
 def corporate_profile():
-    return render_template("securetech_profile.html")
+    return render_template("nex_profile.html")
 
 
 # ── SEO & CRAWLABILITY ──

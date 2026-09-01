@@ -9,10 +9,10 @@ export default function Footer({ onOpenQuote }) {
           {/* Column 1: Logo and About */}
           <div className="footer-col footer-about">
             <div className="footer-logo" style={{ marginBottom: '20px' }}>
-              <img src="/securetech_av.png" alt="SecureTech AV Designs Logo" style={{ height: '48px', objectFit: 'contain' }} />
+              <img src="/securetech_av.png" alt="NEX AV Designs Logo" style={{ height: '48px', objectFit: 'contain' }} />
             </div>
             <p>
-              SecureTech AV is India's leading B2B AV systems integrator. We design, install, and support premium collaboration solutions, smart classrooms, and auditorium acoustics.
+              NEX AV is India's leading B2B AV systems integrator. We design, install, and support premium collaboration solutions, smart classrooms, and auditorium acoustics.
             </p>
             <div className="footer-socials">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
@@ -59,7 +59,7 @@ export default function Footer({ onOpenQuote }) {
               </div>
               <div className="footer-contact-item">
                 <i className="fa-solid fa-envelope"></i>
-                <a href="mailto:info@securetechav.com">info@securetechav.com</a>
+                <a href="mailto:info@nexav.com">info@nexav.com</a>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function Footer({ onOpenQuote }) {
 
         {/* Bottom copyright */}
         <div className="footer-bottom">
-          <p>Copyright &copy; 2026 SecureTech AV. All rights reserved.</p>
+          <p>Copyright &copy; 2026 NEX AV. All rights reserved.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
             <a href="#privacy" style={{ color: 'var(--text-light-muted)' }}>Privacy Policy</a>
             <a href="#terms" style={{ color: 'var(--text-light-muted)' }}>Terms of Service</a>

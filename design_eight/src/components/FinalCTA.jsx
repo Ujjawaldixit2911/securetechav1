@@ -6,7 +6,7 @@ export default function FinalCTA({ onOpenEnquiry }) {
       {/* Background Image with low opacity */}
       <img 
         src="/images/advantage_center_v3.jpeg" 
-        alt="SecureTech AV Designs Corporate Facility" 
+        alt="NEX AV Designs Corporate Facility" 
         className="cta-banner-bg" 
       />
       
@@ -20,7 +20,7 @@ export default function FinalCTA({ onOpenEnquiry }) {
             Enquire Now <i className="fa-solid fa-paper-plane"></i>
           </button>
           <a 
-            href="/securetech_profile.html" 
+            href="/nex_profile.html" 
             className="btn btn-outline" 
             target="_blank" 
             rel="noopener noreferrer"

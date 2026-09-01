@@ -80,7 +80,7 @@ export default function EnquiryModal({ isOpen, onClose }) {
                 <input 
                   type="text" 
                   className={`form-input ${errors.company ? 'error' : ''}`} 
-                  placeholder="e.g., SecureTech AV" 
+                  placeholder="e.g., NEX AV" 
                   value={company} 
                   onChange={(e) => setCompany(e.target.value)} 
                   required 
@@ -169,7 +169,7 @@ export default function EnquiryModal({ isOpen, onClose }) {
               </div>
               <h3 style={{ color: 'var(--primary)', marginBottom: '12px' }}>Enquiry Submitted Successfully</h3>
               <p style={{ color: 'var(--muted)', fontSize: '0.95rem', lineHeight: 1.5, maxWidth: '400px', margin: '0 auto 30px auto' }}>
-                Thank you for contacting SecureTech AV Designs. One of our senior AV consultants will review your project requirements and connect with you shortly.
+                Thank you for contacting NEX AV Designs. One of our senior AV consultants will review your project requirements and connect with you shortly.
               </p>
               <button className="btn btn-primary" onClick={handleClose} style={{ width: '200px' }}>Close Window</button>
             </div>

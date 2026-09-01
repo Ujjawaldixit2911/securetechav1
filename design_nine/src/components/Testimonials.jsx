@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const testimonials = [
   {
     stars: 5,
-    quote: "SecureTech AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution.",
+    quote: "NEX AV upgraded our executive video conferencing hub in Noida. Their acoustic dampening and digital microphone arrays have completely resolved echoes during remote calls. Flawless execution.",
     author: "Manoj Singh",
     role: "Director of Infrastructure",
     company: "State Judicial Department"
@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    quote: "SecureTech AV integrated 12 high-priority videoconferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are top-tier.",
+    quote: "NEX AV integrated 12 high-priority videoconferencing suites and our central network operations room. Their cabling, rack structuring, and documentation standards are top-tier.",
     author: "Amit Saxena",
     role: "Chief Technology Officer",
     company: "Global Financial Services"

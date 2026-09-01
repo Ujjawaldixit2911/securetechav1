@@ -1,8 +1,8 @@
 @echo off
-title SecureTech AV - Master Hub Launcher
+title NEX AV - Master Hub Launcher
 cls
 echo =======================================================
-echo          SECURETECH AV - MULTI DESIGN PORTAL
+echo          NEX AV - MULTI DESIGN PORTAL
 echo =======================================================
 echo.
 echo Starting interactive selector...
