@@ -8,9 +8,9 @@ export default function Footer() {
         {/* Info panel */}
         <div className="footer-info">
           <a href="#" className="footer-logo-link">
-            <div className="footer-logo">
-              <img src="/assets/logos/logo-icon.png" alt="NEX Logo" className="footer-logo-img" />
-              <span className="logo-text">NEX <span className="logo-accent">AV</span></span>
+            <div className="nex-brand-logo">
+              <span className="nx-box">NX</span>
+              <span className="nx-text">NEX <span className="nx-accent">AV</span></span>
             </div>
           </a>
           <p>

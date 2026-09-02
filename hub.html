@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEX AV — Design Iterations Hub</title>
-    <link rel="icon" href="./nexav_logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -52,24 +51,51 @@
             margin-bottom: 3rem;
         }
 
-        .logo-badge {
+        /* Brand Logo Component */
+        .nex-brand-logo {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1rem;
+            gap: 0.65rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            padding: 0.4rem 1.1rem;
             background: #FFFFFF;
             border: 1px solid var(--border);
             border-radius: 9999px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary);
             box-shadow: var(--shadow-sm);
-            margin-bottom: 1.25rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .logo-badge img {
-            height: 20px;
-            width: auto;
+        .nex-brand-logo:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nx-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #0284C7, #0369A1);
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
+            flex-shrink: 0;
+        }
+
+        .nx-text {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+            color: #0F172A;
+        }
+
+        .nx-accent {
+            color: #0284C7;
         }
 
         h1 {
@@ -262,82 +288,97 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo-badge">
-                <img src="./nexav_logo.png" alt="NEX AV Logo" />
-                <span>NEX AV Enterprise Portal</span>
+            <div class="nex-brand-logo">
+                <span class="nx-box">NX</span>
+                <span class="nx-text">NEX <span class="nx-accent">AV</span></span>
             </div>
-            <h1>NEX AV - Design Iterations</h1>
+            <h1>NEX AV — Design Iterations</h1>
             <p class="subtitle">Select any design variant below to preview the live experience, responsive layout, and interactive components.</p>
             
             <!-- Filters -->
             <div class="filter-bar">
-                <button class="filter-btn active" onclick="filterDesigns('all')">All Designs (11)</button>
-                <button class="filter-btn" onclick="filterDesigns('react')">React + Vite (6)</button>
-                <button class="filter-btn" onclick="filterDesigns('flask')">Flask / HTML (4)</button>
-                <button class="filter-btn" onclick="filterDesigns('original')">Corporate (1)</button>
+                <button class="filter-btn active" onclick="filterDesigns('all')">All Designs (10)</button>
+                <button class="filter-btn" onclick="filterDesigns('flask')">Designs 1-4 (HTML/Flask)</button>
+                <button class="filter-btn" onclick="filterDesigns('react')">Designs 5-10 (React + Vite)</button>
             </div>
         </header>
 
-        <!-- Cards Grid -->
+        <!-- Cards Grid: Ordered from Design 1 to Design 10 -->
         <div class="grid" id="designGrid">
 
-            <!-- Flagship Design 10 -->
-            <a href="./design-10/" class="card" data-category="react">
+            <!-- Design 1 -->
+            <a href="./design-1/" class="card" data-category="flask">
                 <div class="card-header">
-                    <span class="card-tag flagship">🌟 Flagship 10</span>
-                    <span class="card-num">#10</span>
+                    <span class="card-tag flask">Design 1</span>
+                    <span class="card-num">#01</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 10 (Cinematic Obsidian)</h2>
-                    <p class="card-desc">Flagship cinematic luxury experience with interactive solution stack, glassmorphic filters, and enterprise quotes.</p>
+                    <h2 class="card-title">Design 1 (Cyberpunk Neon)</h2>
+                    <p class="card-desc">Futuristic neon cyber aesthetic with AV command grid, glowing technical specs, and interactive command center view.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">React + Vite</span>
+                    <span class="badge-preview">Cyber Theme</span>
                 </div>
             </a>
 
-            <!-- Design 9 -->
-            <a href="./design-9/" class="card" data-category="react">
+            <!-- Design 2 -->
+            <a href="./design-2/" class="card" data-category="flask">
                 <div class="card-header">
-                    <span class="card-tag react">React</span>
-                    <span class="card-num">#09</span>
+                    <span class="card-tag flask">Design 2</span>
+                    <span class="card-num">#02</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 9 (Electric Cyan)</h2>
-                    <p class="card-desc">Smart boardroom systems & enterprise audio-visual engineering with interactive process flow & dynamic stats.</p>
+                    <h2 class="card-title">Design 2 (Minimalist Precision)</h2>
+                    <p class="card-desc">Sleek, airy modern layout with sharp lines, clean typography, minimalist aesthetic, and luxury acoustics showcase.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">React + Vite</span>
+                    <span class="badge-preview">Minimalist</span>
                 </div>
             </a>
 
-            <!-- Design 8 -->
-            <a href="./design-8/" class="card" data-category="react">
+            <!-- Design 3 -->
+            <a href="./design-3/" class="card" data-category="flask">
                 <div class="card-header">
-                    <span class="card-tag react">React</span>
-                    <span class="card-num">#08</span>
+                    <span class="card-tag flask">Design 3</span>
+                    <span class="card-num">#03</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 8 (Deep Navy & Teal)</h2>
-                    <p class="card-desc">Mission-critical NOC operations, AV control rooms & smart stadium sound ecosystems.</p>
+                    <h2 class="card-title">Design 3 (Bento Grid Modern)</h2>
+                    <p class="card-desc">Interactive modular bento grid showcasing AV solutions, enterprise sectors, client stats, and brand partners.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">React + Vite</span>
+                    <span class="badge-preview">Bento Layout</span>
                 </div>
             </a>
 
-            <!-- Design 7 -->
-            <a href="./design-7/" class="card" data-category="react">
+            <!-- Design 4 -->
+            <a href="./design-4/" class="card" data-category="flask">
                 <div class="card-header">
-                    <span class="card-tag react">React</span>
-                    <span class="card-num">#07</span>
+                    <span class="card-tag flask">Design 4</span>
+                    <span class="card-num">#04</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 7 (Executive Light Studio)</h2>
-                    <p class="card-desc">Bright, airy executive presentation with clean contrast, live cost configurator & case studies.</p>
+                    <h2 class="card-title">Design 4 (3D Spatial Switcher)</h2>
+                    <p class="card-desc">Dynamic 3D perspectives & immersive AV showcase with audio-visual control room simulation and live interactive cards.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">Interactive 3D</span>
+                </div>
+            </a>
+
+            <!-- Design 5 -->
+            <a href="./design-5/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag react">Design 5</span>
+                    <span class="card-num">#05</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 5 (Corporate Tech)</h2>
+                    <p class="card-desc">High-performance corporate portal with enterprise components, interactive solution tabs, and brand partner slider.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
@@ -348,12 +389,12 @@
             <!-- Design 6 -->
             <a href="./design-6/" class="card" data-category="react">
                 <div class="card-header">
-                    <span class="card-tag react">React</span>
+                    <span class="card-tag react">Design 6</span>
                     <span class="card-num">#06</span>
                 </div>
                 <div>
                     <h2 class="card-title">Design 6 (Ultra Premium Glass)</h2>
-                    <p class="card-desc">Glassmorphism aesthetics & luxury AV integrator UI with smooth animations and dark luxury theme.</p>
+                    <p class="card-desc">Glassmorphism aesthetics & luxury AV integrator UI with smooth animations, dark luxury theme, and seamless marquee.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
@@ -361,15 +402,15 @@
                 </div>
             </a>
 
-            <!-- Design 5 -->
-            <a href="./design-5/" class="card" data-category="react">
+            <!-- Design 7 -->
+            <a href="./design-7/" class="card" data-category="react">
                 <div class="card-header">
-                    <span class="card-tag react">React</span>
-                    <span class="card-num">#05</span>
+                    <span class="card-tag react">Design 7</span>
+                    <span class="card-num">#07</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 5 (Corporate Tech)</h2>
-                    <p class="card-desc">High-performance corporate portal with enterprise components and integrated audio-visual solution tabs.</p>
+                    <h2 class="card-title">Design 7 (Executive Light Studio)</h2>
+                    <p class="card-desc">Bright, airy executive presentation with crisp contrast, live interactive cost configurator, and case study previews.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
@@ -377,90 +418,58 @@
                 </div>
             </a>
 
-            <!-- Design 4 -->
-            <a href="./design-4/" class="card" data-category="flask">
+            <!-- Design 8 -->
+            <a href="./design-8/" class="card" data-category="react">
                 <div class="card-header">
-                    <span class="card-tag flask">Flask / HTML</span>
-                    <span class="card-num">#04</span>
+                    <span class="card-tag react">Design 8</span>
+                    <span class="card-num">#08</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 4 (3D Spatial Switcher)</h2>
-                    <p class="card-desc">Dynamic 3D perspectives & immersive AV showcase with audio-visual control room simulation.</p>
+                    <h2 class="card-title">Design 8 (Deep Navy & Teal)</h2>
+                    <p class="card-desc">Mission-critical NOC operations, AV command centers, stadium sound ecosystems, and interactive workflow diagrams.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">Interactive 3D</span>
+                    <span class="badge-preview">React + Vite</span>
                 </div>
             </a>
 
-            <!-- Design 3 -->
-            <a href="./design-3/" class="card" data-category="flask">
+            <!-- Design 9 -->
+            <a href="./design-9/" class="card" data-category="react">
                 <div class="card-header">
-                    <span class="card-tag flask">Flask / HTML</span>
-                    <span class="card-num">#03</span>
+                    <span class="card-tag react">Design 9</span>
+                    <span class="card-num">#09</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 3 (Bento Grid Modern)</h2>
-                    <p class="card-desc">Interactive modular bento grid showcasing AV solutions, enterprise sectors & brand partners.</p>
+                    <h2 class="card-title">Design 9 (Electric Cyan)</h2>
+                    <p class="card-desc">Smart boardroom systems & enterprise audio-visual engineering with interactive process flow & dynamic stats counter.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">Bento Layout</span>
+                    <span class="badge-preview">React + Vite</span>
                 </div>
             </a>
 
-            <!-- Design 2 -->
-            <a href="./design-2/" class="card" data-category="flask">
+            <!-- Design 10 -->
+            <a href="./design-10/" class="card" data-category="react">
                 <div class="card-header">
-                    <span class="card-tag flask">Flask / HTML</span>
-                    <span class="card-num">#02</span>
+                    <span class="card-tag flagship">🌟 Flagship 10</span>
+                    <span class="card-num">#10</span>
                 </div>
                 <div>
-                    <h2 class="card-title">Design 2 (Minimalist Precision)</h2>
-                    <p class="card-desc">Sleek, airy modern layout with sharp lines, clean typography and minimal luxury design language.</p>
+                    <h2 class="card-title">Design 10 (Cinematic Obsidian)</h2>
+                    <p class="card-desc">Flagship cinematic luxury experience with interactive solution stack, glassmorphic filters, and enterprise quote builder.</p>
                 </div>
                 <div class="card-footer">
                     <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">Minimalist</span>
-                </div>
-            </a>
-
-            <!-- Design 1 -->
-            <a href="./design-1/" class="card" data-category="flask">
-                <div class="card-header">
-                    <span class="card-tag flask">Flask / HTML</span>
-                    <span class="card-num">#01</span>
-                </div>
-                <div>
-                    <h2 class="card-title">Design 1 (Cyberpunk Neon)</h2>
-                    <p class="card-desc">Futuristic neon cyber aesthetic with AV command grid and glowing technical specs.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">Cyber Theme</span>
-                </div>
-            </a>
-
-            <!-- Original / Corporate Profile -->
-            <a href="./original/" class="card" data-category="original">
-                <div class="card-header">
-                    <span class="card-tag">Corporate</span>
-                    <span class="card-num">#00</span>
-                </div>
-                <div>
-                    <h2 class="card-title">Original (Corporate Portal)</h2>
-                    <p class="card-desc">The original comprehensive multi-page corporate website with full acoustic portfolio & profiles.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="card-link">View Design &rarr;</span>
-                    <span class="badge-preview">Multi-Page</span>
+                    <span class="badge-preview">React + Vite</span>
                 </div>
             </a>
 
         </div>
 
         <footer>
-            <p>&copy; 2026 NEX AV Designs &bull; Enterprise Audio-Visual Solutions &bull; All 10 Iterations Live</p>
+            <p>&copy; 2026 NEX AV Designs &bull; Enterprise Audio-Visual Systems &bull; All 10 Iterations Live</p>
         </footer>
     </div>
 

@@ -5,6 +5,39 @@
   min-height: 100vh;
 }
 
+/* ─── BRAND LOGO COMPONENT ─── */
+.nex-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  line-height: 1;
+}
+.nx-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #0284C7;
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.28);
+  flex-shrink: 0;
+}
+.nx-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #0F172A;
+}
+.nx-accent {
+  color: #0284C7;
+}
+
 main {
   flex-grow: 1;
 }

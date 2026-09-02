@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 export default function Footer({ onOpenQuote }) {
   return (
@@ -9,7 +9,10 @@ export default function Footer({ onOpenQuote }) {
           {/* Column 1: Logo and About */}
           <div className="footer-col footer-about">
             <div className="footer-logo" style={{ marginBottom: '20px' }}>
-              <img src="/nexav_logo.png" alt="NEX AV Designs Logo" style={{ height: '48px', objectFit: 'contain' }} />
+              <div className="nex-brand-logo">
+                <span className="nx-box">NX</span>
+                <span className="nx-text" style={{ color: '#FFFFFF' }}>NEX <span className="nx-accent">AV</span></span>
+              </div>
             </div>
             <p>
               NEX AV is India's leading B2B AV systems integrator. We design, install, and support premium collaboration solutions, smart classrooms, and auditorium acoustics.

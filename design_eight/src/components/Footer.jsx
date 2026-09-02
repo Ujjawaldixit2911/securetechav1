@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 export default function Footer({ onOpenEnquiry }) {
   const handleNewsletterSubmit = (e) => {
@@ -14,7 +14,10 @@ export default function Footer({ onOpenEnquiry }) {
           
           {/* Column 1: Company Profile */}
           <div className="footer-col footer-about">
-            <img src="/nexav_logo.png" alt="NEX AV Designs Logo" />
+            <div className="nex-brand-logo" style={{ marginBottom: '1.25rem' }}>
+              <span className="nx-box">NX</span>
+              <span className="nx-text" style={{ color: '#FFFFFF' }}>NEX <span className="nx-accent">AV</span></span>
+            </div>
             <p>
               NEX AV Designs Pvt Ltd is India's leading AV system integrator, delivering professional acoustic blueprints, high-priority boardrooms, and smart digital collaborative systems.
             </p>

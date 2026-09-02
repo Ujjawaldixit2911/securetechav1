@@ -48,6 +48,42 @@
     box-sizing: border-box;
 }
 
+/* ─── BRAND LOGO COMPONENT ─── */
+.nex-brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    line-height: 1;
+}
+.nx-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #0284C7, #0369A1);
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+    flex-shrink: 0;
+}
+.nx-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--color-text-light);
+}
+.navbar.scrolled .nx-text {
+    color: #FFFFFF;
+}
+.nx-accent {
+    color: #0284C7;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;

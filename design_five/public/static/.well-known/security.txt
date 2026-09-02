@@ -1,0 +1,5 @@
+Contact: mailto:info@nexav.com
+Contact: https://nexav.com/Contactus
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://nexav.com/.well-known/security.txt

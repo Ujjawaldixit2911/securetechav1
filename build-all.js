@@ -1,6 +1,6 @@
 /**
  * NEX AV - Unified Multi-Design Master Build Script
- * Builds all 10 designs and bundles them into a single dist/ folder for Vercel.
+ * Builds all 10 designs and bundles them into dist/ for seamless Vercel deployment.
  */
 
 import fs from 'fs';
@@ -12,6 +12,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.join(__dirname, 'dist');
+const IMAGES_DIR = path.join(__dirname, 'images');
+const STATIC_DIR = path.join(__dirname, 'secure', 'static');
 
 function copyDirRecursive(src, dest) {
   if (!fs.existsSync(src)) return;
@@ -38,7 +40,7 @@ if (fs.existsSync(DIST_DIR)) {
 }
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
-// 2. Build React Designs (5, 6, 7, 8, 9, 10)
+// 2. Prepare React Designs (5, 6, 7, 8, 9, 10)
 const reactDesigns = [
   { folder: 'design_five', dest: 'design-5' },
   { folder: 'design_six', dest: 'design-6' },
@@ -48,16 +50,34 @@ const reactDesigns = [
   { folder: 'design_ten', dest: 'design-10' },
 ];
 
+// Ensure public directories in each React app have all images and static assets
+for (const d of reactDesigns) {
+  const publicDir = path.join(__dirname, d.folder, 'public');
+  fs.mkdirSync(publicDir, { recursive: true });
+  copyDirRecursive(IMAGES_DIR, path.join(publicDir, 'images'));
+  copyDirRecursive(STATIC_DIR, path.join(publicDir, 'static'));
+  
+  const logoFile = path.join(IMAGES_DIR, 'nexav_logo.png');
+  if (fs.existsSync(logoFile)) {
+    fs.copyFileSync(logoFile, path.join(publicDir, 'nexav_logo.png'));
+  }
+}
+
+// Build all React Designs
 for (const d of reactDesigns) {
   const dirPath = path.join(__dirname, d.folder);
   console.log(`📦 Building React ${d.folder} (${d.dest})...`);
   try {
-    execSync('npm install --prefer-offline --no-audit --no-fund', { cwd: dirPath, stdio: 'inherit' });
     execSync('npm run build', { cwd: dirPath, stdio: 'inherit' });
     
     const buildDist = path.join(dirPath, 'dist');
     const targetDist = path.join(DIST_DIR, d.dest);
     copyDirRecursive(buildDist, targetDist);
+    
+    // Copy local assets directly into subfolder so relative paths work instantly
+    copyDirRecursive(IMAGES_DIR, path.join(targetDist, 'images'));
+    copyDirRecursive(STATIC_DIR, path.join(targetDist, 'static'));
+    
     console.log(`✅ Copied ${d.folder} -> dist/${d.dest}/\n`);
   } catch (err) {
     console.error(`❌ Failed building ${d.folder}:`, err.message);
@@ -74,7 +94,7 @@ const htmlDesigns = [
 ];
 
 for (const d of htmlDesigns) {
-  console.log(`📄 Copying static template for ${d.folder} (${d.dest})...`);
+  console.log(`📄 Setting up static template for ${d.folder} (${d.dest})...`);
   const templatePath = path.join(__dirname, d.folder, 'templates', 'index.html');
   const targetFolder = path.join(DIST_DIR, d.dest);
   fs.mkdirSync(targetFolder, { recursive: true });
@@ -82,33 +102,27 @@ for (const d of htmlDesigns) {
   if (fs.existsSync(templatePath)) {
     fs.copyFileSync(templatePath, path.join(targetFolder, 'index.html'));
   }
+  // Copy images to design subfolder
+  copyDirRecursive(IMAGES_DIR, path.join(targetFolder, 'images'));
+  copyDirRecursive(STATIC_DIR, path.join(targetFolder, 'static'));
 }
 
-// 4. Copy Original Corporate Site
-console.log(`📄 Setting up Original Corporate Portal (original)...`);
-const originalFolder = path.join(DIST_DIR, 'original');
-fs.mkdirSync(originalFolder, { recursive: true });
-const secureIndex = path.join(__dirname, 'secure', 'templates', 'index.html');
-if (fs.existsSync(secureIndex)) {
-  fs.copyFileSync(secureIndex, path.join(originalFolder, 'index.html'));
-}
-
-// 5. Copy Shared Assets (images, static, logo)
-console.log('🖼️  Copying global images and static assets...');
-copyDirRecursive(path.join(__dirname, 'images'), path.join(DIST_DIR, 'images'));
-copyDirRecursive(path.join(__dirname, 'secure', 'static'), path.join(DIST_DIR, 'static'));
+// 4. Copy Global Shared Assets at root dist/
+console.log('🖼️  Deploying global images and static assets to dist root...');
+copyDirRecursive(IMAGES_DIR, path.join(DIST_DIR, 'images'));
+copyDirRecursive(STATIC_DIR, path.join(DIST_DIR, 'static'));
 
 // Copy logo to dist root
-const logoSrc = path.join(__dirname, 'images', 'nexav_logo.png');
+const logoSrc = path.join(IMAGES_DIR, 'nexav_logo.png');
 if (fs.existsSync(logoSrc)) {
   fs.copyFileSync(logoSrc, path.join(DIST_DIR, 'nexav_logo.png'));
 }
 
-// 6. Copy Master Design Hub Landing Page to root dist/index.html
+// 5. Copy Master Design Hub Landing Page to root dist/index.html
 console.log('🏛️  Setting up Master Design Iterations Hub at root dist/index.html...');
 const hubSrc = path.join(__dirname, 'hub.html');
 if (fs.existsSync(hubSrc)) {
   fs.copyFileSync(hubSrc, path.join(DIST_DIR, 'index.html'));
 }
 
-console.log('\n✨ Master Multi-Design Build Complete! All 10 Designs + Original are ready in dist/\n');
+console.log('\n✨ Master Multi-Design Build Complete! All 10 Designs (1 to 10) are ready in dist/\n');

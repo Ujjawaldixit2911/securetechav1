@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Navbar({ onOpenEnquiry }) {
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +59,10 @@ export default function Navbar({ onOpenEnquiry }) {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <a href="#home" className="logo-container" aria-label="NEX AV Designs Home">
-            <img src="/nexav_logo.png" alt="NEX AV Designs Logo" />
+            <div className="nex-brand-logo">
+              <span className="nx-box">NX</span>
+              <span className="nx-text">NEX <span className="nx-accent">AV</span></span>
+            </div>
           </a>
 
           <ul className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>

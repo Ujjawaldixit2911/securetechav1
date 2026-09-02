@@ -26,9 +26,9 @@ export default function Navbar() {
       <header className={`navbar-header ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-container">
           <a href="#" className="navbar-logo-link" onClick={closeMobileMenu}>
-            <div className="logo-wrapper">
-              <img src="/assets/logos/logo-icon.png" alt="NEX AV Logo" className="nav-logo-img" />
-              <span className="logo-text">NEX <span className="logo-accent">AV</span></span>
+            <div className="nex-brand-logo">
+              <span className="nx-box">NX</span>
+              <span className="nx-text">NEX <span className="nx-accent">AV</span></span>
             </div>
           </a>
 
