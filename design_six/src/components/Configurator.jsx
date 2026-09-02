@@ -69,7 +69,7 @@ export default function Configurator() {
               {/* Step 1: Base Empty Room (always visible, overlayed by others) */}
               <div 
                 className={`visual-layer base-layer ${activeStep >= 0 ? 'active' : ''}`}
-                style={{ backgroundImage: "url('/assets/products/solution-boardroom.png')", filter: activeStep === 0 ? "saturate(0.2) contrast(0.85)" : "none" }}
+                style={{ backgroundImage: "url('./images/solution-boardroom.png')", filter: activeStep === 0 ? "saturate(0.2) contrast(0.85)" : "none" }}
               />
               
               {/* Step 2: Displays Overlay */}
@@ -104,7 +104,7 @@ export default function Configurator() {
               {/* Step 5: Completed Full Saturation View */}
               <div 
                 className={`visual-layer ${activeStep === 4 ? 'active' : ''}`}
-                style={{ backgroundImage: "url('/assets/products/solution-boardroom.png')" }}
+                style={{ backgroundImage: "url('./images/solution-boardroom.png')" }}
               />
             </div>
 

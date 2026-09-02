@@ -25,37 +25,37 @@ export default function Projects() {
     {
       title: 'AIIMS Smart Conference Hall',
       category: 'Healthcare Integration',
-      image: '/assets/products/solution-boardroom.png',
+      image: './images/solution-boardroom.png',
       fallbackText: 'Boardroom AV Setup'
     },
     {
       title: 'State Judicial Assembly Auditorium',
       category: 'Government Sector',
-      image: '/assets/products/Auditorium2.png',
+      image: './images/Auditorium2.png',
       fallbackText: 'High-SPL Line Arrays'
     },
     {
       title: 'IIT Digital Learning Center',
       category: 'Higher Education',
-      image: '/assets/products/solution-smart-classroom.jpeg',
+      image: './images/solution-smart-classroom.jpeg',
       fallbackText: 'Lecturing Smart Console'
     },
     {
       title: 'Metro Command Control Room',
       category: 'Public Infrastructure',
-      image: '/assets/products/solution-av-control.png',
+      image: './images/solution-av-control.png',
       fallbackText: 'Control Room Display Grid'
     },
     {
       title: 'Grand Hotel Banquet Sound System',
       category: 'Hospitality & Leisure',
-      image: '/assets/products/solution-cinema.png',
+      image: './images/solution-cinema.png',
       fallbackText: 'Multi-zone Audio Matrix'
     },
     {
       title: 'City Football Arena PA System',
       category: 'Stadiums & Venues',
-      image: '/assets/products/solution-stadium.png',
+      image: './images/solution-stadium.png',
       fallbackText: 'Stadium High-Power System'
     }
   ];

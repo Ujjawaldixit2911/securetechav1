@@ -2,17 +2,17 @@ import React from 'react';
 
 const projectsList = [
   {
-    image: '/images/solution-boardroom.png',
+    image: './images/solution-boardroom.png',
     title: 'Corporate HQ, Gurugram',
     desc: 'Seamless boardroom AV integration across 12 conference rooms featuring custom DSP presets.'
   },
   {
-    image: '/images/solution-smart-classroom.jpeg',
+    image: './images/solution-smart-classroom.jpeg',
     title: 'State University Smart Campus',
     desc: '120 smart classrooms deployed with centralized AV control and interactive projection grids.'
   },
   {
-    image: '/images/solution-cinema.png',
+    image: './images/solution-cinema.png',
     title: 'Metro Multiplex Cinema',
     desc: 'Dolby Atmos-enabled digital cinema upgrade across 6 screens with custom acoustics.'
   }

@@ -25,35 +25,35 @@ export default function Projects() {
     {
       title: 'IIT Delhi Academic Center',
       category: 'Auditorium Sound & Acoustics',
-      image: '/assets/sectors/sector-education.png',
+      image: './images/sector-education.png',
       class: 'wide',
       fallbackText: 'IIT Sound System'
     },
     {
       title: 'AIIMS Smart Lecture Complex',
       category: 'Education Tech',
-      image: '/assets/products/solution-smart-classroom.jpeg',
+      image: './images/solution-smart-classroom.jpeg',
       class: 'normal',
       fallbackText: 'AIIMS Classroom AV'
     },
     {
       title: 'Aditya Birla Meeting Space',
       category: 'Corporate Boardroom',
-      image: '/assets/products/solution-boardroom.png',
+      image: './images/solution-boardroom.png',
       class: 'normal',
       fallbackText: 'Corporate Boardroom'
     },
     {
       title: 'Gujarat Science City Operations',
       category: 'Command & Control',
-      image: '/assets/sectors/sector-corporate.png',
+      image: './images/sector-corporate.png',
       class: 'wide',
       fallbackText: 'Command Operations Center'
     },
     {
       title: 'National Cricket Arena sound system',
       category: 'Stadium Audio',
-      image: '/assets/products/solution-stadium.png',
+      image: './images/solution-stadium.png',
       class: 'full-width',
       fallbackText: 'Stadium PA arrays'
     }

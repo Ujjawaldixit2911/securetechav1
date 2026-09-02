@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="hero-media">
             <div className="hero-image-wrapper">
               <img 
-                src="/assets/sectors/sector-corporate.png" 
+                src="./images/sector-corporate.png" 
                 alt="Corporate Boardroom AV Setup" 
                 className="hero-img"
                 onError={(e) => {

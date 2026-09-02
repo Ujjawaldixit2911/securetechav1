@@ -25,7 +25,7 @@ export default function Solutions() {
     {
       title: 'AV System Integration',
       desc: 'End-to-end design, provisioning, and integration of professional commercial audio-visual displays and control racks.',
-      image: '/assets/products/solution-av-system.png', // Fallback or base image
+      image: './images/solution-av-system.png', // Fallback or base image
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
@@ -38,7 +38,7 @@ export default function Solutions() {
     {
       title: 'Smart Meeting Rooms',
       desc: 'Collaborative rooms unified with scheduling, active lighting, and automated touch displays.',
-      image: '/assets/products/solution-boardroom.png',
+      image: './images/solution-boardroom.png',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -51,7 +51,7 @@ export default function Solutions() {
     {
       title: 'Video Conferencing',
       desc: 'Certified high-definition team visual conferencing arrays connecting locations with absolute uptime.',
-      image: '/assets/products/solution-smart-classroom.jpeg',
+      image: './images/solution-smart-classroom.jpeg',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M23 7l-7 5 7 5V7z" />
@@ -62,7 +62,7 @@ export default function Solutions() {
     {
       title: 'Digital Signage',
       desc: 'Centrally-managed digital information displays to distribute real-time visual messages.',
-      image: '/assets/sectors/sector-retail.png',
+      image: './images/sector-retail.png',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
@@ -74,7 +74,7 @@ export default function Solutions() {
     {
       title: 'AV Control Systems',
       desc: 'Custom-coded interfaces orchestrating audio volumes, visual switching, and shades on one touch screen panel.',
-      image: '/assets/products/solution-av-control.png',
+      image: './images/solution-av-control.png',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
@@ -85,7 +85,7 @@ export default function Solutions() {
     {
       title: 'ICT Infrastructure',
       desc: 'Robust commercial networking, structured copper cabling layouts, and enterprise switches.',
-      image: '/assets/products/solution-ict-infrastructure.png',
+      image: './images/solution-ict-infrastructure.png',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
@@ -98,7 +98,7 @@ export default function Solutions() {
     {
       title: 'Auditorium Solutions',
       desc: 'High-performance acoustical sound system configurations, pro stage lights, and high-lumen projection arrays.',
-      image: '/assets/products/solution-auditorium.png',
+      image: './images/solution-auditorium.png',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
@@ -110,7 +110,7 @@ export default function Solutions() {
     {
       title: 'Stadium Solutions',
       desc: 'Mass acoustical sound columns, weatherproof public address networks, and huge LED score displays.',
-      image: '/assets/products/solution-stadium.png',
+      image: './images/solution-stadium.png',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" />

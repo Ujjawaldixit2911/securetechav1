@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero({ onOpenQuote }) {
   return (
-    <section className="hero" id="home" style={{ backgroundImage: "url('/images/solution-boardroom.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="hero" id="home" style={{ backgroundImage: "url('./images/solution-boardroom.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       
       {/* Dark overlay matching Diversified style */}
       <div className="hero-overlay"></div>

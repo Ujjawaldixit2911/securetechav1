@@ -26,42 +26,42 @@ export default function Sectors() {
       id: 'corporate',
       title: 'Corporate Enterprises',
       desc: 'Collaborative boardrooms, telepresence spaces, and interactive VC hubs.',
-      image: '/assets/sectors/sector-corporate.png',
+      image: './images/sector-corporate.png',
       fallbackText: 'Corporate Office AV'
     },
     {
       id: 'education',
       title: 'Higher Education',
       desc: 'Smart lecture halls, active learning labs, and campus signage systems.',
-      image: '/assets/sectors/sector-education.png',
+      image: './images/sector-education.png',
       fallbackText: 'Academic Smart Hall'
     },
     {
       id: 'healthcare',
       title: 'Healthcare Facilities',
       desc: 'Surgical auditorium feeds, telemetry setups, and public directories.',
-      image: '/assets/sectors/sector-healthcare.jpg',
+      image: './images/sector-healthcare.jpg',
       fallbackText: 'Clinical AV Infrastructure'
     },
     {
       id: 'government',
       title: 'Government & Judiciary',
       desc: 'Secure assembly audio systems, court reporting feeds, and command centers.',
-      image: '/assets/sectors/sector-public.png',
+      image: './images/sector-public.png',
       fallbackText: 'Judiciary Console System'
     },
     {
       id: 'hospitality',
       title: 'Hospitality & Leisure',
       desc: 'Immersive sound grids for lounges, digital displays, and banquet hall systems.',
-      image: '/assets/sectors/sector-retail.png',
+      image: './images/sector-retail.png',
       fallbackText: 'Hospitality & Retail Display'
     },
     {
       id: 'residential',
       title: 'Luxury Residential',
       desc: 'Home cinemas, integrated smart automation nodes, and smart lighting grids.',
-      image: '/assets/sectors/sector-residential.jpeg',
+      image: './images/sector-residential.jpeg',
       fallbackText: 'Automated Luxury Cinema'
     }
   ];
