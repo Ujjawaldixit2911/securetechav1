@@ -9,28 +9,24 @@
 
 ---
 
-## 🌟 Overview
+## 🌟 Live Design Iterations Hub
 
-**NEX AV** is a cutting-edge, enterprise-grade web application platform featuring **10 unique design archetypes** for commercial AV integrators, smart courtroom systems, high-end boardrooms, university smart auditoriums, and convention centers.
+When deployed on **Vercel**, the single main link opens the **Master Design Iterations Hub** (`/`), where you can click and preview **any of the 10 designs** instantly:
 
-This repository includes both modern **React + Vite** frontend applications and **Python Flask** multi-page experiences, unified by a central interactive launcher and full Vercel deployment support.
-
----
-
-## 🎨 Design Catalog
-
-| # | Design Name | Tech Stack | Port | Aesthetic / Highlights |
-|---|---|---|---|---|
-| **01** | **Cyberpunk Neon Grid** | Flask / Jinja2 | `5001` | Futuristic dark neon aesthetic with AV command grid |
-| **02** | **Minimalist Precision** | Flask / Jinja2 | `5002` | Crisp, high-contrast layouts & clean typography |
-| **03** | **Bento Grid Modern** | Flask / Jinja2 | `5003` | Modular interactive bento grid showcasing AV solutions |
-| **04** | **3D Spatial Switcher** | Flask / Jinja2 | `5004` | Dynamic 3D interactive layout & soundstage demo |
-| **05** | **Corporate Tech React** | React + Vite | `5005` | High-performance enterprise components & solutions catalog |
-| **06** | **Ultra Premium Glass** | React + Vite | `5006` | Glassmorphism, luxury typography & smooth micro-interactions |
-| **07** | **Executive Light Studio**| React + Vite | `5007` | Clean studio lighting, bright executive contrast & lead capture |
-| **08** | **Deep Navy & Teal** | React + Vite | `5008` | Mission-critical NOC / AV command centers & control room UI |
-| **09** | **Electric Cyan & Boardroom**| React + Vite | `5009` | Smart boardroom systems & enterprise AV engineering |
-| **10** | **Cinematic Obsidian (Flagship)**| React + Vite | `5010` | 🌟 Flagship cinematic experience with full solution stack |
+| URL Route | Design Name | Tech Stack | Aesthetic / Highlights |
+|---|---|---|---|
+| `/` | **Design Iterations Hub** | Master Portal | 🏛️ Central selector card grid to launch any design |
+| `/design-10/` | **Design 10 (Flagship)** | React + Vite | 🌟 Cinematic luxury experience with full solution stack |
+| `/design-9/` | **Design 9 (Electric Cyan)** | React + Vite | Smart boardroom systems & enterprise AV engineering |
+| `/design-8/` | **Design 8 (Navy & Teal)** | React + Vite | Mission-critical NOC / AV command centers & control room UI |
+| `/design-7/` | **Design 7 (Light Studio)**| React + Vite | Clean studio lighting, bright executive contrast & configurator |
+| `/design-6/` | **Design 6 (Glassmorphism)**| React + Vite | Glassmorphism aesthetics & luxury AV integrator UI |
+| `/design-5/` | **Design 5 (Corporate Tech)**| React + Vite | High-performance enterprise components & solutions catalog |
+| `/design-4/` | **Design 4 (3D Spatial)** | Flask / HTML | Dynamic 3D interactive layout & soundstage demo |
+| `/design-3/` | **Design 3 (Bento Grid)** | Flask / HTML | Modular interactive bento grid showcasing AV solutions |
+| `/design-2/` | **Design 2 (Minimalist)** | Flask / HTML | Crisp, high-contrast layouts & clean typography |
+| `/design-1/` | **Design 1 (Cyberpunk)** | Flask / HTML | Futuristic dark neon aesthetic with AV command grid |
+| `/original/` | **Original Corporate Portal** | Multi-Page | Comprehensive corporate acoustic & portfolio presentation |
 
 ---
 
@@ -38,22 +34,22 @@ This repository includes both modern **React + Vite** frontend applications and 
 
 ```text
 nexav/
-├── design_one/         # Flask - Cyberpunk Neon Grid
-├── design_two/         # Flask - Minimalist Precision
-├── design_three/       # Flask - Bento Grid Modern
-├── design_four/        # Flask - 3D Spatial Switcher
-├── design_five/        # React + Vite - Corporate Tech
-├── design_six/         # React + Vite - Ultra Premium Glass
-├── design_seven/       # React + Vite - Executive Light Studio
-├── design_eight/       # React + Vite - Deep Navy & Teal
-├── design_nine/        # React + Vite - Electric Cyan
-├── design_ten/         # React + Vite - Flagship Cinematic Obsidian
+├── build-all.js        # Master bundler for all 10 designs into /dist
+├── hub.html            # Master Design Iterations Hub landing page
+├── design_one/         # Design 1 (Cyberpunk Neon Grid)
+├── design_two/         # Design 2 (Minimalist Precision)
+├── design_three/       # Design 3 (Bento Grid Modern)
+├── design_four/        # Design 4 (3D Spatial Switcher)
+├── design_five/        # Design 5 (Corporate Tech React)
+├── design_six/         # Design 6 (Ultra Premium Glass React)
+├── design_seven/       # Design 7 (Executive Light Studio React)
+├── design_eight/       # Design 8 (Deep Navy & Teal React)
+├── design_nine/        # Design 9 (Electric Cyan React)
+├── design_ten/         # Design 10 (Flagship Cinematic Obsidian React)
 ├── images/             # High-resolution AV showcase assets
 ├── secure/             # Core Flask website & static resources
-├── hub_server.py       # Master Web Hub (http://localhost:5000)
-├── launch_menu.py      # Terminal Launcher
-├── convert_to_pdf.py   # Automated HTML Presentation to PDF Converter
-├── convert_to_webp.py  # Image optimization tool
+├── hub_server.py       # Local Master Web Hub (http://localhost:5000)
+├── launch_menu.py      # Local Terminal Launcher
 ├── vercel.json         # Production Vercel configuration
 └── package.json        # Unified build scripts & root manager
 ```
@@ -62,67 +58,26 @@ nexav/
 
 ## ⚡ Quick Start (Local Development)
 
-### 1. Prerequisites
-- **Node.js** (v18 or higher)
-- **Python** (v3.10 or higher)
-- **Git**
-
-### 2. Launch the Master Interactive Hub
+### 1. Launch the Local Master Interactive Hub
 ```bash
-# Start the central dashboard on http://localhost:5000
 python hub_server.py
 ```
 *Or double click `start_hub.bat` on Windows.*
 
-### 3. Or Launch via Terminal Menu
+### 2. Build All Designs for Production
 ```bash
-python launch_menu.py
-```
-
-### 4. Run Any Specific React Design Directly
-```bash
-# Example for Design 10 (Flagship)
-cd design_ten
-npm install
-npm run dev
+npm run build
 ```
 
 ---
 
 ## 🚀 Vercel Deployment Guide
 
-This repository is pre-configured for **instant zero-config deployment on Vercel**.
-
-### Step 1: Import Repository
 1. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
 2. Select your GitHub repository: `Ujjawaldixit2911/securetechav1`.
-
-### Step 2: Deployment Settings
-Vercel will automatically read `vercel.json` and `package.json`:
-- **Framework Preset**: Vite / Other
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Install Command**: `npm install`
-
-### Step 3: Deploy
-Click **Deploy**! Your site will be live on a fast global edge network.
-
-> 💡 **Customizing the Default Deployed Design**:  
-> In `package.json`, the default `build` script runs `npm run build:ten`.  
-> To deploy a different design by default, simply change `"build": "npm run build:ten"` to `"npm run build:nine"`, `"npm run build:eight"`, etc.
-
----
-
-## 🧰 Utility Tools
-
-- **Convert Slide Deck / Profile to PDF**:
-  ```bash
-  python convert_to_pdf.py --input path/to/page.html --output Corporate_Profile.pdf
-  ```
-- **WebP Image Compression**:
-  ```bash
-  python convert_to_webp.py
-  ```
+3. Vercel will automatically detect `vercel.json` and build **all 10 designs + Master Hub** into `dist/`.
+4. Click **Deploy**.
+5. Once deployed, opening your Vercel URL will display the **Design Iterations Hub** with direct links to every design!
 
 ---
 

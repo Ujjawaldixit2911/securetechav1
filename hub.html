@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEX AV — Design Iterations Hub</title>
+    <link rel="icon" href="./nexav_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --primary: #0284C7;
+            --primary-hover: #0369A1;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+            --shadow-hover: 0 20px 30px -10px rgba(2, 132, 199, 0.15), 0 10px 15px -5px rgba(0,0,0,0.05);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 3.5rem 1.5rem 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.25rem;
+        }
+
+        .logo-badge img {
+            height: 20px;
+            width: auto;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #032d60;
+            margin-bottom: 0.75rem;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        /* Filter Tabs */
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border);
+            background: #FFFFFF;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #CBD5E1;
+            color: var(--text-main);
+        }
+
+        .filter-btn.active {
+            background: #032d60;
+            border-color: #032d60;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(3, 45, 96, 0.2);
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: #BAE6FD;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-tag {
+            font-size: 0.725rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            background: #F1F5F9;
+            color: #475569;
+        }
+
+        .card-tag.flagship {
+            background: #EFF6FF;
+            color: #1D4ED8;
+            border: 1px solid #DBEAFE;
+        }
+
+        .card-tag.react {
+            background: #ECFEFF;
+            color: #0891B2;
+            border: 1px solid #CFFAFE;
+        }
+
+        .card-tag.flask {
+            background: #F0FDF4;
+            color: #15803D;
+            border: 1px solid #DCFCE7;
+        }
+
+        .card-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #94A3B8;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #032d60;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .card-link {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.2s ease;
+        }
+
+        .card:hover .card-link {
+            color: var(--primary-hover);
+            gap: 0.65rem;
+        }
+
+        .badge-preview {
+            font-size: 0.75rem;
+            color: #64748B;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #94A3B8;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 2rem 1rem 3rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-badge">
+                <img src="./nexav_logo.png" alt="NEX AV Logo" />
+                <span>NEX AV Enterprise Portal</span>
+            </div>
+            <h1>NEX AV - Design Iterations</h1>
+            <p class="subtitle">Select any design variant below to preview the live experience, responsive layout, and interactive components.</p>
+            
+            <!-- Filters -->
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterDesigns('all')">All Designs (11)</button>
+                <button class="filter-btn" onclick="filterDesigns('react')">React + Vite (6)</button>
+                <button class="filter-btn" onclick="filterDesigns('flask')">Flask / HTML (4)</button>
+                <button class="filter-btn" onclick="filterDesigns('original')">Corporate (1)</button>
+            </div>
+        </header>
+
+        <!-- Cards Grid -->
+        <div class="grid" id="designGrid">
+
+            <!-- Flagship Design 10 -->
+            <a href="./design-10/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag flagship">🌟 Flagship 10</span>
+                    <span class="card-num">#10</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 10 (Cinematic Obsidian)</h2>
+                    <p class="card-desc">Flagship cinematic luxury experience with interactive solution stack, glassmorphic filters, and enterprise quotes.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">React + Vite</span>
+                </div>
+            </a>
+
+            <!-- Design 9 -->
+            <a href="./design-9/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag react">React</span>
+                    <span class="card-num">#09</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 9 (Electric Cyan)</h2>
+                    <p class="card-desc">Smart boardroom systems & enterprise audio-visual engineering with interactive process flow & dynamic stats.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">React + Vite</span>
+                </div>
+            </a>
+
+            <!-- Design 8 -->
+            <a href="./design-8/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag react">React</span>
+                    <span class="card-num">#08</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 8 (Deep Navy & Teal)</h2>
+                    <p class="card-desc">Mission-critical NOC operations, AV control rooms & smart stadium sound ecosystems.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">React + Vite</span>
+                </div>
+            </a>
+
+            <!-- Design 7 -->
+            <a href="./design-7/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag react">React</span>
+                    <span class="card-num">#07</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 7 (Executive Light Studio)</h2>
+                    <p class="card-desc">Bright, airy executive presentation with clean contrast, live cost configurator & case studies.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">React + Vite</span>
+                </div>
+            </a>
+
+            <!-- Design 6 -->
+            <a href="./design-6/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag react">React</span>
+                    <span class="card-num">#06</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 6 (Ultra Premium Glass)</h2>
+                    <p class="card-desc">Glassmorphism aesthetics & luxury AV integrator UI with smooth animations and dark luxury theme.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">React + Vite</span>
+                </div>
+            </a>
+
+            <!-- Design 5 -->
+            <a href="./design-5/" class="card" data-category="react">
+                <div class="card-header">
+                    <span class="card-tag react">React</span>
+                    <span class="card-num">#05</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 5 (Corporate Tech)</h2>
+                    <p class="card-desc">High-performance corporate portal with enterprise components and integrated audio-visual solution tabs.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">React + Vite</span>
+                </div>
+            </a>
+
+            <!-- Design 4 -->
+            <a href="./design-4/" class="card" data-category="flask">
+                <div class="card-header">
+                    <span class="card-tag flask">Flask / HTML</span>
+                    <span class="card-num">#04</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 4 (3D Spatial Switcher)</h2>
+                    <p class="card-desc">Dynamic 3D perspectives & immersive AV showcase with audio-visual control room simulation.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">Interactive 3D</span>
+                </div>
+            </a>
+
+            <!-- Design 3 -->
+            <a href="./design-3/" class="card" data-category="flask">
+                <div class="card-header">
+                    <span class="card-tag flask">Flask / HTML</span>
+                    <span class="card-num">#03</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 3 (Bento Grid Modern)</h2>
+                    <p class="card-desc">Interactive modular bento grid showcasing AV solutions, enterprise sectors & brand partners.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">Bento Layout</span>
+                </div>
+            </a>
+
+            <!-- Design 2 -->
+            <a href="./design-2/" class="card" data-category="flask">
+                <div class="card-header">
+                    <span class="card-tag flask">Flask / HTML</span>
+                    <span class="card-num">#02</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 2 (Minimalist Precision)</h2>
+                    <p class="card-desc">Sleek, airy modern layout with sharp lines, clean typography and minimal luxury design language.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">Minimalist</span>
+                </div>
+            </a>
+
+            <!-- Design 1 -->
+            <a href="./design-1/" class="card" data-category="flask">
+                <div class="card-header">
+                    <span class="card-tag flask">Flask / HTML</span>
+                    <span class="card-num">#01</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Design 1 (Cyberpunk Neon)</h2>
+                    <p class="card-desc">Futuristic neon cyber aesthetic with AV command grid and glowing technical specs.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">Cyber Theme</span>
+                </div>
+            </a>
+
+            <!-- Original / Corporate Profile -->
+            <a href="./original/" class="card" data-category="original">
+                <div class="card-header">
+                    <span class="card-tag">Corporate</span>
+                    <span class="card-num">#00</span>
+                </div>
+                <div>
+                    <h2 class="card-title">Original (Corporate Portal)</h2>
+                    <p class="card-desc">The original comprehensive multi-page corporate website with full acoustic portfolio & profiles.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="card-link">View Design &rarr;</span>
+                    <span class="badge-preview">Multi-Page</span>
+                </div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2026 NEX AV Designs &bull; Enterprise Audio-Visual Solutions &bull; All 10 Iterations Live</p>
+        </footer>
+    </div>
+
+    <script>
+        function filterDesigns(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
