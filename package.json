@@ -1,12 +1,17 @@
 {
-  "name": "nexav-root",
+  "name": "securetech-av-portal",
   "version": "1.0.0",
   "private": true,
+  "description": "NEX AV / SecureTech AV - Enterprise Multi-Design Audio Visual Portal",
   "scripts": {
     "start": "python hub_server.py",
     "hub": "python hub_server.py",
     "menu": "python launch_menu.py",
-    "build": "npm run build:nine",
+    "build": "npm run build:ten",
+    "build:five": "npm install --prefix design_five && npm run build --prefix design_five && npx shx rm -rf dist && npx shx cp -r design_five/dist dist",
+    "build:six": "npm install --prefix design_six && npm run build --prefix design_six && npx shx rm -rf dist && npx shx cp -r design_six/dist dist",
+    "build:seven": "npm install --prefix design_seven && npm run build --prefix design_seven && npx shx rm -rf dist && npx shx cp -r design_seven/dist dist",
+    "build:eight": "npm install --prefix design_eight && npm run build --prefix design_eight && npx shx rm -rf dist && npx shx cp -r design_eight/dist dist",
     "build:nine": "npm install --prefix design_nine && npm run build --prefix design_nine && npx shx rm -rf dist && npx shx cp -r design_nine/dist dist",
     "build:ten": "npm install --prefix design_ten && npm run build --prefix design_ten && npx shx rm -rf dist && npx shx cp -r design_ten/dist dist"
   },
