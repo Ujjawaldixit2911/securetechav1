@@ -3,14 +3,15 @@ import './Partners.css';
 
 export default function Partners() {
   const brandLogos = [
-    { name: 'Cisco', src: '/static/ciscologo.webp' },
-    { name: 'Sony', src: '/static/sonylogo685450c77eseeklogocomwebp@2x.webp' },
-    { name: 'JBL', src: '/static/jbllogo.webp' },
-    { name: 'Bose', src: '/static/boselogo.webp' },
-    { name: 'QSC', src: '/static/qnclogo.webp' },
-    { name: 'Sennheiser', src: '/static/senheiserlogo.webp' },
-    { name: 'LG', src: '/static/lglogo.webp' },
-    { name: 'Christie', src: '/static/christielogo.webp' }
+    { name: 'Cisco', src: './images/partners/cisco.webp' },
+    { name: 'Sony', src: './images/partners/sony.webp' },
+    { name: 'JBL', src: './images/partners/jbl.webp' },
+    { name: 'Bose', src: './images/partners/bose.webp' },
+    { name: 'QSC', src: './images/partners/qsc.webp' },
+    { name: 'Sennheiser', src: './images/partners/sennheiser.webp' },
+    { name: 'LG', src: './images/partners/lg.webp' },
+    { name: 'Christie', src: './images/partners/christie.webp' },
+    { name: 'British Acoustics', src: './images/partners/british_acoustics.webp' }
   ];
 
   // Duplicate the logos array to achieve a seamless scrolling effect
@@ -33,7 +34,6 @@ export default function Partners() {
                   src={logo.src} 
                   alt={`${logo.name} logo`} 
                   onError={(e) => {
-                    // Fallback using text if webp isn't fully compiled in this sub-path
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'block';
                   }}

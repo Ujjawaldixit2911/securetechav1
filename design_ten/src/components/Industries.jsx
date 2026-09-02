@@ -2,42 +2,42 @@ import React from 'react';
 
 const industries = [
   {
-    icon: 'fa-solid fa-building',
-    title: 'Corporate',
+    image: './images/sector-corporate.png',
+    title: 'Corporate Enterprises',
     desc: 'Seamless boardroom and conferencing AV for modern workspaces.'
   },
   {
-    icon: 'fa-solid fa-graduation-cap',
-    title: 'Education',
+    image: './images/sector-education.png',
+    title: 'Higher Education',
     desc: 'Smart classrooms that make learning interactive and engaging.'
   },
   {
-    icon: 'fa-solid fa-landmark',
-    title: 'Government',
+    image: './images/sector-public.png',
+    title: 'Government & Judiciary',
     desc: 'Secure, reliable AV infrastructure for public institutions.'
   },
   {
-    icon: 'fa-solid fa-heart-pulse',
-    title: 'Healthcare',
+    image: './images/sector-healthcare.jpg',
+    title: 'Healthcare Facilities',
     desc: 'Precision AV systems for hospitals and diagnostic centers.'
   },
   {
-    icon: 'fa-solid fa-house-laptop',
-    title: 'Residential',
+    image: './images/sector-residential.jpeg',
+    title: 'Luxury Residential',
     desc: 'Luxury home automation and immersive entertainment systems.'
   },
   {
-    icon: 'fa-solid fa-volume-high',
+    image: './images/solution-stadium.png',
     title: 'Stadiums & Arenas',
     desc: 'Large-scale display and sound systems for live audiences.'
   },
   {
-    icon: 'fa-solid fa-film',
+    image: './images/solution-cinema.png',
     title: 'Cinema Halls',
     desc: 'Cutting-edge projection and acoustic design for theatres.'
   },
   {
-    icon: 'fa-solid fa-masks-theater',
+    image: './images/solution-auditorium.png',
     title: 'Auditoriums',
     desc: 'Crystal-clear audio and visual systems for large gatherings.'
   }
@@ -55,12 +55,14 @@ export default function Industries() {
 
         <div className="industries-grid">
           {industries.map((ind, idx) => (
-            <div className="industry-card reveal" key={idx}>
-              <div className="industry-icon">
-                <i className={ind.icon}></i>
+            <div className="industry-card reveal" key={idx} style={{ padding: '0', overflow: 'hidden' }}>
+              <div style={{ width: '100%', height: '160px', overflow: 'hidden' }}>
+                <img src={ind.image} alt={ind.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <h3>{ind.title}</h3>
-              <p>{ind.desc}</p>
+              <div style={{ padding: '20px' }}>
+                <h3>{ind.title}</h3>
+                <p>{ind.desc}</p>
+              </div>
             </div>
           ))}
         </div>

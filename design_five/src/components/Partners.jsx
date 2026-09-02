@@ -3,78 +3,15 @@ import './Partners.css';
 
 export default function Partners() {
   const partners = [
-    {
-      name: 'Crestron',
-      color: '#002F6C',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="10" y="26" fontFamily="Inter, sans-serif" fontSize="18" fontWeight="800" fill="currentColor" letterSpacing="-0.5">CRESTRON</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Extron',
-      color: '#E31B23',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="15" y="26" fontFamily="Inter, sans-serif" fontSize="18" fontWeight="800" fill="currentColor" letterSpacing="0.5">Extron</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Biamp',
-      color: '#00843D',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="20" y="26" fontFamily="Inter, sans-serif" fontSize="19" fontWeight="700" fill="currentColor">biamp.</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Shure',
-      color: '#000000',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="22" y="26" fontFamily="Inter, sans-serif" fontSize="17" fontWeight="800" fill="currentColor" letterSpacing="2">SHURE</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Sennheiser',
-      color: '#009FDF',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="12" y="26" fontFamily="Inter, sans-serif" fontSize="15" fontWeight="700" fill="currentColor" letterSpacing="1">SENNHEISER</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Barco',
-      color: '#E30613',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="20" y="26" fontFamily="Inter, sans-serif" fontSize="20" fontWeight="900" fill="currentColor" letterSpacing="-0.5">BARCO</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Christie',
-      color: '#D11241',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="15" y="26" fontFamily="Inter, sans-serif" fontSize="18" fontWeight="800" fill="currentColor" letterSpacing="0.5">CHRISTIE</text>
-        </svg>
-      )
-    },
-    {
-      name: 'Samsung B2B',
-      color: '#0A47A3',
-      svg: (
-        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="12" y="26" fontFamily="Inter, sans-serif" fontSize="17" fontWeight="800" fill="currentColor" letterSpacing="-0.5">SAMSUNG</text>
-        </svg>
-      )
-    }
+    { name: 'Cisco Systems', logo: './images/partners/cisco.webp' },
+    { name: 'Sony Pro', logo: './images/partners/sony.webp' },
+    { name: 'JBL Professional', logo: './images/partners/jbl.webp' },
+    { name: 'Bose Professional', logo: './images/partners/bose.webp' },
+    { name: 'Sennheiser', logo: './images/partners/sennheiser.webp' },
+    { name: 'British Acoustics', logo: './images/partners/british_acoustics.webp' },
+    { name: 'Christie Digital', logo: './images/partners/christie.webp' },
+    { name: 'LG Electronics', logo: './images/partners/lg.webp' },
+    { name: 'QSC Audio', logo: './images/partners/qsc.webp' }
   ];
 
   return (
@@ -91,10 +28,18 @@ export default function Partners() {
             <div 
               key={index} 
               className="partner-logo-box" 
-              style={{ color: partner.color, borderColor: `${partner.color}40`, backgroundColor: '#ffffff' }}
               title={`Authorized ${partner.name} Integrator`}
             >
-              {partner.svg}
+              <img 
+                src={partner.logo} 
+                alt={`${partner.name} Logo`} 
+                className="partner-img"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <span className="partner-fallback-label" style={{ display: 'none' }}>{partner.name}</span>
             </div>
           ))}
         </div>

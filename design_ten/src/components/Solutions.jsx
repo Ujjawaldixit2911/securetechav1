@@ -2,42 +2,42 @@ import React from 'react';
 
 const solutionsList = [
   {
-    icon: 'fa-solid fa-signal',
+    image: './images/solution-av-system.png',
     title: 'AV Systems',
     desc: 'Complete audio-visual design, supply, and installation tailored for collaborative and presentation zones.'
   },
   {
-    icon: 'fa-solid fa-graduation-cap',
+    image: './images/solution-smart-classroom.jpeg',
     title: 'Smart Integration',
     desc: 'Interactive smart classrooms, laser projection configurations, and automated lecture layouts.'
   },
   {
-    icon: 'fa-solid fa-sliders',
+    image: './images/solution-av-control.png',
     title: 'AV Controls',
     desc: 'Centralized control systems and touch-screens for seamless control over hardware matrix hubs.'
   },
   {
-    icon: 'fa-solid fa-server',
+    image: './images/solution-ict-infrastructure.png',
     title: 'ICT Infrastructure',
     desc: 'Robust networking, switches, server cabling, and cybersecurity backbone for stable AV ecosystems.'
   },
   {
-    icon: 'fa-solid fa-volume-high',
+    image: './images/solution-stadium.png',
     title: 'Stadiums & Arena AV',
     desc: 'Large-format scoreboard displays, high-output outdoor sound arrays, and latency alignment.'
   },
   {
-    icon: 'fa-solid fa-music',
+    image: './images/CLUB-SOUND-SYSTEM.jpg',
     title: 'Club & Sound Systems',
     desc: 'Immersive sound pressure layouts and performance lighting integration for luxury lounges.'
   },
   {
-    icon: 'fa-solid fa-film',
+    image: './images/solution-cinema.png',
     title: 'Cinema Hall Systems',
     desc: 'Digital projection formats, acoustical treatments, and multi-channel Dolby Atmos sound routing.'
   },
   {
-    icon: 'fa-solid fa-masks-theater',
+    image: './images/solution-auditorium.png',
     title: 'Auditorium Solutions',
     desc: 'End-to-end design including line arrays, motorized screens, architectural stage light grids, and stage management.'
   }
@@ -56,11 +56,13 @@ export default function Solutions() {
         <div className="solutions-grid">
           {solutionsList.map((sol, idx) => (
             <div className="solution-card reveal" key={idx}>
-              <div className="solution-icon">
-                <i className={sol.icon}></i>
+              <div className="solution-image" style={{ width: '100%', height: '170px', overflow: 'hidden', borderRadius: '12px 12px 0 0' }}>
+                <img src={sol.image} alt={sol.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <h3>{sol.title}</h3>
-              <p>{sol.desc}</p>
+              <div style={{ padding: '20px' }}>
+                <h3>{sol.title}</h3>
+                <p>{sol.desc}</p>
+              </div>
             </div>
           ))}
         </div>
