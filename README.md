@@ -1,4 +1,4 @@
-# 🚀 SecureTech AV (NEX AV) - Enterprise Audio-Visual Experience Hub
+# 🚀 NEX AV - Enterprise Audio-Visual Experience Hub
 
 > **Premium Multi-Design Enterprise Portal showcasing state-of-the-art Audio-Visual & Acoustic Integration Systems.**
 
@@ -11,7 +11,7 @@
 
 ## 🌟 Overview
 
-**SecureTech AV** is a cutting-edge, enterprise-grade web application platform featuring **10 unique design archetypes** for commercial AV integrators, smart courtroom systems, high-end boardrooms, university smart auditoriums, and convention centers.
+**NEX AV** is a cutting-edge, enterprise-grade web application platform featuring **10 unique design archetypes** for commercial AV integrators, smart courtroom systems, high-end boardrooms, university smart auditoriums, and convention centers.
 
 This repository includes both modern **React + Vite** frontend applications and **Python Flask** multi-page experiences, unified by a central interactive launcher and full Vercel deployment support.
 
@@ -37,7 +37,7 @@ This repository includes both modern **React + Vite** frontend applications and 
 ## 🛠️ Project Structure
 
 ```text
-securetechav/
+nexav/
 ├── design_one/         # Flask - Cyberpunk Neon Grid
 ├── design_two/         # Flask - Minimalist Precision
 ├── design_three/       # Flask - Bento Grid Modern
@@ -128,5 +128,5 @@ Click **Deploy**! Your site will be live on a fast global edge network.
 
 ## 📄 License & Attribution
 
-Designed and maintained for **SecureTech AV / NEX AV Integrators**.  
+Designed and maintained for **NEX AV / NEX AV Integrators**.  
 All rights reserved © 2026.

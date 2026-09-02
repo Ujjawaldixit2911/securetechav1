@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 export default function Footer({ onOpenEnquiry }) {
   return (
@@ -8,7 +8,7 @@ export default function Footer({ onOpenEnquiry }) {
           
           {/* Col 1 */}
           <div className="footer-col">
-            <img src="/securetech_av.png" alt="NEX AV Logo" className="footer-logo" />
+            <img src="/nexav_logo.png" alt="NEX AV Logo" className="footer-logo" />
             <p>India's leading AV system integrator delivering architectural acoustics, smart boardroom technology, stadium sound, and connected hybrid spaces.</p>
             <div className="top-bar-socials" style={{ marginTop: '20px' }}>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontSize: '1.2rem', marginRight: '16px' }}><i className="fa-brands fa-linkedin"></i></a>

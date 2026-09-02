@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Column 1: Logo & About */}
           <div className="footer-col footer-about">
             <div className="footer-logo">
-              <img src="/securetech_av.png" alt="NEX AV Designs Logo" style={{ height: '42px', objectFit: 'contain' }} />
+              <img src="/nexav_logo.png" alt="NEX AV Designs Logo" style={{ height: '42px', objectFit: 'contain' }} />
             </div>
             <p>
               NEX AV Designs is India's leading audio-visual integration company, delivering end-to-end solutions across corporate, education, government, and entertainment sectors.

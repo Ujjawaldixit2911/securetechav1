@@ -1,4 +1,4 @@
-{
+﻿{
     "schema_version": "v1",
     "name_for_human": "NEX AV Designs",
     "name_for_model": "securetech_av",
@@ -11,7 +11,7 @@
         "type": "openapi",
         "url": "https://nexav.com/sitemap.xml"
     },
-    "logo_url": "https://nexav.com/static/securetech_av.webp",
+    "logo_url": "https://nexav.com/static/nexav_logo.webp",
     "contact_email": "info@nexav.com",
     "legal_info_url": "https://nexav.com/"
 }

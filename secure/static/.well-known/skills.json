@@ -1,4 +1,4 @@
-{
+﻿{
     "version": "1.0",
     "skills": [
         {
@@ -54,7 +54,7 @@
     "provider": {
         "name": "NEX AV Designs Private Limited",
         "url": "https://nexav.com",
-        "logo": "https://nexav.com/static/securetech_av.webp",
+        "logo": "https://nexav.com/static/nexav_logo.webp",
         "location": "A-70, Sector 33, Noida, UP 201301, India"
     }
 }

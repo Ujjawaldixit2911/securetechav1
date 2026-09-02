@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 
 export default function Navbar({ onOpenQuote }) {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +21,7 @@ export default function Navbar({ onOpenQuote }) {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <a href="#home" className="logo-container" aria-label="NEX AV Designs Home">
-            <img src="/securetech_av.png" alt="NEX AV Designs Logo" />
+            <img src="/nexav_logo.png" alt="NEX AV Designs Logo" />
           </a>
 
           <ul className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>

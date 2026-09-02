@@ -1,10 +1,10 @@
-{
+﻿{
     "version": "1.0",
     "organization": {
         "name": "NEX AV Designs Private Limited",
         "url": "https://nexav.com",
         "description": "India's #1 AV system integrator providing end-to-end audio visual solutions including architectural acoustics, professional audio systems, video conferencing, smart classrooms, auditorium sound systems, lighting design, IT infrastructure, and AV consultation.",
-        "logo": "https://nexav.com/static/securetech_av.webp",
+        "logo": "https://nexav.com/static/nexav_logo.webp",
         "contact": {
             "email": "info@nexav.com",
             "url": "https://nexav.com/Contactus"

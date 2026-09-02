@@ -1,8 +1,8 @@
 {
-  "name": "securetech-av-portal",
+  "name": "nexav-portal",
   "version": "1.0.0",
   "private": true,
-  "description": "NEX AV / SecureTech AV - Enterprise Multi-Design Audio Visual Portal",
+  "description": "NEX AV - Enterprise Multi-Design Audio Visual Portal",
   "scripts": {
     "start": "python hub_server.py",
     "hub": "python hub_server.py",
